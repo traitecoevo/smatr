@@ -1,0 +1,65 @@
+
+\name{smatr-package}
+\alias{smatr-package}
+
+\title{(Standardised) Major Axis Estimation and Testing Routines}
+
+\description{This package provides methods of fitting bivariate lines in allometry 
+using the major axis (MA) or standardised major axis (SMA), and for making inferences 
+about such lines. The available methods of inference include confidence intervals and 
+one-sample tests for slope and elevation, testing for a common slope or elevation 
+amongst several allometric lines, constructing a confidence interval for a common slope 
+or elevation, and testing for no shift along a common axis, amongst several samples.}
+
+\details{
+The key functions in this package are \code{\link{sma}} and \code{\link{ma}}, which will fit SMA and MA respectively, and construct confidence intervals or test hypotheses about slope or elevation in one or several samples, depending on how the arguments are used.
+
+For example:
+
+\code{sma(y~x)} will fit a SMA for \code{y} vs \code{x}, and report confidence intervals for the slope and elevation.
+
+\code{sma(y~x, robust=T)} will fit a robust SMA for \code{y} vs \code{x} using Huber's M estimation, and will report (approximate) confidence intervals for the slope and elevation.
+
+\code{ma(y~x*groups-1)} will fit MA lines for \code{y} vs \code{x} that are forced through the origin, where a separate MA is fitted to each of several samples as specified by the argument \code{groups}. It will also report results from a test of the hypothesis that the true MA slope is equal across all samples.
+
+For more details, see the help listings for \code{\link{sma}} and \code{\link{ma}}.
+
+Note that the \code{\link{sma}} and \code{\link{ma}} functions replace the functions given in earlier package versions as \code{\link{line.cis}}, \code{\link{slope.test}}, \code{\link{elev.test}}, \code{\link{slope.com}}, \code{\link{elev.com}} and \code{\link{shift.com}}, although all of these functions and their help entries are still available.
+ 
+All procedures have the option of correcting for measurement error, although only in an approximate fashion, valid in large samples.
+
+Additional features of this package are listed below.
+
+    \describe{
+      \item{meas.est}{ Estimates the average variance matrix of measurement error for a set of subjects with repeated measures }
+    }
+
+\bold{Example datasets:}
+    \describe{
+      \item{leaflife}{ leaf longevity and leaf mass per area for plant species from different sites. Used to demonstrate the functionality of the \code{sma} and \code{ma} functions.}
+      \item{leafmeas}{ leaf mass per area and photosynthetic rate for plant species from different sites. Used to demonstrate the meas.est function }
+    }
+
+For more details, see the documentation for any of the individual functions listed above.
+
+}
+\references{ Warton D. I. and Weber N. C. (2002) Common slope tests for bivariate structural relationships.  \emph{Biometrical Journal} \bold{44}, 161--174.
+
+Warton D. I., Wright I. J., Falster D. S. and Westoby M. (2006) A review of bivariate line-fitting methods for allometry.  \emph{Biological Reviews} \bold{81}, 259--291.
+
+Taskinen S. and Warton D. I. (in press) Robust estimation and inference for bivariate line-fitting in allometry.  \emph{Biometrical Journal}.
+
+}
+
+\author{ Warton, D. \email{David.Warton@unsw.edu.au}, Duursma, R., Falster, D. and Taskinen, S. }
+
+\seealso{\code{\link{sma}},\code{\link{ma}}, \code{\link{meas.est}}, \code{\link{leaflife}}, \code{\link{leafmeas}} }
+
+\examples{
+
+# See  ?sma and ?plot.sma for a full list of examples.
+
+}
+    
+\docType{ package }
+\keyword{ documentation }

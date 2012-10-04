@@ -1,0 +1,19 @@
+citHeader("To cite the smatr package please use:")
+
+citEntry(entry="Article",
+         title = "smatr 3 - an R package for estimation and inference about allometric lines",
+         author = personList(as.person("David I. Warton"),
+		                     as.person("Remko A. Duursma"),
+							 as.person("Daniel S. Falster"),
+							 as.person("Sara Taskinen")
+		 ),
+         
+	     year         = 2012,
+         volume = 3,
+		 pages="257-259",
+         journal="Methods in Ecology and Evolution",
+         textVersion = 
+         paste("Warton, David I., Duursma, Remko A., Falster, Daniel S. and Taskinen, Sara (2012)", 
+               "smatr 3 - an R package for estimation and inference about allometric lines",
+               "Methods in Ecology and Evolution, 3(2), 257-259"))
+
