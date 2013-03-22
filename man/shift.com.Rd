@@ -7,7 +7,7 @@
 \description{Test if several groups of observations have no shift in location along major axis or standardised major axis lines with a common slope. This can now be done via \code{sma(y~x+groups, type="shift")}, see help on the \code{\link{sma}} function.}
 
 \usage{shift.com( y, x, groups, data = NULL, method = 'SMA', 
-   intercept = TRUE, V=array( 0, c( 2,2,length(unique(groups)))), 
+   intercept = TRUE, robust = FALSE, V=array( 0, c( 2,2,length(unique(groups)))), 
    group.names=sort(unique(groups)) )}
 
 \arguments{
@@ -27,6 +27,7 @@
       \item{TRUE}{ an intercept is fitted (this is the default) }
     }
   }
+  \item{robust}{If TRUE, uses a robust method to fit the lines and construct the test statistic.}
   \item{V}{The estimated variance matrices of measurement error, for each group. This is a 3-dimensional array with measurement error in Y in the first row and column, error in X in the second row and column, and groups running along the third dimension. Default is that there is no measurement error.}
   \item{group.names}{ (optional: rarely required). A vector containing the labels for `groups'. (Only actually useful for reducing computation time in simulation work). }
 }
@@ -59,12 +60,18 @@ On a residual plot, if there is a distinct increasing or decreasing trend within
 
 A plot of residual scores against fitted axis scores can also be used as a visual test for no shift. If fitted axis scores systematically differ across groups then this is evidence of a shift along the common axis.
 
+Setting \code{robust=TRUE} fits lines using Huber's M estimation, and modifies the test statistic as proposed in Taskinen & Warton (in review).
+
 The common slope (\eqn{\hat{\beta}}{b}) is estimated from a maximum of 100 iterations, convergence is reached when the change in \eqn{\hat{\beta}}{b} is \eqn{< 10^{-6}}{< 10^-6}.
 }
 
-\references{ Warton D. I., Wright I. J., Falster D. S. and Westoby M. (2006) A review of bivariate line-fitting methods for allometry.  \emph{Biological Reviews} \bold{81}, 259--291. }
+\references{ Warton D. I., Wright I. J., Falster D. S. and Westoby M. (2006) A review of bivariate line-fitting methods for allometry.  \emph{Biological Reviews} \bold{81}, 259--291.
 
-\author{Warton, D. \email{David.Warton@unsw.edu.au}, translated to R by Ormerod, J. 2005-12-08}
+Taskinen, S. and D.I. Warton. in review. Robust tests for one or more allometric lines.
+
+}
+
+\author{Warton, D.I.\email{David.Warton@unsw.edu.au}, J. Ormerod, & S. Taskinen}
 
 \seealso{\code{\link{sma}}, \code{\link{plot.sma}}, \code{\link{line.cis}}, \code{\link{elev.com}}, \code{\link{shift.com}}}
 

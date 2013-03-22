@@ -6,7 +6,7 @@
 }
 \usage{
 slope.com(y, x, groups, method = 'SMA', alpha = 0.05, 
-   data = NULL, intercept = TRUE,
+   data = NULL, intercept = TRUE, robust=FALSE,
    V = array(0, c(2, 2, length(unique(groups)))), 
    group.names = sort(unique(groups)),
    ci = TRUE, bs = TRUE, slope.test=NULL)
@@ -30,6 +30,7 @@ slope.com(y, x, groups, method = 'SMA', alpha = 0.05,
       \item{TRUE}{ an intercept is fitted (this is the default) }
     }
   }
+  \item{robust}{If TRUE, uses a robust method to fit the lines and construct the test statistic.}
   \item{V}{ The estimated variance matrices of measurement error, for each group. This is a 3-dimensional array with measurement error in Y in the first row and column, error in X in the second row and column, and groups running along the third dimension. Default is that there is no measurement error. }
   \item{group.names}{ (optional: rarely required). A vector containing the labels for `groups'. (Only actually useful for reducing computation time in simulation work). }
   \item{ci}{ (logical) Whether or not to return a confidence interval for the common slope. }
@@ -60,13 +61,18 @@ Note that we do not need to assume equal variance across groups, unlike in the s
 
 The assumptions can be visually checked by plotting residual scores against fitted axis scores, and by constructing a Q-Q plot of residuals against a normal distribution, available using the \code{\link{plot.sma}} function.
 
+Setting \code{robust=TRUE} fits lines using Huber's M estimation, and modifies the test statistic as proposed in Taskinen & Warton (in review).
+
 The common slope is estimated from a maximum of 100 iterations, convergence is reached when the change in b is \eqn{< 10^{-6}}{< 10^-6}.
 }
 \references{ Warton D. I. and Weber N. C. (2002) Common slope tests for bivariate structural relationships.  \emph{Biometrical Journal} \bold{44}, 161--174.
 
 Warton D. I., Wright I. J., Falster D. S. and Westoby M. (2006) A review of bivariate line-fitting methods for allometry.  \emph{Biological Reviews} \bold{81}, 259--291.
+
+Taskinen, S. and D.I. Warton. in review. Robust tests for one or more allometric lines.
+
 }
-\author{ Warton, D. \email{David.Warton@unsw.edu.au}, translated to R by Ormerod, J. 2005-12-08 }
+\author{Warton, D.I.\email{David.Warton@unsw.edu.au}, J. Ormerod, & S. Taskinen}
 
 \seealso{ \code{\link{sma}}, \code{\link{line.cis}}, \code{\link{elev.com}}, \code{\link{shift.com}} }
 

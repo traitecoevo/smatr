@@ -10,7 +10,7 @@
 
 \usage{
     elev.test(y, x, test.value = 0, data = NULL, alpha = 0.05,
-        method = 'SMA', V = matrix(0,2,2) )
+        method = 'SMA', robust = FALSE, V = matrix(0,2,2) )
 }
 
 \arguments{
@@ -26,6 +26,7 @@
       \item{'MA' or 2}{major axis}
     }
   }
+  \item{robust}{If TRUE, uses a robust method to fit the lines and construct the test statistic.}
   \item{V}{The estimated variance matrix of measurement error. Default is that there is no measurement error.}
   }
 
@@ -51,10 +52,15 @@ The test assumes the following:
   }      
 
 The assumptions can be visually checked by plotting residual scores against fitted axis scores, and by constructing a Q-Q plot of residuals against a normal distribution, available using the \code{\link{plot.sma}} function.
-}
-\references{ Warton D. I., Wright I. J., Falster D. S. and Westoby M. (2006) A review of bivariate line-fitting methods for allometry.  \emph{Biological Reviews} \bold{81}, 259--291. }
 
-\author{ Warton, D. \email{David.Warton@unsw.edu.au}, translated to R by Ormerod, J. 2005-12-08 }
+Setting \code{robust=TRUE} fits lines using Huber's M estimation, and modifies the test statistic as proposed in Taskinen & Warton (in review).
+}
+\references{ Warton D. I., Wright I. J., Falster D. S. and Westoby M. (2006) A review of bivariate line-fitting methods for allometry.  \emph{Biological Reviews} \bold{81}, 259--291.
+
+Taskinen, S. and D.I. Warton. in review. Robust tests for one or more allometric lines.
+}
+
+\author{Warton, D.I.\email{David.Warton@unsw.edu.au}, J. Ormerod, & S. Taskinen}
 
 \seealso{\code{\link{sma}}, \code{\link{line.cis}}, \code{\link{slope.test}} }
 

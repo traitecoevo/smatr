@@ -110,11 +110,11 @@ sma <- function(formula, data, subset, na.action, log='',
 		} else {
 		
 		# Whenever there are groups, do test for common slope.
-		commonslopetest <- slope.com(mf[,1], mf[,2], mf[,3], alpha=alpha, intercept=intercept, method=method, group.names=lv, V=V2)
+		commonslopetest <- slope.com(mf[,1], mf[,2], mf[,3], alpha=alpha, intercept=intercept, method=method, group.names=lv, V=V2, robust=robust)
 		
 		# Test the common slope against hypthesized value, if this option is set.
 		if(!is.na(slope.test)){
-		commonslopetestval <- slope.com(mf[,1], mf[,2], mf[,3], alpha=alpha, slope.test=slope.test, intercept=intercept, method=method, group.names=lv, V=V2)
+		commonslopetestval <- slope.com(mf[,1], mf[,2], mf[,3], alpha=alpha, slope.test=slope.test, intercept=intercept, method=method, group.names=lv, V=V2, robust=robust)
 		} else {
 		commonslopetestval <- NA
 		}
@@ -122,10 +122,10 @@ sma <- function(formula, data, subset, na.action, log='',
 		#run group tests
 		if(grouptest == "elevcom"){
 			if(!intercept)stop("Cannot perform elevation test without fitted intercept.")
-			grouptestresult <- elev.com(mf[,1], mf[,2], mf[,3], alpha=alpha, method=method, group.names=lv, V=V2)
+			grouptestresult <- elev.com(mf[,1], mf[,2], mf[,3], alpha=alpha, method=method, group.names=lv, V=V2, robust=robust)
 		}
 		if(grouptest == "shiftcom"){
-			grouptestresult <- shift.com(mf[,1], mf[,2], mf[,3], intercept=intercept, method=method, group.names=lv, V=V2)
+			grouptestresult <- shift.com(mf[,1], mf[,2], mf[,3], intercept=intercept, method=method, group.names=lv, V=V2, robust=robust)
 		}
 		if(grouptest == "slopecom")grouptestresult <- ""  #<-- already stored in commonslopetest
 		
@@ -145,10 +145,7 @@ sma <- function(formula, data, subset, na.action, log='',
 	#Calculate stuff for each group. Get the sma coefficients.
 	coeff <- list(); n<- list(); r2<- list(); pval <- list(); from <- list()
 	to<-list(); slopetest <-list(); elevtest <-list()
-	
-	# If robust = T ; do not execute when there are multiple groups.
-	if(robust & ngroups > 1)stop("Cannot perform robust estimation with multiple groups.")
-	
+		
 	for(i in 1:ngroups){
 		X <- mf[grps == lv[i],2]
 		Y <- mf[grps == lv[i],1]
@@ -172,21 +169,21 @@ sma <- function(formula, data, subset, na.action, log='',
       	# Test slope against some specified value
      	if(!is.na(slope.test)){
 			slopetest[[i]] <- slope.test(Y,X,  test.value=slope.test, method=method, 
-				alpha=alpha, intercept=intercept)
+				alpha=alpha, intercept=intercept, robust=robust)
 			slopetestdone <- TRUE
 		} else {
 			slopetest[[i]] <- slope.test(Y,X,  test.value=NA, method=method, 
-				alpha=alpha, intercept=intercept)
+				alpha=alpha, intercept=intercept, robust=robust)
 			slopetestdone <- FALSE
 		}
 	
 		# Test elevation against some specified value
 		if(!is.na(elev.test)){
 			if(!intercept)stop("Cannot perform elevation test without fitted intercept.")
-				elevtest[[i]] <- elev.test( Y,X, test.value=elev.test, method=method, alpha=alpha)
+				elevtest[[i]] <- elev.test( Y,X, test.value=elev.test, method=method, alpha=alpha, robust=robust)
 				elevtestdone <- TRUE
 		} else {
-				elevtest[[i]] <- elev.test( Y,X, test.value=NA, method=method, alpha=alpha)
+				elevtest[[i]] <- elev.test( Y,X, test.value=NA, method=method, alpha=alpha, robust=robust)
 				elevtestdone <- FALSE
 		}
       	

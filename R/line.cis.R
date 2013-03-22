@@ -1,5 +1,5 @@
 
-line.cis <- function( y, x, alpha=0.05, data=NULL, method="SMA", intercept=TRUE, robust=FALSE, V=matrix(0,2,2), f.crit=0,...)
+line.cis <- function( y, x, alpha=0.05, data=NULL, method="SMA", intercept=TRUE, V=matrix(0,2,2), f.crit=0, robust=FALSE,...)
 {
 
     # instead of attaching
@@ -35,17 +35,11 @@ line.cis <- function( y, x, alpha=0.05, data=NULL, method="SMA", intercept=TRUE,
 		means <- S$loc
 		vr    <- ( S$cov - V) *(n-1)
 
-		# get robust.factor (multiplier on variance matrix):
-	      datac <- sweep(datm,2,means,"-")
+		# get robust factors (multiplier on variance matrix):
 
-		# get matrix square root of S$cov:
-		apu   <- eigen(S$cov)
-		L     <- apu$values
-		P     <- apu$vectors
-		z     <- datac %*% P%*%(diag(L^(-1/2)))%*%t(P)
-	      r     <- sqrt(diag(z%*%t(z)))
-	      robust.factor <- mean(alpha.fun(r,2,q)^2)/8
-#		print(robust.factor)
+                rfac  <- robust.factor(datm,q)
+ 	        r.factor1 <- rfac[1]
+                r.factor2 <- rfac[2]
 	    }
 	    else
 	    {
@@ -54,7 +48,8 @@ line.cis <- function( y, x, alpha=0.05, data=NULL, method="SMA", intercept=TRUE,
     }
     else
     {
-      robust.factor <- 1
+        r.factor1 <- 1
+        r.factor2 <- 1 
 	if ( intercept )
 	{
     	    vr <- ( var(datm) - V )*(n-1) 
@@ -74,7 +69,7 @@ line.cis <- function( y, x, alpha=0.05, data=NULL, method="SMA", intercept=TRUE,
         lab      <- "coef(reg)"
         b        <- vr[1,2] / vr[2,2]
         var.res  <- ( vr[1,1] - 2*b*vr[1,2] + b^2*vr[2,2] ) / res.df
-        var.b    <- var.res / vr[2,2] * robust.factor
+        var.b    <- var.res / vr[2,2] * r.factor1
         cis[2,1] <- b - sqrt(var.b)*sqrt(f.crit)
         cis[2,2] <- b + sqrt(var.b)*sqrt(f.crit)
     }
@@ -82,20 +77,20 @@ line.cis <- function( y, x, alpha=0.05, data=NULL, method="SMA", intercept=TRUE,
     {
         lab      <- "coef(SMA)"
         b        <- sign( vr[1,2] ) * sqrt( vr[1,1] / vr[2,2] )
-        bigb     <- f.crit * ( 1 - r^2 ) / res.df * robust.factor
+        bigb     <- f.crit * ( 1 - r^2 ) / res.df * r.factor1
         cis[2,1] <- b*( sqrt(bigb+1) - sqrt(bigb) )
         cis[2,2] <- b*( sqrt(bigb+1) + sqrt(bigb) )
 	  if(b<0) #to ensure the lower limit is the more negative limit
 		cis[2,] = cis[2,c(2,1)]
         var.res  <- ( vr[1,1] - 2*b*vr[1,2] + b^2*vr[2,2] ) / res.df
-        var.b    <- ( vr[1,1] - vr[1,2]^2/vr[2,2] ) / res.df/vr[2,2] * robust.factor
+        var.b    <- ( vr[1,1] - vr[1,2]^2/vr[2,2] ) / res.df/vr[2,2] * r.factor1
     }
     if ( method==2 | method=="MA" )
     {
 	lab      <- "coef(MA)"
         fac      <- vr[1,1] - vr[2,2]
         b        <- ( fac + sqrt( fac^2 + 4*vr[1,2]^2 ) ) / 2 / vr[1,2]
-        Q        <- f.crit*( vr[1,1]*vr[2,2] - vr[1,2]^2 ) / res.df * robust.factor
+        Q        <- f.crit*( vr[1,1]*vr[2,2] - vr[1,2]^2 ) / res.df * r.factor1
         if ( (fac^2 + 4*vr[1,2]^2 - 4*Q ) < 0 )
         {
             cis[2,1] <- -Inf
@@ -112,13 +107,13 @@ line.cis <- function( y, x, alpha=0.05, data=NULL, method="SMA", intercept=TRUE,
 	  }
         var.res  <- ( vr[1,1] - 2*b*vr[1,2] + b^2*vr[2,2] ) / res.df
         var.fit  <- ( b^2*vr[1,1] + 2*b*vr[1,2] + vr[2,2] ) / res.df
-        var.b    <- 1 / ( var.res/var.fit + var.fit/var.res - 2 )*( 1 + b^2 )^2 / res.df * robust.factor
+        var.b    <- 1 / ( var.res/var.fit + var.fit/var.res - 2 )*( 1 + b^2 )^2 / res.df * r.factor1
     }
 
     if (intercept)
     {
         a        <- means[1] - b*means[2]
-	  var.a    <- var.res/n + var.b*means[2]^2
+        var.a  <- var.res/n*r.factor2 + var.b*means[2]^2
         cis[1,1] <- a - sqrt(var.a)*sqrt(f.crit)
         cis[1,2] <- a + sqrt(var.a)*sqrt(f.crit)
     }

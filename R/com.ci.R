@@ -1,8 +1,8 @@
 
-com.ci <- function( b, varb, crit, z, n, l1, l2, method, lambda, res.df)
+com.ci <- function( b, varb, crit, z, n, l1, l2, method, lambda, res.df, r.factor)
 {
     b.ci <- c(NA,NA)
-    arguments <- list( l1=l1, l2=l2, z=z, n=n, method=method, crit=crit, lambda=lambda, res.df=res.df )
+    arguments <- list( l1=l1, l2=l2, z=z, n=n, method=method, crit=crit, lambda=lambda, res.df=res.df, r.factor=r.factor )
     #check if limits have opposite sign
     val.b <- lr.b.com(b,arguments)
     b.m   <- b - 2*sqrt(crit*varb)

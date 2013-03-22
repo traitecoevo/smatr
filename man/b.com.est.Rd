@@ -16,7 +16,7 @@ b.com.est(z, n, method, lambda = 1, res.df)
   \item{lambda}{ Error variance ration (implied by choice of method). }
   \item{res.df}{ Residual degrees of freedom, for each group. }
 }
-\author{ Warton, D. \email{David.Warton@unsw.edu.au}, translated to R by Ormerod, J. 2005-12-08 }
+\author{ Warton, D. \email{David.Warton@unsw.edu.au} and J. Ormerod }
 
 \seealso{ \code{\link{slope.com}} }
 \keyword{ internal }
