@@ -5,10 +5,16 @@ meas.est <- function( datameas, id, data=NULL )
     {
         stop("An id vector is required, to identify which subject each measurement belongs to.")
     }
-    if ( is.null(data)==FALSE )
-    {
-        attach(data)
-    }
+#     if ( is.null(data)==FALSE )
+#     {
+#         attach(data)
+#     }
+    
+    
+    if(!is.null(data))
+      stop("'data' argument no longer supported.")
+    
+    
     datameas <- as.matrix( datameas )
     siz <- dim( datameas )
     if ( length(id)!=siz[1] )
@@ -36,10 +42,10 @@ meas.est <- function( datameas, id, data=NULL )
 
     V <- apply(vrs, 1:2, mean, na.rm=TRUE)
 
-    if ( is.null(data)==FALSE )
-    {
-       detach(data)
-    }
+#     if ( is.null(data)==FALSE )
+#     {
+#        detach(data)
+#     }
 
     list( V=V, dat.mean=dat )
 }

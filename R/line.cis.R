@@ -3,8 +3,13 @@ line.cis <- function( y, x, alpha=0.05, data=NULL, method="SMA", intercept=TRUE,
 {
 
     # instead of attaching
-    if (!is.null(data))attach(data) 
+    #if (!is.null(data))attach(data) 
 	
+  
+  if(!is.null(data))
+    stop("'data' argument no longer supported.")
+  
+  
     dat  <- data.frame( y, x )
     datm <- as.matrix(na.omit(dat))
     n <- nrow(datm)
@@ -129,7 +134,7 @@ line.cis <- function( y, x, alpha=0.05, data=NULL, method="SMA", intercept=TRUE,
     names(coeff)    <- c( lab, "lower limit", "upper limit" )
     rownames(coeff) <- coef.names
 
-	if (!is.null(data))detach(data)
+	#if (!is.null(data))detach(data)
 	
     return(coeff)
 }

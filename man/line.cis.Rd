@@ -9,15 +9,15 @@
 
 \usage{
 line.cis(y, x, alpha = 0.05, data = NULL, 
-	method = "SMA", intercept = TRUE, robust=FALSE,
-	V = matrix(0, 2, 2), f.crit = 0, ...)
+	method = "SMA", intercept = TRUE, 
+	V = matrix(0, 2, 2), f.crit = 0, robust=FALSE, ...)
 }
 
 \arguments{
   \item{y}{The Y-variable}
   \item{x}{The X-variable}
   \item{alpha}{The desired confidence level for the 100(1-alpha)\% confidence interval for the common slope. (Default value is 0.05, which returns a 95\% confidence interval.)}
-  \item{data}{ (optional) data frame containing the data }
+  \item{data}{Deprecated. Use with() instead (see Examples). }
   \item{method}{The line fitting method:
     \describe{
       \item{'OLS' or 0}{linear regression}
@@ -32,8 +32,8 @@ line.cis(y, x, alpha = 0.05, data = NULL,
       \item{TRUE}{ an intercept is fitted (this is the default) }
     }
   }
-  \item{robust}{If TRUE, uses a robust method to fit the lines and construct confidence intervals.}
   \item{f.crit}{(optional - rarely required). The critical value to be used from the F distribution. (Only actually useful for reducing computation time in simulation work - otherwise, do not change.) }
+  \item{robust}{If TRUE, uses a robust method to fit the lines and construct confidence intervals.}
   \item{\dots}{Further parameters (not passed anywhere at the moment).}
 }
 
@@ -75,10 +75,10 @@ data(leaflife)
 leaf.low.rain=leaflife[leaflife$rain=='low',]
 
 #estimate the SMA line for reserve vs coat
-line.cis(log10(longev),log10(lma),data=leaf.low.rain)
+with(leaf.low.rain, line.cis(log10(longev),log10(lma)))
 
 #produce CI's for MA slope and elevation:
-line.cis(log10(longev),log10(lma),data=leaf.low.rain, method='MA')
+with(leaf.low.rain, line.cis(log10(longev),log10(lma),method='MA'))
 }
 
 \keyword{ models }
