@@ -17,7 +17,7 @@
   \item{y}{ The Y-variable }
   \item{x}{ The X-variable }
   \item{test.value}{ The hypothesised value of the slope (default value is 1) }
-  \item{data}{ (optional) data frame containing the data }
+  \item{data}{Deprecated. Use with() instead (see Examples). }
   \item{method}{ The line fitting method:
     \describe{
       \item{'OLS' or 0}{linear regression}
@@ -83,15 +83,14 @@ Taskinen, S. and D.I. Warton. in review. Robust tests for one or more allometric
 data(leaflife)
 
 #consider only the low rainfall sites:
-leaf.low.rain=leaflife[leaflife$rain=='low',]
+leaf.low.rain <- leaflife[leaflife$rain=='low',]
 
 #test if the SMA slope amongst species at low rainfall sites is 1,
 #for log (base 10) transformed data:
-slope.test(log10(longev), log10(lma), data=leaf.low.rain)
+with(leaf.low.rain, slope.test(log10(longev), log10(lma)))
     
 #test if the MA slope is 2/3
-slope.test(log10(longev), log10(lma), data=leaf.low.rain,
-   test.value = 2/3, method = 'MA')
+with(leaf.low.rain, slope.test(log10(longev), log10(lma), test.value = 2/3, method = 'MA'))
 }
 
 \keyword{htest}

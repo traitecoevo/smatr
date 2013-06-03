@@ -7,11 +7,16 @@ slope.com <- function( y, x, groups, method="SMA", alpha=0.05, data=NULL, interc
         stop('Sorry, no can do without three arguments -- Y, X, GROUPS')
     }
 
-    if ( is.null(data)==FALSE )
-    {
-        attach(data)
-    }
+#     if ( is.null(data)==FALSE )
+#     {
+#         attach(data)
+#     }
 
+    
+    if(!is.null(data))
+      stop("'data' argument no longer supported.")
+    
+    
     dat    <- cbind(y, x)
     g      <- length(group.names)
 
@@ -88,10 +93,10 @@ slope.com <- function( y, x, groups, method="SMA", alpha=0.05, data=NULL, interc
         { res.df <- n-2 }
 #    res.df = res.df + as.numeric( is.null(slope.test)==F ) #to add one to df if slope is given a priori.
 
-    if ( is.null(data)==FALSE )
-    {
-        detach(data)
-    }
+#     if ( is.null(data)==FALSE )
+#     {
+#         detach(data)
+#     }
 
     # Find common slope:
     lambda <- 1 #only actually used for the major axis.

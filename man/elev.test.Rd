@@ -17,7 +17,7 @@
   \item{y}{The Y-variable}
   \item{x}{The X-variable}
   \item{test.value}{The hypothesised value of the elevation (default value is 0)}
-  \item{data}{ (optional) data frame containing the data }
+  \item{data}{ Deprecated. Use with() instead (see Examples).}
   \item{alpha}{The desired confidence level for the 100(1-alpha)\% confidence interval for the common slope. (Default value is 0.05, which returns a 95\% confidence interval.)}
   \item{method}{ The line fitting method:
     \describe{
@@ -76,12 +76,11 @@ plot(log10(leaf.low.rain$lma), log10(leaf.low.rain$longev),
    xlab="leaf mass per area [log scale]", ylab="leaf longevity [log scale]")
     
 #test if the SMA elevation is 0 for leaf longevity vs LMA
-elev.test(log10(leaf.low.rain$lma), log10(leaf.low.rain$longev),
-   data = leaf.low.rain )
+with(leaf.low.rain, elev.test(log10(lma), log10(longev)))
 
 #test if the MA elevation is 2
-elev.test(log10(leaf.low.rain$lma), log10(leaf.low.rain$longev),
-   data = leaf.low.rain, test.value = 2, method = "MA")
+with(leaf.low.rain,elev.test(log10(lma), log10(longev),
+   test.value = 2, method = "MA"))
 }
 
 \keyword{ htest }

@@ -1,6 +1,6 @@
 Package: smatr
-Version: 3.2.6
-Date: 2012-04-23
+Version: 3.3
+Date: 2013-04-05
 Title: (Standardised) Major Axis Estimation and Testing Routines
 Author: David Warton <David.Warton@unsw.edu.au>, Remko Duursma, Daniel Falster and Sara Taskinen.
 Maintainer: Remko Duursma <remkoduursma@gmail.com>

@@ -7,11 +7,16 @@ slope.test <- function( y, x, test.value=1, data=NULL, method="SMA", alpha=0.05,
         stop('Sorry, no can do without two arguments -- Y, X')
     }
 
-    if ( is.null(data)==FALSE )
-    {
-        attach(data)
-    }
+#     if ( is.null(data)==FALSE )
+#     {
+#         attach(data)
+#     }
 
+    
+    if(!is.null(data))
+      stop("'data' argument no longer supported.")
+    
+    
     iref <- ( is.na(x+y) == FALSE ) #to remove NA cases
     n    <- sum(iref)
 
@@ -109,10 +114,10 @@ slope.test <- function( y, x, test.value=1, data=NULL, method="SMA", alpha=0.05,
      F      <- rTest^2/(1 - rTest^2)/r.factor*(n-2)
      pValue <- 1 - pf( F, 1, resDF)
 
-     if ( is.null(data)==FALSE )
-     {
-        detach(data)
-     }
+#      if ( is.null(data)==FALSE )
+#      {
+#         detach(data)
+#      }
 
      list( F=F, r=rTest, p=pValue, test.value=test.value, b=b, ci=bCI )
 

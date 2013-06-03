@@ -23,7 +23,7 @@ slope.com(y, x, groups, method = 'SMA', alpha = 0.05,
     }
   }
   \item{alpha}{ The desired confidence level for the 100(1-alpha)\% confidence interval for the common slope. (Default value is 0.05, which returns a 95\% confidence interval.) }
-  \item{data}{ (optional) data frame containing the data }
+  \item{data}{ Deprecated. Use with() instead (see Examples).}
   \item{intercept}{ (logical) Whether or not the line includes an  intercept.
     \describe{
       \item{FALSE}{ no intercept, so the line is forced through the origin }
@@ -91,7 +91,7 @@ legend(55, 5, as.character(unique(leaflife$site)), col=colours,
 
 #test for common SMA slope of log(leaf longevity) vs log(LMA),
 #across species sampled at different sites:
-fit <- slope.com(log10(longev), log10(lma), site, data = leaflife)
+fit <- with(leaflife, slope.com(log10(longev), log10(lma), site))
 fit
 
 #Residual vs fits plots for SMA fit of each site
@@ -111,15 +111,13 @@ plot(y[site==4] + fit$bs[1,4] * x[site==4], y[site==4] - fit$bs[1,4]
 #Test for common SMA slope amongst species at low rainfall sites
 #with different levels of soil nutrients
 leaf.low.rain <- leaflife[leaflife$rain=='low',]
-slope.com(log10(longev), log10(lma), soilp, data=leaf.low.rain)
+with(leaf.low.rain, slope.com(log10(longev), log10(lma), soilp))
 
 #test for common MA slope:
-slope.com(log10(longev), log10(lma), site, data = leaflife,
-   method='MA')
+with(leaflife, slope.com(log10(longev), log10(lma), site, method='MA'))
 
 #test for common MA slope, and produce a 90% CI for the common slope:
-slope.com(log10(longev), log10(lma), site, data = leaflife,
-   method='MA', alpha=0.1)
+with(leaflife, slope.com(log10(longev), log10(lma), site,  method='MA', alpha=0.1))
 
 }
 \keyword{ htest }

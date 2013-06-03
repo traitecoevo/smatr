@@ -1,11 +1,16 @@
 
 shift.com <- function( y, x, groups, data=NULL, method="SMA", intercept=TRUE, robust=FALSE ,  V=array( 0, c( 2,2,length(unique(groups)) ) ), group.names=sort(unique(groups)))
 {
-    if ( is.null(data)==FALSE )
-    {
-        attach(data)
-    }
+#     if ( is.null(data)==FALSE )
+#     {
+#         attach(data)
+#     }
 
+  
+  if(!is.null(data))
+    stop("'data' argument no longer supported.")
+  
+  
     y <- as.matrix(y)
     x <- as.matrix(x)
     dat    <- cbind(y, x)
@@ -95,10 +100,10 @@ shift.com <- function( y, x, groups, data=NULL, method="SMA", intercept=TRUE, ro
 
     pvalue <- 1 - pchisq( stat, df )
 
-    if ( is.null(data)==FALSE )
-    {
-        detach(data)
-    }
+#     if ( is.null(data)==FALSE )
+#     {
+#         detach(data)
+#     }
 
     list( stat=stat, p=pvalue, f.mean=as.vector(as), df=df )
 

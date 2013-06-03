@@ -14,7 +14,7 @@ elev.com(y, x, groups, data = NULL, method = 'SMA', alpha = 0.05, robust=FALSE,
   \item{y}{ The Y-variable for all observations (as a vector). }
   \item{x}{ The X-variable for all observations (as a vector). }
   \item{groups}{ Coding variable identifying which group each observation belongs to (as a factor or vector). }
-  \item{data}{ (Optional) data frame containing the data. }
+  \item{data}{ Deprecated. Use with() instead (see Examples).}
   \item{method}{ The line fitting method: 
     \describe{
       \item{'SMA' or 1}{ standardised major axis (this is the default) }
@@ -68,17 +68,17 @@ data(leaflife)
 # Test for common SMA slope amongst species at low soil nutrient sites
 # with different rainfall:
 leaf.low.soilp <- subset(leaflife, soilp == 'low')
-slope.com(log10(longev), log10(lma), rain, data=leaf.low.soilp)
+with(leaf.low.soilp, slope.com(log10(longev), log10(lma), rain))
 
 # Now test for common elevation of the groups fitted with an axis
 # of common slope, at low soil nutrient sites:
-elev.com(log10(longev), log10(lma), rain, data = leaf.low.soilp)
+with(leaf.low.soilp, elev.com(log10(longev), log10(lma), rain))
 
 # Or test for common elevation amongst the MA's of common slope,
 # for low soil nutrient sites, and construct 99% a confidence interval
 # for the common elevation:
-elev.com(log10(longev), log10(lma), rain, method='MA',
-    data = leaf.low.soilp, alpha=0.01)  
+with(leaf.low.soilp, elev.com(log10(longev), log10(lma), rain, method='MA',
+   alpha=0.01))
 }
 
 \keyword{ htest }

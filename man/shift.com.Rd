@@ -14,7 +14,7 @@
   \item{y}{The Y-variable for all observations (as a vector)}
   \item{x}{The X-variable for all observations (as a vector)}
   \item{groups}{Coding variable identifying which group each observation belongs to (as a factor or vector)}
-  \item{data}{ (optional) data frame containing the data }
+  \item{data}{ Deprecated. Use with() instead (see Examples). }
   \item{method}{The line fitting method:
     \describe{
       \item{'SMA' or 1}{standardised major axis (this is the default)}
@@ -82,16 +82,15 @@ data(leaflife)
 #Test for common SMA slope amongst species at low rainfall sites
 #with different levels of soil nutrients
 leaf.low.rain=leaflife[leaflife$rain=='low',]
-slope.com(log10(longev), log10(lma), soilp, data=leaf.low.rain)
+with(leaf.low.rain, slope.com(log10(longev), log10(lma), soilp))
 
 #Now test for no shift along the axes of common slope, for sites
 #with different soil nutrient levels but low rainfall:
-shift.com(log10(longev), log10(lma), soilp, data = leaf.low.rain)
+with(leaf.low.rain, shift.com(log10(longev), log10(lma), soilp))
 
 #Now test for no shift along the axes of common slope, for sites
 #with different soil nutrient levels but low rainfall:
-shift.com(log10(longev), log10(lma), soilp, data = leaf.low.rain,
-   method='MA')
+with(leaf.low.rain,shift.com(log10(longev), log10(lma), soilp, method='MA'))
 
 }
 

@@ -2,11 +2,15 @@
 elev.com <- function( y, x, groups, data=NULL, method="SMA", alpha=0.05, robust=FALSE, V=array( 0, c( 2,2,length(unique(groups)) ) ), 
     group.names=sort(unique(groups)) )
 {
-    if ( is.null(data)==FALSE )
-    {
-        attach(data)
-    }
+#     if ( is.null(data)==FALSE )
+#     {
+#         attach(data)
+#     }
 
+    if(!is.null(data)){
+      stop("'data' argument no longer supported. Use with() instead.")
+    }
+  
     x      <- as.matrix( x )
     y      <- as.matrix( y )
     dat    <- cbind(y, x)
@@ -78,11 +82,11 @@ elev.com <- function( y, x, groups, data=NULL, method="SMA", alpha=0.05, robust=
 	
     dimnames(as.ci)[[1]] = group.names
     dimnames(as.ci)[[2]] <- c("elevation","lower CI limit","upper CI limit")
-
-    if ( is.null(data)==FALSE )
-    {
-        detach(data)
-    }
+# 
+#     if ( is.null(data)==FALSE )
+#     {
+#         detach(data)
+#     }
 
     list( stat=stat, p=pvalue , a=a, ci=a.ci, as = as.ci, df=df )
 }

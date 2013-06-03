@@ -14,7 +14,7 @@
 	\item{datameas}{A data matrix containing the repeated measures of observations, with each variable in a different column and all observations on all subjects in different rows of the same column.}
 
 	\item{id}{An id vector identifying the subject being measured for each observation in the data matrix.}
-	\item{data}{A data frame containing the variables listed in data.meas and id.}
+	\item{data}{ Deprecated. Use with() instead (see Examples).}
 }
 
 \value{

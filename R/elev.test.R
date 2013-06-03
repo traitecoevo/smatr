@@ -1,11 +1,16 @@
 
 elev.test <- function( y, x, test.value=0, data=NULL, alpha=0.05, method="SMA", robust=FALSE, V=matrix(0,2,2) )
 {
-    if ( is.null(data)==FALSE )
-    {
-        attach(data)
-    }
+#     if ( is.null(data)==FALSE )
+#     {
+#         attach(data)
+#     }
 
+  
+  if(!is.null(data))
+    stop("'data' argument no longer supported.")
+  
+  
     iref <- ( is.na(x+y) == FALSE ) #to remove NA cases
     n    <- sum(iref)
     res.df <- n - 2
@@ -59,10 +64,10 @@ elev.test <- function( y, x, test.value=0, data=NULL, alpha=0.05, method="SMA", 
     t        <- (a - test.value)/sqrt(var.a)
     pvalue   <- 2*pt( -abs(t), res.df )
 
-    if ( is.null(data)==FALSE )
-    {
-        detach(data)
-    }
+#     if ( is.null(data)==FALSE )
+#     {
+#         detach(data)
+#     }
 
     list( t=t, a=a, p=pvalue, a.ci=c( a-sqrt(var.a*fcrit), a+sqrt(var.a*fcrit) ), test.value=test.value )
 }
