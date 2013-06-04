@@ -1,5 +1,13 @@
-nicePlot<-function(xaxis,yaxis,log='', ann=par("ann"), xlab=NULL, ylab=NULL, tck=par("tck"),frame.plot = TRUE, ... )
-{
+nicePlot<-function(xaxis,
+                   yaxis,
+                   log='', 
+                   ann=par("ann"), 
+                   xlab=NULL, 
+                   ylab=NULL, 
+                   tck=par("tck"),
+                   frame.plot = TRUE, 
+                   ... ){
+  
 	makeAxis<-function(axis, number, print.labels=TRUE, tck=0.25, ...){
 		if(print.labels)
 			axis(number, at=axis$major.ticks, labels=axis$major.tick.labels, tck=tck, ...)

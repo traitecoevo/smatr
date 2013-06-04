@@ -1,6 +1,5 @@
 export(alpha.fun,
 b.com.est,
-coef.sma,
 com.ci,
 defineAxis,
 elev.com,
@@ -14,12 +13,14 @@ makeLogMinor,
 meas.est,
 multcompmatrix,
 nicePlot,
-plot.sma,
-print.sma,
-residuals.sma,
 seqLog,
 shift.com,
 slope.com,
 slope.test,
-sma,
-summary.sma)
+sma)
+S3method(summary, sma)
+S3method(plot, sma)
+S3method(print, sma)
+S3method(residuals, sma)
+S3method(logLik, sma)
+S3method(coef, sma)
