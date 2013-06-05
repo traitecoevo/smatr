@@ -11,10 +11,10 @@ sma <- function(formula, data, subset, na.action, log='',
 	
 	# Model frame (code borrowed from 'lm')
 	mf <- match.call(expand.dots = FALSE)
-    m <- match(c("formula", "data", "subset", "na.action"), names(mf), 0L)
-    mf <- mf[c(1L, m)]
-    mf$drop.unused.levels <- TRUE
-    mf[[1L]] <- as.name("model.frame")
+  m <- match(c("formula", "data", "subset", "na.action"), names(mf), 0L)
+  mf <- mf[c(1L, m)]
+  mf$drop.unused.levels <- TRUE
+  mf[[1L]] <- as.name("model.frame")
 	mf <- eval(mf, parent.frame())
 	if(ncol(mf) == 3)mf[,3] <- as.factor(mf[,3])
 	
@@ -307,6 +307,7 @@ sma <- function(formula, data, subset, na.action, log='',
 	l$log <- log
 	l$variables <- names(mf)
 	l$origvariables <- all.vars(match.call()$formula)
+  l$formula <- formula
 	l$groups <- lv
 	l$groupvarname <- if(ncol(mf) == 3)names(mf)[3] else NA
 	l$gt <- grouptest
@@ -325,12 +326,12 @@ sma <- function(formula, data, subset, na.action, log='',
 	
 	for(i in 1:ngroups){
 		sm[[i]] <- list(group=l$groups[i], n=f(l$n[i]), r2=f(l$r2[i]), pval=f(l$pval[i]),
-		             Slope=l$coef[[i]][2,1], Slope_lowCI = l$coef[[i]][2,2], Slope_highCI = l$coef[[i]][2,3],  
-					 Int = l$coef[[i]][1,1], Int_lowCI = l$coef[[i]][1,2], Int_highCI = l$coef[[i]][1,3],
-					 Slope_test = if(all(is.na(slopetest)))NA else f(l$slopetest[[i]]$test.value), 
-					 Slope_test_p= if(all(is.na(slopetest)))NA else f(l$slopetest[[i]]$p), 
-					 Elev_test = if(all(is.na(elevtest)))NA else f(l$elevtest[[i]]$test.value),
-					 Elev_test_p= if(all(is.na(elevtest)))NA else f(l$elevtest[[i]]$p))
+		              Slope=l$coef[[i]][2,1], Slope_lowCI = l$coef[[i]][2,2], Slope_highCI = l$coef[[i]][2,3],  
+					        Int = l$coef[[i]][1,1], Int_lowCI = l$coef[[i]][1,2], Int_highCI = l$coef[[i]][1,3],
+					        Slope_test = if(all(is.na(slopetest)))NA else f(l$slopetest[[i]]$test.value), 
+					        Slope_test_p= if(all(is.na(slopetest)))NA else f(l$slopetest[[i]]$p), 
+					        Elev_test = if(all(is.na(elevtest)))NA else f(l$elevtest[[i]]$test.value),
+					        Elev_test_p= if(all(is.na(elevtest)))NA else f(l$elevtest[[i]]$p))
 	}
 	tmp <- as.data.frame(do.call("rbind",sm))
 	l$groupsummary <- as.data.frame(lapply(tmp, unlist))

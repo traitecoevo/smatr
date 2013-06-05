@@ -1,23 +1,35 @@
-fitted.sma <- function(object, type = "fitted", X=NULL,Y=NULL, centered=TRUE, ...){
+fitted.sma <- function(object, type = "fitted", newdata=NULL, centered=TRUE, ...){
 
 
 	obj <- object
 	
-  # Use 'new data', to mimic a predict.sma function.
-  if(!is.null(X) || !is.null(Y)){
+  # Use 'new data', to (sort of) mimic a predict.sma function.
+	if(!is.null(newdata))	{
+	  newdat <- model.frame(obj$formula,data=newdata)
+	  X <- newdat[,2]
+	  Y <- newdat[,1]
     
-    if(obj$gt != "none")
-      stop("Cannot provide fitted values for new X and Y if groups were present in original model fit.")
+    # Log transformations
+    if(grepl("x",obj$log))X <- log10(X)
+	  if(grepl("y",obj$log))Y <- log10(Y)
     
-    if(length(X) != length(Y))
-      stop("When providing new X and Y, they must be the same length.")
+    if(ncol(newdat)>2){
+ 	    gr <- newdat[,3]
+      
+      # Check if levels are known
+      if(any(!levels(gr) %in% levels(obj$data[,3])))
+        stop("Your newdata contains some levels with different names to those used in the original model fit.\n This makes me unhappy.")
+       
+    }
     
-  } else {
+	} else {
     
     X <- obj$data[,2]
     Y <- obj$data[,1]
     
-  }
+    if(obj$gt != "none")
+      gr <- obj$data[,3]	
+	}
   
 	if(obj$gt == "none"){ #single line			
 		# coefficients
@@ -25,9 +37,7 @@ fitted.sma <- function(object, type = "fitted", X=NULL,Y=NULL, centered=TRUE, ..
 		a <- p[1]
 		B <- p[2]
 	} else {  			  #lines by group
-		# grouping
-		gr <- obj$data[,3]	
-		
+	
 		# coefficients	
 		p <- coef(obj)
     
@@ -54,6 +64,23 @@ fitted.sma <- function(object, type = "fitted", X=NULL,Y=NULL, centered=TRUE, ..
 	}
 return(OUT)
 }
+
+
+# data(leaflife)
+# leaf.low.soilp <- subset(leaflife, soilp == 'low')
+# 
+# com.test <- sma(longev~lma*rain, log="xy", data=leaf.low.soilp)
+# elev.res <- sma(longev~lma+rain, log="xy", data=leaf.low.soilp)
+# shift.res <- sma(longev~lma+rain, type="shift", log="xy", data=leaf.low.soilp)
+# 
+# # newdat <- leaf.low.soilp
+# i <- 1:10
+# fitted(com.test, centered=FALSE)
+# fitted(com.test, newdata=leaf.low.soilp[i,], centered=FALSE)
+# 
+# nd <- leaf.low.soilp[i,]
+# levels(nd$rain) <- c("hello","there")
+# fitted(com.test, newdata=nd, centered=FALSE)
 
 
 
