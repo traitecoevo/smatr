@@ -30,7 +30,7 @@ logLik.sma <- function(object, ...){
   return( logL )
 }
 
-get.lr = function(n, z, b, method)
+get.lr = function(n, z, b, method, lambda=1)
 {
   if (method == 1 | method == "SMA") {
     if (b == 0) {
