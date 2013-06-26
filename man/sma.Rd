@@ -13,8 +13,9 @@ the presence of outliers (currently implemented for single samples only).}
 
 \usage{
 sma(formula, data, subset, na.action, log="",
-	 method=c("SMA","MA","OLS"), type=c("elevation","shift"), alpha=0.05, 
-	 slope.test=NA, elev.test=NA, multcomp=FALSE, multcompmethod=c("default","adjusted"),
+	 method=c("SMA","MA","OLS"), type=c("elevation","shift"), 
+   alpha=0.05, slope.test=NA, elev.test=NA, 
+   multcomp=FALSE, multcompmethod=c("default","adjusted"),
 	 robust=FALSE,V=matrix(0,2,2), 
 	 ...)
 }
