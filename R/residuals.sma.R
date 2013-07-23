@@ -1,3 +1,3 @@
 residuals.sma <- function(object, ...){
-	return(fitted(object, type = "residuals"))
+	return(fitted(object, type = "residuals",...))
 }
