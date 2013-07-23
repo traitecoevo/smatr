@@ -42,7 +42,7 @@ fitted.sma <- function(object, type = "fitted", newdata=NULL, centered=TRUE, ...
 		p <- coef(obj)
     
 		# get group slopes
-		preddfr <- data.frame(X,gr)
+		preddfr <- data.frame(X=X,Y=Y,gr=gr)
 		p$gr <- rownames(p)
 		preddfr <- merge(preddfr,p,by="gr",sort=FALSE)
 		a <- preddfr$elevation
@@ -50,7 +50,7 @@ fitted.sma <- function(object, type = "fitted", newdata=NULL, centered=TRUE, ...
 	}
 	
 	if(type=="residuals"){
-		OUT <- Y - (a + B*X)   #centre around zero
+		OUT <- with(preddfr, Y - (elevation + slope*X))   #centre around zero
 	}
 	else if(type=="fitted"){
 		if(obj$method=="SMA"){
