@@ -47,10 +47,12 @@ fitted.sma <- function(object, type = "fitted", newdata=NULL, centered=TRUE, ...
 		preddfr <- merge(preddfr,p,by="gr",sort=FALSE)
 		a <- preddfr$elevation
 		B <- preddfr$slope
+    X <- preddfr$X
+    Y <- preddfr$Y
 	}
 	
 	if(type=="residuals"){
-		OUT <- with(preddfr, Y - (elevation + slope*X))   #centre around zero
+		OUT <- Y - (a + B*X)
 	}
 	else if(type=="fitted"){
 		if(obj$method=="SMA"){
