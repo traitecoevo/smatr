@@ -44,7 +44,8 @@ fitted.sma <- function(object, type = "fitted", newdata=NULL, centered=TRUE, ...
 		# get group slopes
 		preddfr <- data.frame(X=X,Y=Y,gr=gr)
 		p$gr <- rownames(p)
-		preddfr <- merge(preddfr,p,by="gr",sort=FALSE)
+		#preddfr <- merge(preddfr,p,by="gr",sort=FALSE)
+    preddfr <- join(preddfr, p, by="gr")
 		a <- preddfr$elevation
 		B <- preddfr$slope
     X <- preddfr$X
