@@ -1,7 +1,13 @@
 
 plot.sma <- function(x, which=c("default","residual","qq"),  use.null=FALSE, add=FALSE, type='o', 
 	xaxis=NULL, yaxis=NULL, xlab=NULL, ylab=NULL, pch=NULL, col=NULL, lty=NULL, from=NULL, to = NULL, log=x$log, 
-	frame.plot = TRUE, tck=par("tck"),...){
+	frame.plot = TRUE, tck=par("tck"),p.lines.transparent=NA, ...){
+
+	# function used to make colours transparent alpha = 0 means fully transparaent
+	make.transparent <- function(col, alpha=1) {
+  		tmp <- col2rgb(col)/255
+	rgb(tmp[1,], tmp[2,], tmp[3,], alpha=alpha)
+	}
 
 	#preprocessing ------------------------------------------------------------
 	obj <- x  # this needed for consistency with plot
@@ -139,15 +145,22 @@ plot.sma <- function(x, which=c("default","residual","qq"),  use.null=FALSE, add
 				a <- coef[[i]][1,1]
 				B <-  coef[[i]][2,1]
 				
+			    p <- obj$groupsummary$p[i]
+
+				if(!is.na(p.lines.transparent))
+					col.tr <- make.transparent(col[i], max(0, (1 - p/p.lines.transparent)))
+				else
+					col.tr <-  col[i]
+
 				#choose line according to log-trsnaformation used in fitting data, even if different transformation used for axes
 				if(log_data=="xy")
-	        		curve(10^a*x^B, from[i], to[i], add=TRUE,col = col[i], lty= lty[i],...)
+	        		curve(10^a*x^B, from[i], to[i], add=TRUE,col = col.tr, lty= lty[i],...)
     	   	 	if(log_data=="x")
-        			curve(a+B*log10(x), from[i], to[i], add=TRUE, col = col[i], lty= lty[i],...)
+        			curve(a+B*log10(x), from[i], to[i], add=TRUE, col = col.tr, lty= lty[i],...)
         		if(log_data=="y")
-        			curve(exp(a+x*B), from[i], to[i], add=TRUE, col = col[i], lty= lty[i],...)
+        			curve(exp(a+x*B), from[i], to[i], add=TRUE, col = col.tr, lty= lty[i],...)
        	    	if(log_data=="")
-        			curve(a + x*B, from[i], to[i], add=TRUE,  col = col[i], lty= lty[i],...)
+        			curve(a + x*B, from[i], to[i], add=TRUE,  col = col.tr, lty= lty[i],...)
         	}
         }
 	}

@@ -195,9 +195,9 @@ sma <- function(formula, data, subset, na.action, log='',
   	    	from[[i]] <- (min(Y+B*X) - a)/(2.0*B) 
   	    	to[[i]] <-(max(Y+B*X)-a)/(2.0*B)
   	    } else if (method =="MA"){
-  	    	from[[i]] <- (min(X+B*Y) - B*a)/(1+B)
-  	    	to[[i]] <-(max(X+B*Y) - B*a)/(1+B)
-  	    } else if (method == "OLS"){
+  	    	from[[i]] <- (min(X+B*Y) - B*a)/(1+B^2)
+  	    	to[[i]] <-(max(X+B*Y) - B*a)/(1+B^2)
+   	    } else if (method == "OLS"){
 			from[[i]] <- min(X)
 			to[[i]] <- max(X)
 		}
@@ -444,7 +444,3 @@ sma <- function(formula, data, subset, na.action, log='',
 	
     return(l)
 }
-
-
-
-
