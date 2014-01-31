@@ -1,10 +1,48 @@
 Package: smatr
-Version: 3.4-3
-Date: 2013-11-29
+Version: 3.4-4
+Date: 2014-1-31
 Title: (Standardised) Major Axis Estimation and Testing Routines
-Author: David Warton <David.Warton@unsw.edu.au>, Remko Duursma, Daniel Falster and Sara Taskinen.
+Author: David Warton <David.Warton@unsw.edu.au>, Remko Duursma, Daniel Falster
+    and Sara Taskinen.
 Maintainer: Remko Duursma <remkoduursma@gmail.com>
-Depends: plyr
-Description: This package provides methods of fitting bivariate lines in allometry using the major axis (MA) or standardised major axis (SMA), and for making inferences about such lines. The available methods of inference include confidence intervals and one-sample tests for slope and elevation, testing for a common slope or elevation amongst several allometric lines, constructing a confidence interval for a common slope or elevation, and testing for no shift along a common axis, amongst several samples.
+Depends:
+    plyr
+Description: This package provides methods of fitting bivariate lines in
+    allometry using the major axis (MA) or standardised major axis (SMA), and
+    for making inferences about such lines. The available methods of inference
+    include confidence intervals and one-sample tests for slope and elevation,
+    testing for a common slope or elevation amongst several allometric lines,
+    constructing a confidence interval for a common slope or elevation, and
+    testing for no shift along a common axis, amongst several samples.
 License: GPL-2
-URL: http://web.maths.unsw.edu.au/~dwarton, http://www.bitbucket.org/remkoduursma/smatr
+URL: http://web.maths.unsw.edu.au/~dwarton,
+    http://www.bitbucket.org/remkoduursma/smatr
+Collate:
+    'alpha.fun.R'
+    'b.com.est.R'
+    'coef.sma.R'
+    'com.ci.R'
+    'defineAxis.R'
+    'elev.com.R'
+    'elev.test.R'
+    'fitted.sma.R'
+    'huber.M.R'
+    'line.cis.R'
+    'logLik_sma.R'
+    'lr.b.com.R'
+    'ma.R'
+    'makeLogMinor.R'
+    'meas.est.R'
+    'multcompmatrix.R'
+    'nicePlot.R'
+    'plot.sma.R'
+    'predict.sma.R'
+    'print.sma.R'
+    'residuals.sma.R'
+    'robust.factor.R'
+    'seqLog.R'
+    'shift.com.R'
+    'slope.com.R'
+    'slope.test.R'
+    'sma.R'
+    'summary.sma.R'

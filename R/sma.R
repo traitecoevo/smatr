@@ -2,7 +2,7 @@
 sma <- function(formula, data, subset, na.action, log='',
 	 method=c("SMA","MA","OLS"), type=c("elevation","shift"), alpha=0.05, 
 	 slope.test=NA, elev.test=NA, multcomp=FALSE, multcompmethod=c("default","adjusted"),
-	 robust=FALSE,V=matrix(0,2,2),
+	 robust=FALSE,V=matrix(0,2,2),n_min=3,quiet=FALSE,
 	 ...)
 {
 	method <- match.arg(method)
@@ -24,11 +24,14 @@ sma <- function(formula, data, subset, na.action, log='',
 	tab <- table(mf[,3])
 	if(any(tab < 3)){
 		
-		thislevel <- levels(mf[,3])[which(tab < 3)]
+		thislevel <- levels(mf[,3])[which(tab < n_min)]
 		mf <- mf[!(mf[,3] %in% thislevel),]
 		mf <- droplevels(mf)
 		attributes(mf)$row.names <- rownames(mf)
-		cat("Warning: dropped level of grouping variable (sample size < 3) :",names(mf)[3]," = ",thislevel,"\n")
+		if(!quiet){
+      message("Warning: dropped level of grouping variable (sample size < ",n_min,") :")
+      print(paste(names(mf)[3]," = ",thislevel))
+	  }
 	}
 	}
 	
