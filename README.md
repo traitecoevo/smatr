@@ -17,13 +17,13 @@ The package was programmed was [David Warton](http://web.maths.unsw.edu.au/~dwar
 
 ## Install
 
-You can get this package at CRAN [here](http://cran.r-project.org/web/packages/smatr/), or install it within R by doing
+You can get this package from CRAN [here](http://cran.r-project.org/web/packages/smatr/), or install it within R by doing
 
 ```R
 install.packages("smatr")
 ```
 
-Another option to install is `install_github` within Hadley Wickham's devtools package.
+Another option to install is `install_github` with Hadley Wickham's devtools package.
 
 ```R
 install.packages("devtools")
@@ -35,7 +35,7 @@ require(smatr)
 
 ## Meta
 
-Please report any [issues or bugs](https://bitbucket.org/remkoduursma/smatr).
+Please report any [issues or bugs](https://bitbucket.org/remkoduursma/smatr/issues).
 
 To cite package `smatr` in publications use:
 
