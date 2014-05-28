@@ -141,13 +141,14 @@ plot.sma <- function(x, which=c("default","residual","qq"),  use.null=FALSE, add
 				}
 			}
 			
-			#add lines to plot
+			# Add lines to plot
 			for(i in 1:ngrps){
-				#coefficients
-				a <- coef[[i]][1,1]
-				B <-  coef[[i]][2,1]
 				
-			    p <- obj$groupsummary$p[i]
+        # Coefficients
+				a <- coef[[i]][1,1]
+				B <- coef[[i]][2,1]
+				
+			  p <- obj$groupsummary$pval[i]
 
 				if(!is.na(p.lines.transparent))
 					col.tr <- make.transparent(col[i], max(0, (1 - p/p.lines.transparent)))
