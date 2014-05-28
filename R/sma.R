@@ -22,7 +22,7 @@ sma <- function(formula, data, subset, na.action, log='',
 	# (Otherwise, there are in total 2 rows of data, surely no user is that daft).
 	if(ncol(mf) == 3){
 	tab <- table(mf[,3])
-	if(any(tab < 3)){
+	if(any(tab < n_min)){
 		
 		thislevel <- levels(mf[,3])[which(tab < n_min)]
 		mf <- mf[!(mf[,3] %in% thislevel),]

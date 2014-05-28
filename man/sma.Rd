@@ -16,7 +16,7 @@ sma(formula, data, subset, na.action, log="",
 	 method=c("SMA","MA","OLS"), type=c("elevation","shift"), 
    alpha=0.05, slope.test=NA, elev.test=NA, 
    multcomp=FALSE, multcompmethod=c("default","adjusted"),
-	 robust=FALSE,V=matrix(0,2,2), 
+	 robust=FALSE,V=matrix(0,2,2),n_min=3,quiet=FALSE,
 	 ...)
 }
 
@@ -32,8 +32,9 @@ sma(formula, data, subset, na.action, log="",
   \item{slope.test}{The hypothesised value to be used, if testing for evidence that (S)MA slope(s) are significantly different from a hypothesised value.}
   \item{elev.test}{The hypothesised value to be used, if testing for evidence that (S)MA elevation(s) are significantly different from a hypothesised value.}
   \item{robust}{If TRUE, uses a new method of robust line fitting. (Currently available for single-sample testing only.)}
-  \item{V}{The estimated variance matrix of measurement error. Average measurement error for Y is in the first row and column, and average measurement error for X is in the second row and column. 
-           The default is that there is no measurement error.}
+  \item{V}{The estimated variance matrix of measurement error. Average measurement error for Y is in the first row and column, and average measurement error for X is in the second row and column. The default is that there is no measurement error.}
+  \item{n_min}{The minimum sample size for a group.}
+  \item{quiet}{If TRUE, suppresses all messages.}
   \item{multcomp}{Logical. If TRUE, performs pair-wise comparisons between levels of the grouping variable.}
   \item{multcompmethod}{Whether to adjust the P values for multiple comparisons ('adjusted') or not ('default').}
   \item{\dots}{Further arguments passed to internal functions (none at the moment?)}
