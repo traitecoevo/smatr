@@ -1,7 +1,7 @@
 
 plot.sma <- function(x, which=c("default","residual","qq"),  use.null=FALSE, add=FALSE, type='o', 
 	xaxis=NULL, yaxis=NULL, xlab=NULL, ylab=NULL, pch=NULL, col=NULL, lty=NULL, from=NULL, to = NULL, log=x$log, 
-	frame.plot = TRUE, tck=par("tck"),p.lines.transparent=NA, ...){
+	frame.plot = TRUE, tck=par("tck"),p.lines.transparent=NA, axes=TRUE, ...){
 
 	# function used to make colours transparent alpha = 0 means fully transparaent
 	make.transparent <- function(col, alpha=1) {
@@ -75,19 +75,21 @@ plot.sma <- function(x, which=c("default","residual","qq"),  use.null=FALSE, add
 				ylab <- paste(ylab, "[log scale]")
 		}
 
-		#SETUP AXES--------------------------------
-		if(add==FALSE)
-		{
-			#use nice plotting if appropriate
+		# SETUP AXES--------------------------------
+		if(add==FALSE) {
+			
+      # Use nice plotting if appropriate
 			if(!is.null(xaxis)  && !is.null(yaxis)){
 				
-				#Deteremine axis limits if missing - caluclated on transformed data. 				#add 5% white space around plots, then back transform if necessary
+				# Deteremine axis limits if missing - caluclated on transformed data. 				
+        # add 5% white space around plots, then back transform if necessary
 				if (is.null(xaxis$limits)){
 					Range_x <-range(obj$data[,2])
 					Buffer <- (Range_x[2]-Range_x[1])*0.05
 					xaxis$limits <- c(Range_x[1]-Buffer, Range_x[2]+Buffer) 
 					if(XLog)xaxis$limits <- 10^xaxis$limits
 				}
+        
 				if (is.null(yaxis$limits)){
 					Range_y <-range(obj$data[,1])
 					#add 4% white space around plots (like R default in plot)
@@ -96,19 +98,19 @@ plot.sma <- function(x, which=c("default","residual","qq"),  use.null=FALSE, add
 					if(YLog) yaxis$limits <- 10^yaxis$limits
 				}
 				
-				#Make plot
-				nicePlot(xaxis,yaxis,log=log,xlab=xlab, ylab=ylab, 
-					frame.plot = frame.plot, tck=tck,...)
+				# Make plot
+				nicePlot(xaxis, yaxis, log=log, xlab=xlab, ylab=ylab, 
+					frame.plot = frame.plot, tck=tck, ...)
 			}
 			else
-				plot(X,Y, type='n', log=log, xlab=xlab, ylab=ylab,
-					frame.plot = frame.plot, tck=tck,...)
+				plot(X, Y, type='n', log=log, xlab=xlab, ylab=ylab,
+					frame.plot = frame.plot, tck=tck, axes=axes, ...)
 		}
 	
 		#add datapoints	--------------------------------
 		if(type %in% c("o","b", "p")){
 			if(obj$gt == "none")
-				points(X, Y, col = col[1], pch=pch[1],...)
+				points(X, Y, col = col[1], pch=pch[1], ...)
 			else{
 				for(i in 1:ngrps){
 					iref  <- as.character(obj$data[,3]) == groups[i]
