@@ -12,18 +12,15 @@ lr.b.com <- function( b, arguments )
     res.df   <- arguments$res.df 
     r.factor <- arguments$r.factor
 
-    if ( (method==1) | (method=='SMA') )
-    {
-        if ( b==0 ) 
-        {
+    if (method == 1 | method == 'SMA'){
+        
+        if (b == 0) {
             b <- 10^-6
         }
         l1b <- ( b^2*z[,2] + 2*b*z[,3] + z[,1] )/2/abs(b)
         l2b <- ( b^2*z[,2] - 2*b*z[,3] + z[,1] )/2/abs(b)
-
     }
-    else if ( (method==2) | (method=="MA") | (method==3) | (method=="lamest") )
-    {
+    else if (method == 2 | method == "MA" | method == 3 | method == "lamest" ){
         l1b <- ( lambda^2*z[,2] + 2*lambda*b*z[,3] + b^2*z[,1] )/( lambda + b^2 )
         l2b <- ( b^2*z[,2] - 2*b*z[,3] + z[,1] )/( lambda + b^2 )
     }
