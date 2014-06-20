@@ -65,6 +65,11 @@ slope.test <- function( y, x, test.value=1, data=NULL, method="SMA", alpha=0.05,
 
     r <- vr[1,2]/sqrt( vr[1,1]*vr[2,2] )
 
+    if(isTRUE(all.equal(r,1))){
+      warning("Group found with zero error variance.")
+      return(list( F=NA, r=1, p=NA, test.value=test.value, b=NA, ci=c(NA,NA) ))
+    }
+
     bCI     <- matrix( NA, 1, 2 )
     varTest <- matrix( 0, 2, 2 )
 

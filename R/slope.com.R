@@ -27,8 +27,7 @@ slope.com <- function( y, x, groups, method="SMA", alpha=0.05, data=NULL,
         if ( robust ){
 	   if (!intercept){
 		  stop("Sorry, robust estimation without an intercept term not yet implemented.")
-	   }
-           else {
+	   } else {
                 if (n[i]>1){ 
                       q  <- pchisq(3,2)
                       S  <- huber.M(dat[iref,])
@@ -37,47 +36,42 @@ slope.com <- function( y, x, groups, method="SMA", alpha=0.05, data=NULL,
                      
 		            # get robust.factor for group i (multiplier on variance matrix):
 	              r.factor[i] <- robust.factor(dat[iref,],q)[1] 
-		            }
-                    else if (n[i]==1)
-                    { xi <- matrix(0,2,2)
+		            } else if (n[i]==1) { 
+                    xi <- matrix(0,2,2)
                     r.factor[i] <- 0  } #leave as zero for n[i]=1
            }
            z[i,]     <- c( xi[1,1], xi[2,2], xi[1,2] )
 
-           if (do.bs==TRUE & n[i]>1)
-           {
-                slopei    <- slope.test(y[iref], x[iref], method=method, alpha=alpha, V=V[,,i], intercept=intercept, robust=TRUE)
+           if (do.bs & n[i]>1){
+                slopei    <- slope.test(y[iref], x[iref], method=method, alpha=alpha, 
+                                        V=V[,,i], intercept=intercept, robust=TRUE)
                 bs[,i]    <- c(slopei$b, slopei$ci)
            }
-        }
-    	else
-    	{
+        }	else {
            r.factor[i]<-1
        
-           if ( intercept==FALSE )
-           {
-	  	xi <- t(dat[iref, ]) %*% dat[iref, ] / n[i] - V[, , i]
-	   }
-           else 
-           {
-                if (n[i]>1)
-                    { xi <- cov(dat[iref, ]) - V[, , i] }
-                    else if (n[i]==1)
-                    { xi <- matrix(0,2,2) } #leave as zero for n[i]=1
+           if (!intercept) {
+	  	        xi <- t(dat[iref, ]) %*% dat[iref, ] / n[i] - V[, , i]
+	         } else  {
+                if (n[i]>1){ 
+                  xi <- cov(dat[iref, ]) - V[, , i] 
+                } else if (n[i]==1){ 
+                  xi <- matrix(0,2,2)  #leave as zero for n[i]=1
+                }
            }
 
-           z[i,]     <- c( xi[1,1], xi[2,2], xi[1,2] )
+           z[i,] <- c( xi[1,1], xi[2,2], xi[1,2] )
 
-           if (do.bs==TRUE & n[i]>1)
-           {
-                slopei    <- slope.test(y[iref], x[iref], method=method, 
+           if (do.bs & n[i]>1) {
+                slopei <- slope.test(y[iref], x[iref], method=method, 
                                         alpha=alpha, V=V[,,i], intercept=intercept,robust=FALSE )
-                bs[,i]    <- c(slopei$b, slopei$ci)
+                
+                bs[,i] <- c(slopei$b, slopei$ci)
            }
         }
     }
 
-    if (intercept==FALSE){ 
+    if (!intercept){ 
       res.df <- n-1 
     } else { 
       res.df <- n-2 
@@ -90,7 +84,7 @@ slope.com <- function( y, x, groups, method="SMA", alpha=0.05, data=NULL,
     }
     #input slope.test as common slope value.
     else { 
-        if ( (method==1) | (method=='SMA') ) { lambda <- slope.test^2 }
+        if ( method == 1 | method == 'SMA') { lambda <- slope.test^2 }
         res <- list(b=slope.test, bi=slope.test, l1=NA, l2=NA, lambda=lambda )
     }
     
@@ -98,7 +92,9 @@ slope.com <- function( y, x, groups, method="SMA", alpha=0.05, data=NULL,
     dets <- z[,1]*z[,2] - z[,3]^2 #This is l1*l2 under Halt.
     arguments <- list( l1=dets, l2=1, z=z, n=n, method=method, crit=0, 
                        lambda=lambda, res.df=res.df, r.factor=r.factor)
+    
     LR     <- lr.b.com(res$b, arguments) 
+    
     
     # if lambda is being estimated, check endpoint LR values:
     if (method == 3 | method == 'lamest')  {

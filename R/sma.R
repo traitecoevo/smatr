@@ -111,38 +111,45 @@ sma <- function(formula, data, subset, na.action, log='',
 			commonslopetestval <- NA
 			grouptestresult <- ""
 		} else {
-		
-		# Whenever there are groups, do test for common slope.
-		commonslopetest <- slope.com(mf[,1], mf[,2], mf[,3], alpha=alpha, intercept=intercept, method=method, group.names=lv, V=V2, robust=robust)
-		
-		# Test the common slope against hypthesized value, if this option is set.
-		if(!is.na(slope.test)){
-		commonslopetestval <- slope.com(mf[,1], mf[,2], mf[,3], alpha=alpha, slope.test=slope.test, intercept=intercept, method=method, group.names=lv, V=V2, robust=robust)
-		} else {
-		commonslopetestval <- NA
+  		
+
+  		# Whenever there are groups, do test for common slope.
+  		commonslopetest <- slope.com(mf[,1], mf[,2], mf[,3], alpha=alpha, 
+                                   intercept=intercept, method=method, group.names=lv, V=V2, robust=robust)
+  		
+  		# Test the common slope against hypthesized value, if this option is set.
+  		if(!is.na(slope.test)){
+  		commonslopetestval <- slope.com(mf[,1], mf[,2], mf[,3], alpha=alpha, 
+                                      slope.test=slope.test, intercept=intercept, method=method, 
+                                      group.names=lv, V=V2, robust=robust)
+  		} else {
+  		commonslopetestval <- NA
+  		}
+  		
+  		#run group tests
+  		if(grouptest == "elevcom"){
+  			if(!intercept)stop("Cannot perform elevation test without fitted intercept.")
+  			grouptestresult <- elev.com(mf[,1], mf[,2], mf[,3], alpha=alpha, 
+                                    method=method, group.names=lv, V=V2, robust=robust)
+  		}
+  		if(grouptest == "shiftcom"){
+  			grouptestresult <- shift.com(mf[,1], mf[,2], mf[,3], intercept=intercept, 
+                                     method=method, group.names=lv, V=V2, robust=robust)
+  		}
+  		if(grouptest == "slopecom")grouptestresult <- ""  #<-- already stored in commonslopetest
+  		
 		}
-		
-		#run group tests
-		if(grouptest == "elevcom"){
-			if(!intercept)stop("Cannot perform elevation test without fitted intercept.")
-			grouptestresult <- elev.com(mf[,1], mf[,2], mf[,3], alpha=alpha, method=method, group.names=lv, V=V2, robust=robust)
-		}
-		if(grouptest == "shiftcom"){
-			grouptestresult <- shift.com(mf[,1], mf[,2], mf[,3], intercept=intercept, method=method, group.names=lv, V=V2, robust=robust)
-		}
-		if(grouptest == "slopecom")grouptestresult <- ""  #<-- already stored in commonslopetest
-		
-		}
-	 }
-	else{
+    
+	 } else {
 	
-	# single group
+	  # single group
 		ngroups<-1	
 		grps <- as.factor(rep("all", length(mf[,1])))
 		lv <- levels(grps)
 		commonslopetest <- NA
 		commonslopetestval <- NA
 		grouptestresult <- ""
+    
 	}
 	 
 	#Calculate stuff for each group. Get the sma coefficients.
