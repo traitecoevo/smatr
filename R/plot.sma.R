@@ -161,7 +161,7 @@ plot.sma <- function(x, which=c("default","residual","qq"),  use.null=FALSE, add
     	   	 	if(log_data=="x")
         			curve(a+B*log10(x), from[i], to[i], add=TRUE, col = col.tr, lty= lty[i],...)
         		if(log_data=="y")
-        			curve(exp(a+x*B), from[i], to[i], add=TRUE, col = col.tr, lty= lty[i],...)
+        			curve(10^(a+x*B), from[i], to[i], add=TRUE, col = col.tr, lty= lty[i],...)
        	    	if(log_data=="")
         			curve(a + x*B, from[i], to[i], add=TRUE,  col = col.tr, lty= lty[i],...)
         	}
