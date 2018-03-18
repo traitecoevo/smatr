@@ -30,7 +30,7 @@ sma <- function(formula, data, subset, na.action, log='',
 		attributes(mf)$row.names <- rownames(mf)
 		if(!quiet){
       message("Warning: dropped level of grouping variable (sample size < ",n_min,") :")
-      print(paste(names(mf)[3]," = ",thislevel))
+      message(paste(names(mf)[3]," = ",thislevel))
 	  }
 	}
 	}
