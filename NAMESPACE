@@ -26,3 +26,12 @@ S3method(logLik, sma)
 S3method(coef, sma)
 S3method(predict, sma)
 S3method(fitted, sma)
+importFrom("grDevices", "col2rgb", "rgb")
+importFrom("graphics", "box", "curve", "mtext", "par", "plot",
+             "points")
+importFrom("stats", "coef", "cor", "cor.test", "cov", "fitted",
+             "model.frame", "na.omit", "pchisq", "pf", "pt", "qchisq",
+             "qf", "qqline", "qqnorm", "qt", "uniroot", "var")
+importFrom("utils", "combn", "str")
+
+  

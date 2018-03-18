@@ -9,7 +9,8 @@ changing the appearance of the plot and generating high-quality publishable grap
 	use.null = FALSE, add = FALSE, 	type = "o", xaxis = NULL, 
 	yaxis = NULL, xlab = NULL, ylab = NULL, pch = NULL, 
 	col = NULL, lty = NULL, from = NULL, to = NULL, 
-	log = x$log, frame.plot = TRUE, tck=par("tck"), p.lines.transparent=NA,...)}
+	log = x$log, frame.plot = TRUE, tck=par("tck"), 
+	p.lines.transparent = NA, axes = TRUE, ...)}
 	
 \arguments{
   \item{x}{Object of class 'sma'.}
@@ -28,7 +29,7 @@ X values corresponding the maximum and minimum fitted values in the data.).}
   \item{frame.plot}{a logical indicating whether a box should be drawn around the plot, by default = TRUE. }
   \item{tck}{The length of tick marks as a fraction of the smaller of the width or height of the plotting region. If tck >= 0.5 it is interpreted as a fraction of the relevant side, so if tck = 1 grid lines are drawn. By default set to current system defaults (tck = par("tck")).}
   \item{p.lines.transparent}{Adjusts transparency level of fitted lines according to p-value of correlation between X and Y, via formula opacity = 1-p/p.lines.transparent). Setting to a value 0.1 means the line for any group with p = 0.1 would be fully transparent, while line for a group with p =0.05 would be 50 perecent transparent. by default set to NA, which means lines are fully visible.}
-
+  \item{axes}{If FALSE, suppress plotting of the axes (Default TRUE)}
   \item{\dots}{Further arguments passed to \code{\link{plot.default}}.}
 }
 \details{
