@@ -1,3 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 test/
+^smatr\.Rproj$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
