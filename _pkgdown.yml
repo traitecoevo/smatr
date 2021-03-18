@@ -1,0 +1,25 @@
+reference:
+- title: Estimating a (Standardised) Major Axis
+  desc: Functions used to fit allometric lines
+- contents:
+  - sma
+  - coef.sma
+  - fitted.sma
+  - residuals.sma
+- title: Testing and making inferences about (S)MA
+  desc: Functions used to perform hypothesis testing using estimated lines
+- contents:
+  - slope.test
+  - elev.test
+  - elev.com
+  - shift.com
+  - line.cis
+- title: Looking at your estimated (S)MA
+  desc: Functions for visualisation axes
+- contents:
+  - starts_with("plot")
+  - multcompmatrix
+- title: Datasets
+  desc: Example datasets included with smatr
+- contents:
+  - starts_with("leaf")
