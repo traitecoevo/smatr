@@ -1,3 +1,7 @@
+ <!-- badges: start -->
+  [![Travis build status](https://travis-ci.com/fontikar/smatr3.svg?branch=master)](https://travis-ci.com/fontikar/smatr3)
+  <!-- badges: end -->
+
 # smatr: (Standardised) Major Axis Estimation and Testing Routines
 
 
@@ -45,3 +49,5 @@ To cite package `smatr` in publications use:
 ```
 
 Get citation information for `smatr` in R with `citation(package = 'smatr')`.
+
+
