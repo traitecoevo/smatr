@@ -2,13 +2,12 @@ Package: smatr
 Version: 3.4-8
 Title: (Standardised) Major Axis Estimation and Testing Routines
 Authors@R: c(
-    person("David", "Warton", email = "david.warton@unsw.edu.au", role = c("aut", "cre")),
-    person("Remko", "Duursma", role = c("aut", "cre")),
-    person("Daniel", "Falster", email = "daniel.falster@unsw.edu.au", role = c("aut", "cre"), 
+    person("David", "Warton", email = "david.warton@unsw.edu.au", role = "aut"),
+    person("Remko", "Duursma", email = "remkoduursma@gmail.com", role = c("aut", "cre")),
+    person("Daniel", "Falster", email = "daniel.falster@unsw.edu.au", role = "aut", 
     comment = c(ORCID = "0002-9814-092X")),
-    person("Sara", "Taskinen", role = c("aut", "cre"))
+    person("Sara", "Taskinen", role = "aut")
     )
-Maintainer: Remko Duursma <remkoduursma@gmail.com>
 Description: Methods for fitting bivariate lines in
     allometry using the major axis (MA) or standardised major axis (SMA), and
     for making inferences about such lines. The available methods of inference
