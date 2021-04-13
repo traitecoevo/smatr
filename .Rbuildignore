@@ -6,3 +6,4 @@ test/
 ^docs$
 ^pkgdown$
 ^\.travis\.yml$
+^codecov\.yml$

@@ -49,7 +49,10 @@ Collate:
     'sma.R'
     'summary.sma.R'
 Suggests: 
+    covr,
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
 VignetteBuilder: knitr
 BugReports: https://github.com/dfalster/smatr/issues
