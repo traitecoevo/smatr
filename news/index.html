@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sequence Generation — seqLog • smatr</title>
+<title>Changelog • smatr</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,7 @@
 
 
 
-<meta property="og:title" content="Sequence Generation — seqLog" />
-<meta property="og:description" content="Generate multiplicative sequences, or series." />
+<meta property="og:title" content="Changelog" />
 
 
 
@@ -59,7 +58,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-topic">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -126,50 +125,26 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Sequence Generation</h1>
-    
-    <div class="hidden name"><code>seqLog.Rd</code></div>
+      <h1 data-toc-skip>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/traitecoevo/smatr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="ref-description">
-    <p>Generate multiplicative sequences, or series.</p>
-    </div>
-
-    <pre class="usage"><span class='fu'>seqLog</span><span class='op'>(</span><span class='va'>from</span>, <span class='va'>to</span>, base <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span></pre>
-
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>from,to</th>
-      <td><p>the starting and (maximal) end value of a sequence.</p></td>
-    </tr>
-    <tr>
-      <th>base</th>
-      <td><p>multiplication value.</p></td>
-    </tr>
-    </table>
-
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>Starting at <code>from</code>, <code>seq</code> multiplies successively by <code>base</code> until the maximal value is reached. This is useful for generating tick-spacing on log-transformed axes.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='plotutils.html'>nicePlot</a></code>, <code><a href='makeLogMinor.html'>makeLogMinor</a></code></p></div>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>#Sequence suitable for log base 10 labels</span>
-<span class='fu'>seqLog</span><span class='op'>(</span><span class='fl'>1E-5</span>, <span class='fl'>1E5</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] 1e-05 1e-04 1e-03 1e-02 1e-01 1e+00 1e+01 1e+02 1e+03 1e+04 1e+05</div><div class='input'>
-<span class='co'>#Sequence suitable for log base 2 labels</span>
-<span class='fu'>seqLog</span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>128</span>,base<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1]   2   4   8  16  32  64 128</div></pre>
+    <div id="smatr-34-8" class="section level1">
+<h1 class="page-header" data-toc-text="3.4-8">
+<a href="#smatr-34-8" class="anchor"></a>smatr 3.4-8<small> 2018-03-18 </small>
+</h1>
+<ul>
+<li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
+</ul>
+</div>
   </div>
+
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
+
 </div>
 
 

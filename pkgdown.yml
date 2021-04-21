@@ -4,5 +4,8 @@ pkgdown_sha: ~
 articles:
   Examples: Examples.html
   smatr: smatr.html
-last_built: 2021-04-21T06:23Z
+last_built: 2021-04-21T06:45Z
+urls:
+  reference: https://traitecoevo.github.io/smatr//reference
+  article: https://traitecoevo.github.io/smatr//articles
 
