@@ -1,7 +1,7 @@
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/smatr)](https://CRAN.R-project.org/package=smatr)
-[![R-CMD-check](https://github.com/traitecoevo/smatr/workflows/R-CMD-check/badge.svg)](https://github.com/traitecoevo/smatr/develop)
-[![Codecov test coverage](https://codecov.io/gh/traitecoevo/smatr/branch/develop/graph/badge.svg)](https://codecov.io/gh/traitecoevo/smatr?branch=develop)
+[![R-CMD-check](https://github.com/traitecoevo/smatr/workflows/R-CMD-check/badge.svg)](https://github.com/traitecoevo/smatr/master)
+[![Codecov test coverage](https://codecov.io/gh/traitecoevo/smatr/branch/master/graph/badge.svg)](https://codecov.io/gh/traitecoevo/smatr?branch=master)
 <!-- badges: end -->
 
 # smatr: (Standardised) Major Axis Estimation and Testing Routines
