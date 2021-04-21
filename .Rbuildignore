@@ -7,3 +7,4 @@ test/
 ^pkgdown$
 ^\.travis\.yml$
 ^codecov\.yml$
+^\.github$
