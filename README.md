@@ -1,5 +1,10 @@
-# smatr: (Standardised) Major Axis Estimation and Testing Routines
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/smatr)](https://CRAN.R-project.org/package=smatr)
+[![R-CMD-check](https://github.com/traitecoevo/smatr/workflows/R-CMD-check/badge.svg)](https://github.com/traitecoevo/smatr/master)
+[![Codecov test coverage](https://codecov.io/gh/traitecoevo/smatr/branch/master/graph/badge.svg)](https://codecov.io/gh/traitecoevo/smatr?branch=master)
+<!-- badges: end -->
 
+# smatr: (Standardised) Major Axis Estimation and Testing Routines
 
 `smatr` is an R package for fitting (Standardised) Major Axis Lines to bivariate data. The package is described in the following publication:
 
@@ -45,3 +50,5 @@ To cite package `smatr` in publications use:
 ```
 
 Get citation information for `smatr` in R with `citation(package = 'smatr')`.
+
+

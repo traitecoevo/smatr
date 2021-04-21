@@ -5,3 +5,7 @@ test/
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^\.travis\.yml$
+^codecov\.yml$
+^\.github$
+^LICENSE\.md$
