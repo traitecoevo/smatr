@@ -16,9 +16,8 @@ Description: Methods for fitting bivariate lines in
     constructing a confidence interval for a common slope or elevation, and
     testing for no shift along a common axis, amongst several samples. 
     See Warton et al. 2012 <doi:10.1111/j.2041-210X.2011.00153.x> for methods description.
-License: GPL-2
-URL: http://web.maths.unsw.edu.au/~dwarton,
-    http://www.bitbucket.org/remkoduursma/smatr
+License: GPL (>= 3)
+URL: https://github.com/traitecoevo
 Collate:
     'alpha.fun.R'
     'b.com.est.R'
@@ -56,4 +55,4 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 VignetteBuilder: knitr
-BugReports: https://github.com/dfalster/smatr/issues
+BugReports: https://github.com/traitecoevo/smatr/issues

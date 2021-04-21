@@ -1,3 +1,8 @@
+url: https://traitecoevo.github.io/smatr/
+
+template:
+  bootswatch: cosmo
+
 reference:
 - title: Estimating a (Standardised) Major Axis
   desc: Functions used to fit allometric lines
