@@ -15,5 +15,173 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(smatr)
+# Load leaf lifetime dataset:
+data(leaflife)
+
+### One sample analyses ###
+# Extract only low-nutrient, low-rainfall data:
+leaf.low <- subset(leaflife, soilp == 'low' & rain == 'low')
+
+# Fit a MA for log(leaf longevity) vs log(leaf mass per area):
+ma(longev ~ lma, log='xy', data=leaflife)
+#> Call: sma(formula = ..1, data = ..3, log = "xy", method = "MA") 
+#> 
+#> Fit using Major Axis 
+#> 
+#> These variables were log-transformed before fitting: xy 
+#> 
+#> Confidence intervals (CI) are at 95%
+#> 
+#> ------------------------------------------------------------
+#> Coefficients:
+#>             elevation    slope
+#> estimate    -3.085214 1.492616
+#> lower limit -3.968020 1.146777
+#> upper limit -2.202407 2.001084
+#> 
+#> H0 : variables uncorrelated
+#> R-squared : 0.4544809 
+#> P-value : 4.0171e-10 
+#> 
+
+# Test if the MA slope is not significantly different from 1:
+ma.test <- ma(longev ~ lma, log='xy', slope.test=1, data=leaflife)
+summary(ma.test)
+#> Call: sma(formula = ..1, data = ..4, log = "xy", method = "MA", slope.test = 1) 
+#> 
+#> Fit using Major Axis 
+#> 
+#> These variables were log-transformed before fitting: xy 
+#> 
+#> Confidence intervals (CI) are at 95%
+#> 
+#> ------------------------------------------------------------
+#> Coefficients:
+#>             elevation    slope
+#> estimate    -3.085214 1.492616
+#> lower limit -3.968020 1.146777
+#> upper limit -2.202407 2.001084
+#> 
+#> H0 : variables uncorrelated
+#> R-squared : 0.4544809 
+#> P-value : 4.0171e-10 
+#> 
+#> ------------------------------------------------------------
+#> H0 : slope not different from 1 
+#> Test statistic : r= 0.3515 with 65 degrees of freedom under H0
+#> P-value : 0.0035393 
+
+# Construct a residual plot to check assumptions:
+plot(ma.test,type="residual")
+
+
+### Several sample analyses ###
+
+# Now consider low-nutrient sites (high and low rainfall):
+leaf.low.soilp <- subset(leaflife, soilp == 'low')
+
+# Fit SMA's separately at each of high and low rainfall sites,
+# and test for common slope:
+com.test <- sma(longev~lma*rain, log="xy", data=leaf.low.soilp)
+com.test
+#> Call: sma(formula = longev ~ lma * rain, data = leaf.low.soilp, log = "xy") 
+#> 
+#> Fit using Standardized Major Axis 
+#> 
+#> These variables were log-transformed before fitting: xy 
+#> 
+#> Confidence intervals (CI) are at 95%
+#> 
+#> ------------------------------------------------------------
+#> Results of comparing lines among groups.
+#> 
+#> H0 : slopes are equal.
+#> Likelihood ratio statistic : 2.367 with 1 degrees of freedom
+#> P-value : 0.12395 
+#> ------------------------------------------------------------
+#> 
+#> Use the summary() function to print coefficients by group.
+
+# Plot longevity vs LMA separately for each group:
+plot(com.test)
+
+
+# Fit SMA's separately at each of high and low rainfall sites,
+# and test if there is a common slope equal to 1:
+sma(longev~lma*rain, log="xy", slope.test=1, data=leaf.low.soilp)
+#> Call: sma(formula = longev ~ lma * rain, data = leaf.low.soilp, log = "xy", 
+#>     slope.test = 1) 
+#> 
+#> Fit using Standardized Major Axis 
+#> 
+#> These variables were log-transformed before fitting: xy 
+#> 
+#> Confidence intervals (CI) are at 95%
+#> 
+#> ------------------------------------------------------------
+#> Results of comparing lines among groups.
+#> 
+#> H0 : slopes are equal.
+#> Likelihood ratio statistic : 2.367 with 1 degrees of freedom
+#> P-value : 0.12395 
+#> ------------------------------------------------------------
+#> 
+#> H0 : common slope not different from 1 
+#> Likelihood ratio statistic = 8.677 with 2 degrees of freedom under H0
+#> P-value : 0.013057 
+#> 
+#> Use the summary() function to print coefficients by group.
+
+# Fit SMA's with common slope across each of high and low rainfall sites, 
+# and test for common elevation:
+sma(longev~lma+rain, log="xy", data=leaf.low.soilp)
+#> Call: sma(formula = longev ~ lma + rain, data = leaf.low.soilp, log = "xy") 
+#> 
+#> Fit using Standardized Major Axis 
+#> 
+#> These variables were log-transformed before fitting: xy 
+#> 
+#> Confidence intervals (CI) are at 95%
+#> 
+#> ------------------------------------------------------------
+#> Results of comparing lines among groups.
+#> 
+#> H0 : slopes are equal.
+#> Likelihood ratio statistic : 2.367 with 1 degrees of freedom
+#> P-value : 0.12395 
+#> ------------------------------------------------------------
+#> 
+#> H0 : no difference in elevation.
+#> Wald statistic: 6.566 with 1 degrees of freedom
+#> P-value : 0.010393 
+#> ------------------------------------------------------------
+#> 
+#> Use the summary() function to print coefficients by group.
+
+# Fit SMA's with common slope across each of high and low rainfall sites, 
+# and test for no shift along common SMA:
+sma(longev~lma+rain, log="xy", type="shift", data=leaf.low.soilp)
+#> Call: sma(formula = longev ~ lma + rain, data = leaf.low.soilp, log = "xy", 
+#>     type = "shift") 
+#> 
+#> Fit using Standardized Major Axis 
+#> 
+#> These variables were log-transformed before fitting: xy 
+#> 
+#> Confidence intervals (CI) are at 95%
+#> 
+#> ------------------------------------------------------------
+#> Results of comparing lines among groups.
+#> 
+#> H0 : slopes are equal.
+#> Likelihood ratio statistic : 2.367 with 1 degrees of freedom
+#> P-value : 0.12395 
+#> ------------------------------------------------------------
+#> 
+#> H0 : no shift along common axis.
+#> Wald statistic: 0.2091 with 1 degrees of freedom
+#> P-value : 0.64745 
+#> ------------------------------------------------------------
+#> 
+#> Use the summary() function to print coefficients by group.
 ```
