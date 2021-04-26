@@ -33,9 +33,6 @@ then load the library
 ```{r, message=FALSE}
 # Load library
 library(smatr)
-
-#We will also use the tidyverse pipe in conjunction with smatr
-library(tidyverse)
 ```
 
 Note we will illustrate some of the core functions of `smatr` using one of the two data sets included in the package
@@ -61,13 +58,14 @@ ma(longev ~ lma, log='xy', data=leaflife)
 ```
 
 ### Testing for significance ###
-Users can specify using the argument `slope.test` in the `ma()` or `sma()` function to test whether the estimated slope is significantly different from 1.Calling summary to `sma` or `ma` objects will return confidence intervals for the slope and/or elevation.
+Users can specify using the argument `slope.test` in the `ma()` or `sma()` function to test whether the estimated slope is significantly different from 1. Calling summary to `sma` or `ma` objects will return confidence intervals for the slope and/or elevation.
 
 ```{r}
 # Test if the MA slope is not significantly different from 1 for longevity and leaf mass per area (LMA):
-ma(longev ~ lma, log='xy', slope.test=1, data=leaflife) %>% summary()
+ma_obj <- ma(longev ~ lma, log='xy', slope.test=1, data=leaflife) 
 
-ma(longev ~ lma, log='xy', slope.test=1, data=leaflife) %>% plot()
+summary(ma_obj)
+plot(ma_obj)
 ```
 
 ### Multiple sample analyses ###
@@ -79,17 +77,19 @@ Often researchers wish to compare between slopes or intercepts of axes between d
 leaf.low.soilp <- subset(leaflife, soilp == 'low')
 
 # Then using * we can fit SMAs separately at each of high and low rainfall sites and test for whether sites with different rainfall share a common slope
-sma(longev~lma*rain, log="xy", data=leaf.low.soilp) %>% summary()
+rain_sma_obj <- sma(longev~lma*rain, log="xy", data=leaf.low.soilp)
 
 # Lets plot longevity vs LMA separately for each group first:
-sma(longev~lma*rain, log="xy", data=leaf.low.soilp) %>% plot()
+plot(rain_sma_obj)
 ```
 
 By default, the `sma()` function will first fit a common slope for all groups and then test whether there is a difference in elevation
 
 ```{r}
 # Fit SMAs for each group and tests if several SMA lines share a common slope. 
-sma(longev~lma+rain, log="xy", data=leaf.low.soilp) %>% summary()
+rain_sma_obj <- sma(longev~lma*rain, log="xy", data=leaf.low.soilp)
+
+summary(rain_sma_obj)
 ```
 
 Again, using the `slope.test` will test whether the common slope is significantly different to 1.
@@ -97,21 +97,26 @@ Again, using the `slope.test` will test whether the common slope is significantl
 ```{r}
 # Fit SMAs separately at each of high and low rainfall sites,
 # and test if there is a common slope and whether it is equal to 1:
-sma(longev~lma*rain, log="xy", slope.test=1, data=leaf.low.soilp) %>% summary()
+rain_slope_obj <- sma(longev~lma*rain, log="xy", slope.test=1, data=leaf.low.soilp)
+
+summary(rain_slope_obj)
 ```
 
 The `type` argument allows users to test for a change in elevation
 
 ```{r}
 # Fit SMAs separately at each of high and low rainfall sites, and test whether sites differ in the elevation of their SMA
-sma(longev~lma*rain, log="xy", type = "elevation", data=leaf.low.soilp) %>% summary()
+rain_elev_obj <- sma(longev~lma*rain, log="xy", type = "elevation", data=leaf.low.soilp)
+
+summary(rain_elev_obj)
 ```
 
 The `type` argument allows users to also test for shifts along a common axis
 
 ```{r}
 # Fit SMAs with common slope across each of high and low rainfall sites, and test for no shift along common SMA:
-sma(longev~lma+rain, log="xy", type="shift", data=leaf.low.soilp) %>% summary()
+rain_shift_obj <- sma(longev~lma+rain, log="xy", type="shift", data=leaf.low.soilp)
+summary(rain_shift_obj)
 ```
 
 
