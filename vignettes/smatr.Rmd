@@ -3,8 +3,10 @@ title: "Getting Started"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Getting-Started}
-  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r, include = FALSE}
@@ -15,54 +17,79 @@ knitr::opts_chunk$set(
 )
 ```
 
-### The set up ###
+Below contains a brief overview on how to get users started with `smatr` 
 
-```{r setup}
-#Load library
+More detailed information about the package can be found here:
+Warton, D. I., Duursma, R. A., Falster, D. S., & Taskinen, S. (2012). [smatr 3–an R package for estimation and inference about allometric lines](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210X.2011.00153.x). Methods in Ecology and Evolution, 3(2), 257-259. 
+
+First, install smatr`
+```{r setup, eval = FALSE}
+# Install via CRAN or github
+install.packages("smatr")
+devtools::install_github("dfalster/smatr3")
+```
+
+then load the library
+```{r}
+# Load library
 library(smatr)
+```
 
-# Load leaf lifetime data set:
+Note we will illustrate some of the core functions of `smatr` using one of the two data sets included in the package
+```{r}
 data(leaflife)
-data(leaflife)
+data(leafmeas)
+
+#For more details on each data set
+?leaflife
+?leafmeas
 ```
 
 ### One sample analyses ###
 
+Users can fit a single major axis to their data using the `ma(y ~ x)` or `sma(y ~x)` functions for y against x. The `log` argument allows quick transformations to one or both axes before estimation occurs. These functions will return confidence intervals for the slope and elevation. For example: 
+
 ```{r}
-# Extract only low-nutrient, low-rainfall data:
+# Extract only low-nutrient, low-rainfall data from leaflife dataset:
 leaf.low <- subset(leaflife, soilp == 'low' & rain == 'low')
 
-# Fit a MA for log(leaf longevity) vs log(leaf mass per area):
+# Fit a single MA for log(leaf longevity) vs log(leaf mass per area):
 ma(longev ~ lma, log='xy', data=leaflife)
+```
 
-# Test if the MA slope is not significantly different from 1:
+### Testing for significance ###
+Users can specify using the argument `slope.test` in the `ma()` or `sma()` function to test whether the estimated slope is significantly different from 1
+
+```{r}
+# Test if the MA slope is not significantly different from 1 for longevity and leaf mass per area (LMA):
 ma.test <- ma(longev ~ lma, log='xy', slope.test=1, data=leaflife)
 summary(ma.test)
 
-# Construct a residual plot to check assumptions:
+# Construct a plot to check assumption of normally distributed residuals
 plot(ma.test,type="residual")
 ```
 
-### Several sample analyses ###
+### Multiple sample analyses ###
+
+Often researchers wish to compare between slopes or intercepts of axes between different groups. Lets say we want to compare between high and low rainfall for low nutrient sites ONLY
 
 ```{r}
-# Now consider low-nutrient sites (high and low rainfall):
+# First we subset the data that is relevant
 leaf.low.soilp <- subset(leaflife, soilp == 'low')
 
-# Fit SMAs separately at each of high and low rainfall sites,
-# and test for common slope:
+# Then using * we can fit SMAs separately at each of high and low rainfall sites and test for whether sites with different rainfall share a common slope
 com.test <- sma(longev~lma*rain, log="xy", data=leaf.low.soilp)
 com.test
 
-# Plot longevity vs LMA separately for each group:
+# Lets plot longevity vs LMA separately for each group first:
 plot(com.test)
+
+# Fit SMAs with common slope across each of high and low rainfall sites, and test for common elevation:
+sma(longev~lma+rain, log="xy", data=leaf.low.soilp)
 
 # Fit SMAs separately at each of high and low rainfall sites,
 # and test if there is a common slope equal to 1:
 sma(longev~lma*rain, log="xy", slope.test=1, data=leaf.low.soilp)
-
-# Fit SMAs with common slope across each of high and low rainfall sites, and test for common elevation:
-sma(longev~lma+rain, log="xy", data=leaf.low.soilp)
 
 # Fit SMAs with common slope across each of high and low rainfall sites, and test for no shift along common SMA:
 sma(longev~lma+rain, log="xy", type="shift", data=leaf.low.soilp)
