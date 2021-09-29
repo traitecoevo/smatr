@@ -5,7 +5,8 @@ sma <- function(formula, data, subset, na.action, log='',
 	 robust=FALSE,V=matrix(0,2,2),n_min=3,quiet=FALSE,
 	 ...)
 {
-	method <- match.arg(method)
+ 
+  method <- match.arg(method)
 	type <- match.arg(type)
 	multcompmethod <- match.arg(multcompmethod)
 	
@@ -165,7 +166,7 @@ sma <- function(formula, data, subset, na.action, log='',
 	
 		#sma coefficients 
 		coeff[[i]] <- line.cis(Y,X,intercept=intercept, method=method, 
-			alpha=alpha, robust=robust, ...)   
+			alpha=alpha, robust=robust, V=V, ...)   
 
 		# correlation and P-value
 		if(intercept){
