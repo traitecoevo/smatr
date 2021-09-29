@@ -1,4 +1,3 @@
-
 ## One sample analyses
 # Extract only low-nutrient, low-rainfall data:
 leaf.low <- subset(leaflife, soilp == 'low' & rain == 'low')
@@ -7,16 +6,18 @@ leaf.low <- subset(leaflife, soilp == 'low' & rain == 'low')
 fit <- sma(longev ~ lma, log='xy', data=leaflife)
 fit2 <- ma(longev ~ lma, log='xy', data=leaflife)
 
-expect_type(fit, "list")
-expect_identical(class(fit), "sma")
-expect_identical(class(fit2), class(fit))
-
-expected <- c('coef', 'nullcoef', 'commoncoef', 'commonslopetestval', 'alpha', 'method', 'intercept', 'call', 'data', 'log', 'variables', 'origvariables', 'formula', 'groups', 'groupvarname', 'gt', 'gtr', 'slopetest', 'elevtest', 'slopetestdone', 'elevtestdone', 'n', 'r2', 'pval', 'from', 'to', 'groupsummary', 'multcompresult', 'multcompdone', 'multcompmethod')
-
-expect_named(fit, expected)
-
-expect_equal(nrow(fit$groupsummary), 1)
-expect_equal(ncol(fit$groupsummary), 14)
+test_that("Object classes are correct", {
+  expect_type(fit, "list")
+  expect_identical(class(fit), "sma")
+  expect_identical(class(fit2), class(fit))
+  
+  expected <- c('coef', 'nullcoef', 'commoncoef', 'commonslopetestval', 'alpha', 'method', 'intercept', 'call', 'data', 'log', 'variables', 'origvariables', 'formula', 'groups', 'groupvarname', 'gt', 'gtr', 'slopetest', 'elevtest', 'slopetestdone', 'elevtestdone', 'n', 'r2', 'pval', 'from', 'to', 'groupsummary', 'multcompresult', 'multcompdone', 'multcompmethod')
+  
+  expect_named(fit, expected)
+  
+  expect_equal(nrow(fit$groupsummary), 1)
+  expect_equal(ncol(fit$groupsummary), 14)
+})
 
 
 fit.sma_multi <- sma(longev ~ lma*site, log='xy', data=leaflife)

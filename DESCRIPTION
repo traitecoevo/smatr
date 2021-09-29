@@ -16,7 +16,7 @@ Description: Methods for fitting bivariate lines in
     constructing a confidence interval for a common slope or elevation, and
     testing for no shift along a common axis, amongst several samples. 
     See Warton et al. 2012 <doi:10.1111/j.2041-210X.2011.00153.x> for methods description.
-License: GPL (>= 3)
+License: GPL (>= 3) + file LICENSE
 URL: https://github.com/traitecoevo
 Collate:
     'alpha.fun.R'
