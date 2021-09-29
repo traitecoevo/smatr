@@ -9,4 +9,3 @@ test/
 ^codecov\.yml$
 ^\.github$
 ^LICENSE\.md$
-^ignore/$

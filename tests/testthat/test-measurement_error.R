@@ -1,9 +1,11 @@
 data(leaflife)
-leaf.low.soilp <-leaflife %>% dplyr::filter(soilp == 'low')
+leaf.low.soilp <-leaflife %>% filter(soilp == 'low')
 V2 = matrix(c(0.01,0,0.0,0.01),2,2)
 
 #Most simple fit
 default_sma <- sma(longev~lma, data=leaf.low.soilp)
+default_sma$coef
+
 measure_error_sma <- sma(longev~lma, data=leaf.low.soilp, V = V2)
 
 test_that("Functions accounts for measurement error", {
