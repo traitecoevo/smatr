@@ -102,10 +102,10 @@ sma <- function(formula, data, subset, na.action, log='',
 		ngroups <- nlevels(mf[,3])
 		
 		# Fix the V matrix, when multiple grouping (cf. email david on Feb 4)
-		if(length(dim(V)) == 2 & ncol(V) == nrow(V))
-		  V2 <- array( V, c(dim(V), ngroups))
-		else(V2 = V)
-		
+		if (length(dim(V)) == 2 & nrow(V) == 2 & ncol(V) == 2)
+		  V2 <- array(V, c(dim(V), ngroups))
+		else
+		  V2=V
 		
 		grps<-mf[,3]
 		lv <- levels(grps)
