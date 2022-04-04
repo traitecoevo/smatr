@@ -26,6 +26,7 @@ S3method(logLik, sma)
 S3method(coef, sma)
 S3method(predict, sma)
 S3method(fitted, sma)
+S3method(confint, sma)
 importFrom("grDevices", "col2rgb", "rgb")
 importFrom("graphics", "box", "curve", "mtext", "par", "plot",
              "points")
