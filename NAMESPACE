@@ -34,5 +34,10 @@ importFrom("stats", "coef", "cor", "cor.test", "cov", "fitted",
              "model.frame", "na.omit", "pchisq", "pf", "pt", "qchisq",
              "qf", "qqline", "qqnorm", "qt", "uniroot", "var")
 importFrom("utils", "combn", "str")
+importFrom("tidyr", "pivot_longer")
+importFrom("dplyr", "ends_with", "select", "mutate", "bind_rows")
+importFrom("stringr", "str_detect")
+importFrom("magrittr", "%>%")
+importFrom("rlang", ".data")
 
   

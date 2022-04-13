@@ -5,13 +5,13 @@ confint.sma <- function(object, ...){
   # Function to create confint output
   produce_confint <- function(grp_summary){
     grp_summary %>% 
-      dplyr::select(ends_with("CI")) %>% 
+      dplyr::select(dplyr::ends_with("CI")) %>% 
       tidyr::pivot_longer(cols = 1:4) -> tmp
     
     tmp %>%
       dplyr::mutate(ci_type = ifelse(str_detect(tmp$name, "low"), "Lower", "Upper"),
              coef_type = ifelse(stringr::str_detect(tmp$name, "Int"), "(Intercept)", "slope")) %>% 
-      tidyr::pivot_wider(id_cols = coef_type, values_from = value, names_from = ci_type) %>% 
+      tidyr::pivot_wider(id_cols = .data$coef_type, values_from = .data$value, names_from = .data$ci_type) %>% 
       as.data.frame() -> out
     
     rownames(out) <- out$coef_type
