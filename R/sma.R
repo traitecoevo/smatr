@@ -148,7 +148,8 @@ sma <- function(formula, data, subset, na.action, log='',
 	 } else {
 	
 	  # single group
-		ngroups<-1	
+		ngroups<-1
+		V2 = array(V, c(dim(V), ngroups)) 
 		grps <- as.factor(rep("all", length(mf[,1])))
 		lv <- levels(grps)
 		commonslopetest <- NA
