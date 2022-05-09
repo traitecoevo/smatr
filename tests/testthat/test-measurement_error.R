@@ -72,7 +72,7 @@ test_that("Array group estimations", {
   expect_true(arr_me_sma$coef[[2]][2,1] != arr_default_sma$coef[[2]][2,1])
 }) 
 
-# Cross checking with other functions
+# Cross checking with other functions #Isaac Towers inspired
 # Create high rainfall, low soil ph dataset
 highrain.lowsoilp <- leaf.low.soilp[leaf.low.soilp$rain == "high",]
 
@@ -84,8 +84,14 @@ test_that("Values match other functions", {
 }) 
 
 
+# Including elevation test with ME #Robert Colwell inspired
 
+rb_default <- sma(logLongev~logLMA, type = "elevation", data=leaf.low.soilp)
+rb_me <- sma(logLongev~logLMA, type = "elevation", data=leaf.low.soilp, V=V2)
 
-
+test_that("Values are different", {
+  expect_true(rb_me$coef[[1]][2,1] != rb_default$coef[[1]][2,1])
+  expect_true(me_gp_inter_sma$coef[[1]][2,1] == coef.sma(me_gp_inter_sma)[1,2])
+}) 
 
 
