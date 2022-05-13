@@ -49,13 +49,13 @@ test_that("Calculations are correct", {
   high <- subset(soil.low, rain == "high")
   low <- subset(soil.low, rain == "low")
   
-  ( fitted_high <- summary(sma_slop_obj)$Slope[1]*log10(high$longev) + log10(high$lma) )
+  ( fitted_high <- log10(high$longev) + (summary(sma_slop_obj)$Slope[1] * log10(high$lma) ) )
   ( fitted_high - mean(fitted_high) )
   
-  ( fitted_low <- summary(sma_slop_obj)$Slope[2]*log10(low$longev) + log10(low$lma) )
+  ( fitted_low <- log10(low$longev) + (summary(sma_slop_obj)$Slope[2] * log10(low$lma) ))
   ( fitted_low - mean(fitted_low) )
   
   expect_length(fitted.sma(sma_slop_obj), length(fitted_high) + length(fitted_low))
   expect_equal(fitted.sma(sma_slop_obj, centered = FALSE), c(fitted_high, fitted_low))
-  expect_equal(fitted.sma(sma_slop_obj, centered = TRUE), c(fitted_high - mean(fitted_high), fitted_low - mean(fitted_low)))
+  expect_equal(fitted.sma(sma_slop_obj, centered = TRUE), c(fitted_high, fitted_low) - mean( c(fitted_high, fitted_low)))
 })
