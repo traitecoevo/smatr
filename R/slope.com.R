@@ -20,15 +20,19 @@ slope.com <- function( y, x, groups, method="SMA", alpha=0.05, data=NULL,
     z      <- matrix( 0, g, 3 )
     do.bs  <- bs
     bs     <- matrix( NA, 3, g, dimnames=list(c("slope","lower.CI.lim","upper.CI.lim"),group.names) )
-    for (i in 1:g){
+    for (i in 1:g)
+    {
         iref   <- ( groups==group.names[i] )
         iref   <- iref & ( is.na(x+y) == FALSE )
         n[i]   <- sum(iref)
         if ( robust ){
-	   if (!intercept){
-		  stop("Sorry, robust estimation without an intercept term not yet implemented.")
-	   } else {
-                if (n[i]>1){ 
+	       if (!intercept){
+	    	  stop("Sorry, robust estimation without an intercept term not yet implemented.")
+	       }
+         else
+	       {
+            if (n[i]>1)
+            { 
                       q  <- pchisq(3,2)
                       S  <- huber.M(dat[iref,])
 		                  xi <- S$cov-V[, , i]  
@@ -36,11 +40,14 @@ slope.com <- function( y, x, groups, method="SMA", alpha=0.05, data=NULL,
                      
 		            # get robust.factor for group i (multiplier on variance matrix):
 	              r.factor[i] <- robust.factor(dat[iref,],q)[1] 
-		            } else if (n[i]==1) { 
+		        }
+	          else if (n[i]==1)
+	                  { 
                     xi <- matrix(0,2,2)
-                    r.factor[i] <- 0  } #leave as zero for n[i]=1
-           }
-           z[i,]     <- c( xi[1,1], xi[2,2], xi[1,2] )
+                    r.factor[i] <- 0  
+                    } #leave as zero for n[i]=1
+          }
+          z[i,]     <- c( xi[1,1], xi[2,2], xi[1,2] )
 
            if (do.bs & n[i]>1){
                 slopei    <- slope.test(y[iref], x[iref], method=method, alpha=alpha, 
@@ -61,7 +68,7 @@ slope.com <- function( y, x, groups, method="SMA", alpha=0.05, data=NULL,
            }
 
            z[i,] <- c( xi[1,1], xi[2,2], xi[1,2] )
-
+           
            if (do.bs & n[i]>1) {
                 slopei <- slope.test(y[iref], x[iref], method=method, 
                                         alpha=alpha, V=V[,,i], intercept=intercept,robust=FALSE )
@@ -70,7 +77,9 @@ slope.com <- function( y, x, groups, method="SMA", alpha=0.05, data=NULL,
            }
         }
     }
-
+    if(any(z[,1:2]<=0))
+      stop("A measurement error variance is too large (it is larger than the sample variance in one of the observed variables!)")
+    
     if (!intercept){ 
       res.df <- n-1 
     } else { 
