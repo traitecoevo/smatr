@@ -5,7 +5,8 @@ sma <- function(formula, data, subset, na.action, log='',
 	 robust=FALSE,V=matrix(0,2,2),n_min=3,quiet=FALSE,
 	 ...)
 {
-	method <- match.arg(method)
+ 
+  method <- match.arg(method)
 	type <- match.arg(type)
 	multcompmethod <- match.arg(multcompmethod)
 	
@@ -101,7 +102,11 @@ sma <- function(formula, data, subset, na.action, log='',
 		ngroups <- nlevels(mf[,3])
 		
 		# Fix the V matrix, when multiple grouping (cf. email david on Feb 4)
-		if(length(dim(V)) == 2)V2 <- array( V, c(dim(V), ngroups) )
+		if (length(dim(V)) == 2 & nrow(V) == 2 & ncol(V) == 2)
+		  V2 <- array(V, c(dim(V), ngroups))
+		else
+		  V2=V
+		
 		grps<-mf[,3]
 		lv <- levels(grps)
 		
@@ -143,7 +148,8 @@ sma <- function(formula, data, subset, na.action, log='',
 	 } else {
 	
 	  # single group
-		ngroups<-1	
+		ngroups<-1
+		V2 = array(V, c(dim(V), ngroups)) 
 		grps <- as.factor(rep("all", length(mf[,1])))
 		lv <- levels(grps)
 		commonslopetest <- NA
@@ -165,7 +171,7 @@ sma <- function(formula, data, subset, na.action, log='',
 	
 		#sma coefficients 
 		coeff[[i]] <- line.cis(Y,X,intercept=intercept, method=method, 
-			alpha=alpha, robust=robust, ...)   
+			alpha=alpha, robust=robust, V=V2[,,i], ...)   
 
 		# correlation and P-value
 		if(intercept){
@@ -179,21 +185,21 @@ sma <- function(formula, data, subset, na.action, log='',
       	# Test slope against some specified value
      	if(!is.na(slope.test)){
 			slopetest[[i]] <- slope.test(Y,X,  test.value=slope.test, method=method, 
-				alpha=alpha, intercept=intercept, robust=robust)
+				alpha=alpha, V=V2[,,i], intercept=intercept, robust=robust)
 			slopetestdone <- TRUE
 		} else {
 			slopetest[[i]] <- slope.test(Y,X,  test.value=NA, method=method, 
-				alpha=alpha, intercept=intercept, robust=robust)
+				alpha=alpha, V=V2[,,i], intercept=intercept, robust=robust)
 			slopetestdone <- FALSE
 		}
 	
 		# Test elevation against some specified value
 		if(!is.na(elev.test)){
 			if(!intercept)stop("Cannot perform elevation test without fitted intercept.")
-				elevtest[[i]] <- elev.test( Y,X, test.value=elev.test, method=method, alpha=alpha, robust=robust)
+				elevtest[[i]] <- elev.test( Y,X, test.value=elev.test, method=method, alpha=alpha, robust=robust, V=V2[,,i])
 				elevtestdone <- TRUE
 		} else {
-				elevtest[[i]] <- elev.test( Y,X, test.value=NA, method=method, alpha=alpha, robust=robust)
+				elevtest[[i]] <- elev.test( Y,X, test.value=NA, method=method, alpha=alpha, robust=robust, V=V2[,,i])
 				elevtestdone <- FALSE
 		}
       	
