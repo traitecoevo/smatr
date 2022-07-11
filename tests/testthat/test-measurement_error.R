@@ -161,3 +161,10 @@ expect_lt(coef(ftMeasX)[1,1], coef(ftZero)[1,1])
 expect_lt(coef(ftMeasX)[2,1], coef(ftZero)[2,1])
 expect_lt(coef(ftMeasX)[3,1], coef(ftZero)[3,1])
 expect_lt(coef(ftMeasX)[4,1], coef(ftZero)[4,1])
+
+#same for ft and ftZero
+expect_identical(coef(ft)[1,1], coef(ftZero)[1,1])
+expect_identical(coef(ft)[2,1], coef(ftZero)[2,1])
+expect_identical(coef(ft)[3,1], coef(ftZero)[3,1])
+expect_identical(coef(ft)[4,1], coef(ftZero)[4,1])
+
