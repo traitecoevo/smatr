@@ -1,3 +1,17 @@
+#' Creates nice plot
+#'
+#' @param xaxis 
+#' @param yaxis 
+#' @param log 
+#' @param ann 
+#' @param xlab 
+#' @param ylab 
+#' @param tck 
+#' @param frame.plot 
+#' @param ... 
+#'
+#' @export
+
 nicePlot<-function(xaxis,
                    yaxis,
                    log='', 

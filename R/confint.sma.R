@@ -1,4 +1,12 @@
-confint.sma <- function(object, ...){
+#' Returns confidence intervals for sma object
+#'
+#' @param object a sma object
+#'
+#' @return dataframe containing confidence interval
+#' @export
+
+
+confint.sma <- function(object){
   # Grab summary data
   grp_summary <- object$groupsummary
   

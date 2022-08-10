@@ -1,4 +1,50 @@
-
+#' Measurement error variance estimation from repeated measures
+#' 
+#' @description Estimates the average variance matrix of measurement error for a set of
+#' subjects with repeated measures.
+#' 
+#' @details This function allows the estimation of measurement error variance, given a
+#' set of repeated measures on different subjects. Measurement error variance
+#' is estimated separately for each subject, then averaged across subjects.
+#' This provides terms that can be used to correct for measurement error in
+#' allometric analyses.
+#' 
+#' Any number of variables can be specified in the data matrix for measurement
+#' error calculation. If more than one variable is specified, the covariance of
+#' measurement error is estimated from the repeated measures as well as the
+#' variance.
+#' 
+#' As well as the estimated measurement error variance, a data matrix is
+#' returned which contains the averages of the repeated measures for each
+#' subject.
+#' 
+#' @param datameas A data matrix containing the repeated measures of
+#' observations, with each variable in a different column and all observations
+#' on all subjects in different rows of the same column.
+#' @param id An id vector identifying the subject being measured for each
+#' observation in the data matrix.
+#' @param data Deprecated. Use with() instead (see Examples).
+#' @return \item{V}{A matrix containing the average variances and average
+#' convariances of the repeated measures of subjects.}
+#' 
+#' \item{dat.mean}{A matrix containing the values for each subject, averages
+#' across repeated measures. Subjects are in rows, variables in columns.}
+#' @author Warton, D. \email{David.Warton@@unsw.edu.au}, translated to R by
+#' Ormerod, J. 2005-12-08
+#' @seealso \code{\link{line.cis}}, \code{\link{slope.test}}
+#' @references Warton, D.I., I.J. Wright, D.S. Falster and M. Westoby. 2006.
+#' Bivariate line-fitting methods for allometry. \emph{Biological Reviews}
+#' \bold{81}, 259--291.
+#' @keywords models regression
+#' @export
+#' @examples
+#' 
+#' #load the individual level leaf example dataset
+#' data(leafmeas)
+#' 
+#' #Estimate measurement error variance matrix, store in "meas.vr"
+#' meas.vr <- meas.est(leafmeas[,3:4], leafmeas$spp)
+#' 
 meas.est <- function( datameas, id, data=NULL )
 {
     if ( nargs() != 2 )

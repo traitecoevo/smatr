@@ -1,3 +1,14 @@
+#' Utility functions for robust fitting
+#' 
+#' @description Functions used by \code{\link{sma}} when 'robust = TRUE'.
+#' 
+#' 
+#' @aliases huber.M alpha.fun
+#' @param r,k,q, Parameters.
+#' @param data .....
+#' @author Warton, D. I. \email{David.Warton@@unsw.edu.au}, S. Taskinen
+#' @seealso \code{\link{sma}}
+#' @keywords internal
 alpha.fun<-function(r,k,q) 
 {
   c<-qchisq(q,k)

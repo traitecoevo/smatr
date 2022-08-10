@@ -1,4 +1,22 @@
-
+#' Calculates a confidence interval for a common slope (called by slope.com)
+#' 
+#' @param b Common slope estimate.
+#' @param varb Estimated variance of the common slope.
+#' @param crit Critical value to be used in confidence interval calculation.
+#' @param z Variances and covariances of each group.
+#' @param n Sample sizes of each group.
+#' @param l1 Variance of fitted axis scores, for each group.
+#' @param l2 Variance of fitted residuals, for each group.
+#' @param method See slope.com for details.
+#' @param lambda Error variance ration (implied by choice of method.
+#' @param res.df Residual degrees of freedom, for each group.
+#' @param r.factor A vector of "robust factors" for each group, default value
+#' 1. Variance estimates are rescaled by this factor when using robust
+#' inference.
+#' @author Warton, D.I.\email{David.Warton@@unsw.edu.au}, J. Ormerod, & S.
+#' Taskinen
+#' @seealso \code{\link{slope.com}}
+#' @keywords internal
 com.ci <- function( b, varb, crit, z, n, l1, l2, method, lambda, res.df, r.factor)
 {
     b.ci <- c(NA,NA)
