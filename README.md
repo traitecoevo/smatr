@@ -4,7 +4,8 @@
 [![Codecov test coverage](https://codecov.io/gh/traitecoevo/smatr/branch/master/graph/badge.svg)](https://codecov.io/gh/traitecoevo/smatr?branch=master)
 <!-- badges: end -->
 
-# smatr: (Standardised) Major Axis Estimation and Testing Routines
+# smatr  <img src="man/figures/smatr_hex.png" align="right" width="120"/>
+### (Standardised) Major Axis Estimation and Testing Routines
 
 `smatr` is an R package for fitting (Standardised) Major Axis Lines to bivariate data. The package is described in the following publication:
 
@@ -33,15 +34,15 @@ install.packages("smatr")
 Or install the development version from bitbucket,
 
 ```R
-devtools::install_bitbucket ("smatr", "remkoduursma")
+# install.packages("remotes")
+remotes::install_github("traitecoevo/smatr")
 ```
 
-
-## Meta
+### Issues and feature requests
 
 Please report any [issues or bugs](https://bitbucket.org/remkoduursma/smatr/issues).
 
-To cite package `smatr` in publications use:
+### To cite package `smatr` in publications use:
 
 ```coffee
    Warton, David I., Duursma, Remko A., Falster, Daniel S. and Taskinen,

@@ -83,4 +83,4 @@ bivariate line-fitting in allometry.  \emph{Biometrical Journal}.
 Warton, D. \email{David.Warton@unsw.edu.au}, Duursma, R., Falster,
 D. and Taskinen, S.
 }
-\keyword{documentation}
+\keyword{internal}

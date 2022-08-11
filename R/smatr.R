@@ -68,7 +68,7 @@
 #' 
 #' Taskinen S. and Warton D. I. (in press) Robust estimation and inference for
 #' bivariate line-fitting in allometry.  \emph{Biometrical Journal}.
-#' @keywords documentation
+#' @keywords internal
 #' @importFrom stats coef cor cor.test cov fitted model.frame na.omit pchisq pf pt qchisq qf qqline qqnorm qt uniroot var
 #' @importFrom utils combn str
 #' @examples
