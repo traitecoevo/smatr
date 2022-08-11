@@ -10,3 +10,5 @@ test/
 ^\.github$
 ^LICENSE\.md$
 ignore/
+^doc$
+^Meta$
