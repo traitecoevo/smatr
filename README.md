@@ -20,7 +20,7 @@ Warton, David I., Duursma, Remko A., Falster, Daniel S. and Taskinen,
 2. This paper describes some significant improvements to the functionality of the package, now available on R in smatr version 3.
 3. New inclusions in the package include sma and ma functions that accept formula input and perform the key inference tasks; multiple comparisons; graphical methods for visualising data and checking (S)MA assumptions; robust (S)MA estimation and inference tools.
 
-The package was programmed by [David Warton](http://web.maths.unsw.edu.au/~dwarton/), [Remko Duursma](http://www.remkoduursma.com) and [Daniel Falster](http://danielfalster.com) and is maintained by Remko Duursma [here](https://bitbucket.org/remkoduursma/smatr/).
+The package was programmed by [David Warton](http://web.maths.unsw.edu.au/~dwarton/), [Remko Duursma](http://www.remkoduursma.com) and [Daniel Falster](http://danielfalster.com) and is maintained by [Fonti Kar](https://github.com/fontikar)
 
 
 ## Installation
