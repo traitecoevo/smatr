@@ -35,6 +35,8 @@ Collate:
     'elev.test.R'
     'fitted.sma.R'
     'huber.M.R'
+    'leaflife.R'
+    'leafmeas.R'
     'line.cis.R'
     'logLik_sma.R'
     'lr.b.com.R'
@@ -53,7 +55,9 @@ Collate:
     'slope.com.R'
     'slope.test.R'
     'sma.R'
+    'smatr-package.R'
     'summary.sma.R'
+    'utils.R'
 Suggests: 
     covr,
     knitr,
