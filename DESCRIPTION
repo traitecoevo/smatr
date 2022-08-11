@@ -55,7 +55,7 @@ Collate:
     'slope.com.R'
     'slope.test.R'
     'sma.R'
-    'smatr-package.R'
+    'smatr.R'
     'summary.sma.R'
     'utils.R'
 Suggests: 

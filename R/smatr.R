@@ -70,11 +70,10 @@
 #' bivariate line-fitting in allometry.  \emph{Biometrical Journal}.
 #' @keywords documentation
 #' @examples
-#' 
-#' 
+#
 #' # See  ?sma and ?plot.sma for a full list of examples.
-#' 
-#' 
+
+"_PACKAGE"
 
 
 
