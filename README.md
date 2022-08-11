@@ -11,7 +11,7 @@
 
 Warton, David I., Duursma, Remko A., Falster, Daniel S. and Taskinen,
   Sara (2012) **smatr 3 - an R package for estimation and inference about
-  allometric lines**. Methods in Ecology and Evolution, 3(2), 257-259. doi:[10.1111/j.2041-210X.2011.00153.x](http://doi.org/10.1111/j.2041-210X.2011.00153.x).
+  allometric lines**. Methods in Ecology and Evolution, 3(2), 257-259. [doi:10.1111/j.2041-210X.2011.00153.x](http://doi.org/10.1111/j.2041-210X.2011.00153.x).
 
 
 **Abstract:**
