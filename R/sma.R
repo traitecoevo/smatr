@@ -1,6 +1,6 @@
 #' (Standardized) major axis estimation and testing for one or several samples
 #' 
-#' The \code{sma} and \code{ma} functions fit SMA and MA respectively, and
+#' @description The \code{sma} and \code{ma} functions fit SMA and MA respectively, and
 #' construct confidence intervals or test hypotheses about slope or elevation
 #' in one or several samples, depending on how the arguments are specified.
 #' Options exist to force lines through the origin, (approximately) correct for
@@ -8,7 +8,7 @@
 #' estimation to ensure that inferences are valid in the presence of outliers
 #' (currently implemented for single samples only).
 #' 
-#' This is the key function in the \code{\link{smatr-package}}; all the key
+#' @details This is the key function in the \code{\link{smatr-package}}; all the key
 #' estimation and testing functionality in the package can all be accessed
 #' using this function, via different usages of the \code{formula} and other
 #' arguments, as described below.
@@ -141,6 +141,7 @@
 #' }
 #' @author Warton, D. I. \email{David.Warton@@unsw.edu.au}, R.A. Duursma, D.
 #' Falster, S. Taskinen
+#' @export
 #' @seealso \code{\link{plot.sma}}
 #' @references Warton, D.I., R.A. Duursma, D.S. Falster and S. Taskinen (2012).
 #' smatr 3 - an R package for estimation and inference about allometric lines.

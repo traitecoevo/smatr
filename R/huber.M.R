@@ -2,8 +2,6 @@
 #'
 #' @param data 
 #' @param q q=pchisq(k+1,k) gives maximum breakdown point
-#'
-#' @return
 #' @keywords internal
 
 huber.M<-function( data, q=pchisq(3,2) )

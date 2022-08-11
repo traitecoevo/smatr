@@ -1,3 +1,10 @@
+#' Computers robust factor for elevation, slope and CI
+#'
+#' @param data 
+#' @param q 
+
+#' @keywords internal
+
 robust.factor<-function(data,q)
 {
    fac   <- NULL
@@ -17,6 +24,20 @@ robust.factor<-function(data,q)
    fac
 }
 
+
+#' Gamma function used in robust factor calculations
+#'
+#' @param r 
+#' @param k 
+#' @param q 
+#'
+#' @return
+#' Computers robust factor for elevation, slope and CI
+#'
+#' @param data 
+#' @param q 
+#
+#' @keywords internal
 
 gamma.fun<-function(r,k,q) 
 {

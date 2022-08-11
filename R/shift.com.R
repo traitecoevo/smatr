@@ -1,11 +1,11 @@
 #' Test for no mean shift along a common (standardised) major axis
 #' 
-#' Test if several groups of observations have no shift in location along major
+#' @description Test if several groups of observations have no shift in location along major
 #' axis or standardised major axis lines with a common slope. This can now be
 #' done via \code{sma(y~x+groups, type="shift")}, see help on the
 #' \code{\link{sma}} function.
 #' 
-#' Calculates a Wald statistic to test for no shift along several MA's or SMA's
+#' @details Calculates a Wald statistic to test for no shift along several MA's or SMA's
 #' of common slope. This is done by testing for equal fitted axis means across
 #' groups.
 #' 
@@ -77,6 +77,7 @@
 #' Taskinen, S. and D.I. Warton. in review. Robust tests for one or more
 #' allometric lines.
 #' @keywords htest
+#' @export
 #' @examples
 #' 
 #' #load leaf longevity data

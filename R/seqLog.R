@@ -1,11 +1,8 @@
-#returns vector from lo to hi with multiplication steps of incr. Used for making ticks to a log-scaled axis 
-
-
 #' Sequence Generation
 #' 
-#' Generate multiplicative sequences, or series.
+#' @description Generate multiplicative sequences, or series.
 #' 
-#' Starting at \code{from}, \code{seq} multiplies successively by \code{base}
+#' @details Starting at \code{from}, \code{seq} multiplies successively by \code{base}
 #' until the maximal value is reached. This is useful for generating
 #' tick-spacing on log-transformed axes.
 #' 
@@ -13,6 +10,8 @@
 #' @param base multiplication value.
 #' @seealso \code{\link{nicePlot}}, \code{\link{makeLogMinor}}
 #' @keywords misc
+#' @export
+#' @returns vector from lo to hi with multiplication steps of incr. Used for making ticks to a log-scaled axis 
 #' @examples
 #' 
 #' #Sequence suitable for log base 10 labels

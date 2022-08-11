@@ -2,8 +2,6 @@
 #'
 #' @param object sma object
 #' @param ... 
-#'
-#' @return
 #' @export
 
 logLik.sma <- function(object, ...){

@@ -1,10 +1,10 @@
 #' One-sample test of a (standardised) major axis slope
 #' 
-#' Test if the slope of a major axis or standardised major axis equals a
+#' @description Test if the slope of a major axis or standardised major axis equals a
 #' specific value. This can now be done via \code{sma(y~x, slope.test=1)}, see
 #' help on \code{\link{sma}}.
 #' 
-#' Tests if the line relating y to x has a slope equal to test.value (which has
+#' @details Tests if the line relating y to x has a slope equal to test.value (which has
 #' a default value of 1). The line can be a linear regression line, major axis
 #' or standardised major axis (as selected using the input argument choice).
 #' The test is carried out by testing for correlation between residual and
@@ -72,6 +72,7 @@
 #' Taskinen, S. and D.I. Warton. in review. Robust tests for one or more
 #' allometric lines.
 #' @keywords htest
+#' @export
 #' @examples
 #' 
 #' #load the leaflife dataset:

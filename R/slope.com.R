@@ -1,10 +1,10 @@
 #' Common slope test amongst several allometric lines
 #' 
-#' Test if several major axis or standardised major axis lines share a common
+#' @description Test if several major axis or standardised major axis lines share a common
 #' slope. This can now be done via \code{sma(y~x*groups)}, see help on the
 #' \code{\link{sma}} function.
 #' 
-#' For several bivariate groups of observations, this function tests if the
+#' @details For several bivariate groups of observations, this function tests if the
 #' line-of-best-fit has a common slope for all samples, when the
 #' line-of-best-fit is estimated using the major axis, standardised major axis,
 #' or a more general version of these methods in which the error variance ratio
@@ -84,6 +84,7 @@
 #' Taskinen, S. and D.I. Warton. in review. Robust tests for one or more
 #' allometric lines.
 #' @keywords htest
+#' @export
 #' @examples
 #' 
 #' #load leaf longevity data

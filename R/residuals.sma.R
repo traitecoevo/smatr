@@ -1,8 +1,8 @@
 #' Extract model residuals
 #' 
-#' Extracts the residuals of a (standardized) major axis fit.
+#' @description Extracts the residuals of a (standardized) major axis fit.
 #' 
-#' Residuals are calculated as y-bx-a for each group. These values are useful
+#' @details Residuals are calculated as y-bx-a for each group. These values are useful
 #' in assumption checking, especially in constructing residual vs fitted value
 #' plots.
 #' 
@@ -11,6 +11,7 @@
 #' @return A vector of residuals.
 #' @seealso \code{\link{sma}}, \code{\link{plot.sma}}
 #' @keywords misc
+#' @export
 residuals.sma <- function(object, ...){
 	return(fitted(object, type = "residuals",...))
 }

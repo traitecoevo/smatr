@@ -6,8 +6,7 @@
 #' @param major.tick.labels 
 #' @param both.sides 
 #' @keywords internal
-#'
-#' @examples
+
 defineAxis<-function(major.ticks, limits=NULL, minor.ticks=NULL, major.tick.labels=major.ticks, both.sides=FALSE){
 	l <- list()
 	

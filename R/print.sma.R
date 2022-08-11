@@ -1,6 +1,6 @@
 #' Print an object of class 'sma'.
 #' 
-#' Prints the coefficients and the results of the various hypothesis tests of
+#' @description Prints the coefficients and the results of the various hypothesis tests of
 #' an sma object.
 #' 
 #' 
@@ -10,6 +10,7 @@
 #' @author R.A. Duursma, D. Falster, D.I. Warton
 #' @seealso \code{\link{sma}}
 #' @keywords misc
+#' @export
 print.sma <- function(x, ..., coefbygroup=FALSE){
 
 	obj <- x
