@@ -2,7 +2,6 @@
 % Please edit documentation in R/alpha.fun.R
 \name{alpha.fun}
 \alias{alpha.fun}
-\alias{huber.M}
 \title{Utility functions for robust fitting}
 \usage{
 alpha.fun(r, k, q)

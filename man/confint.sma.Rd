@@ -4,10 +4,12 @@
 \alias{confint.sma}
 \title{Returns confidence intervals for sma object}
 \usage{
-\method{confint}{sma}(object)
+\method{confint}{sma}(object, ...)
 }
 \arguments{
 \item{object}{a sma object}
+
+\item{...}{arguments passed}
 }
 \value{
 dataframe containing confidence interval

@@ -23,15 +23,12 @@ until the maximal value is reached. This is useful for generating
 tick-spacing on log-transformed axes.
 }
 \examples{
-
+\dontrun{
 #Sequence suitable for log base 10 labels
 seqLog(1E-5, 1E5)
 
 #Sequence suitable for log base 2 labels
 seqLog(2, 128,base=2)
-
 }
-\seealso{
-\code{\link{nicePlot}}, \code{\link{makeLogMinor}}
 }
-\keyword{misc}
+\keyword{internal}

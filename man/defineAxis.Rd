@@ -13,15 +13,15 @@ defineAxis(
 )
 }
 \arguments{
-\item{major.ticks}{}
+\item{major.ticks}{values for major ticks}
 
-\item{limits}{}
+\item{limits}{limits for axes}
 
-\item{minor.ticks}{}
+\item{minor.ticks}{values for minor ticks}
 
-\item{major.tick.labels}{}
+\item{major.tick.labels}{labels for major ticks}
 
-\item{both.sides}{}
+\item{both.sides}{deprecated}
 }
 \description{
 Defines axis for SMA object

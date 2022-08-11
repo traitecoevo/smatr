@@ -17,6 +17,7 @@
 #' Taskinen
 #' @seealso \code{\link{slope.com}}
 #' @keywords internal
+#' @noRd
 com.ci <- function( b, varb, crit, z, n, l1, l2, method, lambda, res.df, r.factor)
 {
     b.ci <- c(NA,NA)

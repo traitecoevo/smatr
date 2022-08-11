@@ -74,7 +74,6 @@
 #' must specify a \code{data} statement. If your variables are not in a
 #' dataframe, simply combine them in a dataframe before calling \code{sma}.
 #' 
-#' @aliases sma ma
 #' @param formula Formula of the form y ~ x etc. This determines whether a
 #' single (S)MA is fitted, or whether several lines are fitted and compared.
 #' See Details.

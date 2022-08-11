@@ -24,12 +24,9 @@ This is useful for generating spacing of minor tick-values on
 log-transformed axes.
 }
 \examples{
-
+\dontrun{
 #Sequence suitable for log base 10 labels
 makeLogMinor(seqLog(1E-5, 1E5))
-
 }
-\seealso{
-\code{\link{nicePlot}}, \code{\link{seqLog}}
 }
 \keyword{internal}

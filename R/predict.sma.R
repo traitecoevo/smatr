@@ -1,7 +1,7 @@
 #' Predicting from an (Standardized) major axis estimation
 #'
 #' @param object sma obj
-#' @param ... 
+#' @param ... arguments passed
 #'
 #' @return A cautionary message
 #' @export

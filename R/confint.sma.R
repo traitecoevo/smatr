@@ -1,12 +1,14 @@
 #' Returns confidence intervals for sma object
 #'
 #' @param object a sma object
-#'
+#' @param ... arguments passed
 #' @return dataframe containing confidence interval
+#' @importFrom rlang .data
+#' @importFrom magrittr %>%
 #' @export
 
 
-confint.sma <- function(object){
+confint.sma <- function(object, ...){
   # Grab summary data
   grp_summary <- object$groupsummary
   
@@ -17,7 +19,7 @@ confint.sma <- function(object){
       tidyr::pivot_longer(cols = 1:4) -> tmp
     
     tmp %>%
-      dplyr::mutate(ci_type = ifelse(str_detect(tmp$name, "low"), "Lower", "Upper"),
+      dplyr::mutate(ci_type = ifelse(stringr::str_detect(tmp$name, "low"), "Lower", "Upper"),
              coef_type = ifelse(stringr::str_detect(tmp$name, "Int"), "(Intercept)", "slope")) %>% 
       tidyr::pivot_wider(id_cols = .data$coef_type, values_from = .data$value, names_from = .data$ci_type) %>% 
       as.data.frame() -> out

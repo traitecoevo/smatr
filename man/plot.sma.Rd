@@ -119,10 +119,10 @@ By default, \code{plot.sma} uses the default tick spacing given by
 \code{plot.default}. To customise axes, users can pass special axis objects
 to \code{plot.sma}, obtained using the \code{\link{defineAxis}} command as
 in the example below. This enables high quality publishable plots to be
-produced. See \code{\link{plotutils}} for more information.
+produced. See \code{\link{utils}} for more information.
 }
 \examples{
-
+\dontrun{
 # Load leaf lifetime dataset:
 data(leaflife)
 
@@ -153,12 +153,7 @@ plot(ft,which="res")
 
 # Produce a normal quantile plot:
 plot(ft,which="qq")
-
-
 }
-\seealso{
-\code{\link{sma}}, \code{\link{plotutils}},
-\code{\link{defineAxis}}
 }
 \author{
 D. Falster, R.A. Duursma, D.I. Warton

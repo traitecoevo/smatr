@@ -9,7 +9,7 @@
 \arguments{
 \item{object}{sma obj}
 
-\item{...}{}
+\item{...}{arguments passed}
 }
 \value{
 A cautionary message

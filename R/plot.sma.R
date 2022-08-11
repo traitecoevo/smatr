@@ -41,7 +41,7 @@
 #' \code{plot.default}. To customise axes, users can pass special axis objects
 #' to \code{plot.sma}, obtained using the \code{\link{defineAxis}} command as
 #' in the example below. This enables high quality publishable plots to be
-#' produced. See \code{\link{plotutils}} for more information.
+#' produced. See \code{\link{utils}} for more information.
 #' 
 #' @param x Object of class 'sma'.
 #' @param which If 'residual', plots a residual plot; if 'qq', plots a qq plot;
@@ -75,12 +75,10 @@
 #' @param axes If FALSE, suppress plotting of the axes (Default TRUE)
 #' @param \dots Further arguments passed to \code{\link{plot.default}}.
 #' @author D. Falster, R.A. Duursma, D.I. Warton
-#' @seealso \code{\link{sma}}, \code{\link{plotutils}},
-#' \code{\link{defineAxis}}
 #' @keywords misc
 #' @export
 #' @examples
-#' 
+#' \dontrun{
 #' # Load leaf lifetime dataset:
 #' data(leaflife)
 #' 
@@ -111,16 +109,16 @@
 #' 
 #' # Produce a normal quantile plot:
 #' plot(ft,which="qq")
-#' 
-#' 
+#' }
+
 plot.sma <- function(x, which=c("default","residual","qq"),  use.null=FALSE, add=FALSE, type='o', 
 	xaxis=NULL, yaxis=NULL, xlab=NULL, ylab=NULL, pch=NULL, col=NULL, lty=NULL, from=NULL, to = NULL, log=x$log, 
 	frame.plot = TRUE, tck=par("tck"),p.lines.transparent=NA, axes=TRUE, ...){
 
 	# function used to make colours transparent alpha = 0 means fully transparaent
 	make.transparent <- function(col, alpha=1) {
-  		tmp <- col2rgb(col)/255
-	rgb(tmp[1,], tmp[2,], tmp[3,], alpha=alpha)
+  		tmp <- grDevices::col2rgb(col)/255
+  		grDevices::rgb(tmp[1,], tmp[2,], tmp[3,], alpha=alpha)
 	}
 
 	#preprocessing ------------------------------------------------------------

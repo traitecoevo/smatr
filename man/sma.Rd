@@ -2,7 +2,6 @@
 % Please edit documentation in R/sma.R
 \name{sma}
 \alias{sma}
-\alias{ma}
 \title{(Standardized) major axis estimation and testing for one or several samples}
 \usage{
 sma(

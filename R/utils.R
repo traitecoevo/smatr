@@ -43,8 +43,9 @@
 #' @param \dots Arguments to be passed to nicePlot, and therein to 'axis'.
 #' @seealso \code{\link{sma}}, \code{\link{plot.sma}}
 #' @keywords misc
+#' @noRd
 #' @examples
-#' 
+#' \dontrun{
 #' # Load leaf lifetime dataset:
 #' data(leaflife)
 #' 
@@ -81,8 +82,7 @@
 #' xax <- defineAxis(limits=c(8, 1.2E3), major.ticks=seqLog(1, 1000))
 #' yax <- defineAxis(limits=c(0.8E-1, 1.2E1), major.ticks=seqLog(1E-2, 10))
 #' nicePlot(xax,yax,log='xy')
-#' 
-#' 
+#' }
 
 
 

@@ -75,6 +75,7 @@
 #' Taskinen, S. and D.I. Warton. in review. Robust tests for one or more
 #' allometric lines.
 #' @keywords models regression
+#' @export
 #' @examples
 #' 
 #' #load the leaflife data
