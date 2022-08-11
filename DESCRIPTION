@@ -38,7 +38,7 @@ Collate:
     'leaflife.R'
     'leafmeas.R'
     'line.cis.R'
-    'logLik_sma.R'
+    'logLik.sma.R'
     'lr.b.com.R'
     'ma.R'
     'makeLogMinor.R'

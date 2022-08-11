@@ -44,9 +44,9 @@
 #' to fir major axis (MA) instead.  \describe{ \item{list("sma(y~x*groups)")}{
 #' Test if several SMA lines share a common slope, and construct a confidence
 #' interval for the true common slope. } \item{list("sma(y~x+groups,
-#' type=\"elevation\")")}{ Test if several common slope SMA lines also share a
+#' type="elevation")")}{ Test if several common slope SMA lines also share a
 #' common elevation, and construct a confidence interval for the true common
-#' elevation. } \item{list("sma(y~x+groups, type=\"shift\")")}{ Test if several
+#' elevation. } \item{list("sma(y~x+groups, type="shift")")}{ Test if several
 #' groups of observations have no shift in location along common slope SMA
 #' lines. } \item{list("sma(y~x*groups, slope.test=B)")}{ Test if several SMA
 #' lines share a common slope whose true value is exactly equal to \code{B}. }
