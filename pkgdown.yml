@@ -1,10 +1,10 @@
 pandoc: 2.7.3
-pkgdown: 1.6.1
+pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   smatr: smatr.html
-last_built: 2021-04-26T04:06Z
+last_built: 2022-08-25T07:11Z
 urls:
-  reference: https://traitecoevo.github.io/smatr//reference
-  article: https://traitecoevo.github.io/smatr//articles
+  reference: https://traitecoevo.github.io/smatr/reference
+  article: https://traitecoevo.github.io/smatr/articles
 

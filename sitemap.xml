@@ -1,84 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://traitecoevo.github.io/smatr//index.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/404.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/alpha.fun.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/b.com.est.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/coef.sma.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/com.ci.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/articles/smatr.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/elev.com.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/authors.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/elev.test.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/index.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/fitted.sma.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/news/index.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/leaflife.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/alpha.fun.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/leafmeas.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/b.com.est.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/line.cis.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/coef.sma.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/lr.b.com.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/confint.sma.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/makeLogMinor.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/defineAxis.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/meas.est.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/elev.com.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/multcompmatrix.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/elev.test.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/nicePlot.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/fitted.sma.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/plot.sma.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/gamma.fun.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/print.sma.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/huber.M.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/residuals.sma.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/seqLog.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/leaflife.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/shift.com.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/leafmeas.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/slope.com.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/line.cis.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/slope.test.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/lr.b.com.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/sma.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/ma.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/smatr-package.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/makeLogMinor.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//reference/summary.sma.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/meas.est.html</loc>
   </url>
   <url>
-    <loc>https://traitecoevo.github.io/smatr//articles/smatr.html</loc>
+    <loc>https://traitecoevo.github.io/smatr/reference/multcompmatrix.html</loc>
+  </url>
+  <url>
+    <loc>https://traitecoevo.github.io/smatr/reference/plot.sma.html</loc>
+  </url>
+  <url>
+    <loc>https://traitecoevo.github.io/smatr/reference/predict.sma.html</loc>
+  </url>
+  <url>
+    <loc>https://traitecoevo.github.io/smatr/reference/print.sma.html</loc>
+  </url>
+  <url>
+    <loc>https://traitecoevo.github.io/smatr/reference/residuals.sma.html</loc>
+  </url>
+  <url>
+    <loc>https://traitecoevo.github.io/smatr/reference/robust.factor.html</loc>
+  </url>
+  <url>
+    <loc>https://traitecoevo.github.io/smatr/reference/seqLog.html</loc>
+  </url>
+  <url>
+    <loc>https://traitecoevo.github.io/smatr/reference/shift.com.html</loc>
+  </url>
+  <url>
+    <loc>https://traitecoevo.github.io/smatr/reference/slope.com.html</loc>
+  </url>
+  <url>
+    <loc>https://traitecoevo.github.io/smatr/reference/slope.test.html</loc>
+  </url>
+  <url>
+    <loc>https://traitecoevo.github.io/smatr/reference/sma.html</loc>
+  </url>
+  <url>
+    <loc>https://traitecoevo.github.io/smatr/reference/smatr-package.html</loc>
+  </url>
+  <url>
+    <loc>https://traitecoevo.github.io/smatr/reference/summary.sma.html</loc>
   </url>
 </urlset>

@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +33,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">smatr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.4-8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.4-8</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../articles/smatr.html">Get started</a>
 </li>
@@ -55,7 +51,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/traitecoevo/smatr/">
+  <a href="https://github.com/traitecoevo/smatr/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -76,7 +72,7 @@
       <h1 data-toc-skip>Getting Started</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/traitecoevo/smatr/blob/master/vignettes/smatr.Rmd"><code>vignettes/smatr.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/traitecoevo/smatr/blob/HEAD/vignettes/smatr.Rmd" class="external-link"><code>vignettes/smatr.Rmd</code></a></small>
       <div class="hidden name"><code>smatr.Rmd</code></div>
 
     </div>
@@ -84,294 +80,133 @@
     
     
 <p>Below contains a brief overview on how to get users started with <code>smatr</code></p>
-<p>More detailed information about the package can be found here: Warton, D. I., Duursma, R. A., Falster, D. S., &amp; Taskinen, S. (2012). <a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210X.2011.00153.x">smatr 3–an R package for estimation and inference about allometric lines</a>. Methods in Ecology and Evolution, 3(2), 257-259.</p>
+<p>More detailed information about the package can be found here: Warton, D. I., Duursma, R. A., Falster, D. S., &amp; Taskinen, S. (2012). <a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210X.2011.00153.x" class="external-link">smatr 3–an R package for estimation and inference about allometric lines</a>. Methods in Ecology and Evolution, 3(2), 257-259.</p>
 <p>First, install smatr`</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Install via CRAN or github</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"smatr"</span><span class="op">)</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"dfalster/smatr3"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Install via CRAN or github</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"smatr"</span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"dfalster/smatr3"</span><span class="op">)</span></span></code></pre></div>
 <p>then load the library</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Load library</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/traitecoevo">smatr</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Load library</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/traitecoevo" class="external-link">smatr</a></span><span class="op">)</span></span></code></pre></div>
 <p>Note we will illustrate some of the core functions of <code>smatr</code> using one of the two data sets included in the package</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">leaflife</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">leafmeas</span><span class="op">)</span>
-
-<span class="co">#For more details on each data set</span>
-<span class="op">?</span><span class="va">leaflife</span>
-<span class="op">?</span><span class="va">leafmeas</span></code></pre></div>
-<div id="one-sample-analyses" class="section level3">
-<h3 class="hasAnchor">
-<a href="#one-sample-analyses" class="anchor"></a>One sample analyses</h3>
-<p>Users can fit a single major axis to their data using the <code><a href="../reference/sma.html">ma(y ~ x)</a></code> or <code><a href="../reference/sma.html">sma(y ~x)</a></code> functions for y against x. The <code>log</code> argument allows quick transformations to one or both axes before estimation occurs. For example:</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">leaflife</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">leafmeas</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#For more details on each data set</span></span>
+<span><span class="op">?</span><span class="va">leaflife</span></span>
+<span><span class="op">?</span><span class="va">leafmeas</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="one-sample-analyses">One sample analyses<a class="anchor" aria-label="anchor" href="#one-sample-analyses"></a>
+</h3>
+<p>Users can fit a single major axis to their data using the <code>ma(y ~ x)</code> or <code>sma(y ~x)</code> functions for y against x. The <code>log</code> argument allows quick transformations to one or both axes before estimation occurs. For example:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Extract only low-nutrient, low-rainfall data from leaflife dataset:</span>
-<span class="va">leaf.low</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">leaflife</span>, <span class="va">soilp</span> <span class="op">==</span> <span class="st">'low'</span> <span class="op">&amp;</span> <span class="va">rain</span> <span class="op">==</span> <span class="st">'low'</span><span class="op">)</span>
-
-<span class="co"># Fit a single MA for log(leaf longevity) vs log(leaf mass per area):</span>
-<span class="fu"><a href="../reference/sma.html">ma</a></span><span class="op">(</span><span class="va">longev</span> <span class="op">~</span> <span class="va">lma</span>, log<span class="op">=</span><span class="st">'xy'</span>, data<span class="op">=</span><span class="va">leaflife</span><span class="op">)</span>
-<span class="co">#&gt; Call: sma(formula = ..1, data = ..3, log = "xy", method = "MA") </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Fit using Major Axis </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; These variables were log-transformed before fitting: xy </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Confidence intervals (CI) are at 95%</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ------------------------------------------------------------</span>
-<span class="co">#&gt; Coefficients:</span>
-<span class="co">#&gt;             elevation    slope</span>
-<span class="co">#&gt; estimate    -3.085214 1.492616</span>
-<span class="co">#&gt; lower limit -3.968020 1.146777</span>
-<span class="co">#&gt; upper limit -2.202407 2.001084</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : variables uncorrelated</span>
-<span class="co">#&gt; R-squared : 0.4544809 </span>
-<span class="co">#&gt; P-value : 4.0171e-10</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Extract only low-nutrient, low-rainfall data from leaflife dataset:</span></span>
+<span><span class="va">leaf.low</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">leaflife</span>, <span class="va">soilp</span> <span class="op">==</span> <span class="st">'low'</span> <span class="op">&amp;</span> <span class="va">rain</span> <span class="op">==</span> <span class="st">'low'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Fit a single MA for log(leaf longevity) vs log(leaf mass per area):</span></span>
+<span><span class="fu"><a href="../reference/ma.html">ma</a></span><span class="op">(</span><span class="va">longev</span> <span class="op">~</span> <span class="va">lma</span>, log<span class="op">=</span><span class="st">'xy'</span>, data<span class="op">=</span><span class="va">leaflife</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Call: sma(formula = ..1, data = ..3, log = "xy", method = "MA") </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Fit using Major Axis </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; These variables were log-transformed before fitting: xy </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Confidence intervals (CI) are at 95%</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; Coefficients:</span></span>
+<span><span class="co">#&gt;             elevation    slope</span></span>
+<span><span class="co">#&gt; estimate    -3.085214 1.492616</span></span>
+<span><span class="co">#&gt; lower limit -3.968020 1.146777</span></span>
+<span><span class="co">#&gt; upper limit -2.202407 2.001084</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; H0 : variables uncorrelated</span></span>
+<span><span class="co">#&gt; R-squared : 0.4544809 </span></span>
+<span><span class="co">#&gt; P-value : 4.0171e-10</span></span></code></pre></div>
 </div>
-<div id="testing-for-significance" class="section level3">
-<h3 class="hasAnchor">
-<a href="#testing-for-significance" class="anchor"></a>Testing for significance</h3>
-<p>Users can specify using the argument <code>slope.test</code> in the <code><a href="../reference/sma.html">ma()</a></code> or <code><a href="../reference/sma.html">sma()</a></code> function to test whether the estimated slope is significantly different from 1. Calling summary to <code>sma</code> or <code>ma</code> objects will return confidence intervals for the slope and/or elevation.</p>
+<div class="section level3">
+<h3 id="testing-for-significance">Testing for significance<a class="anchor" aria-label="anchor" href="#testing-for-significance"></a>
+</h3>
+<p>Users can specify using the argument <code>slope.test</code> in the <code><a href="../reference/ma.html">ma()</a></code> or <code><a href="../reference/sma.html">sma()</a></code> function to test whether the estimated slope is significantly different from 1. Calling summary to <code>sma</code> or <code>ma</code> objects will return confidence intervals for the slope and/or elevation.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Test if the MA slope is not significantly different from 1 for longevity and leaf mass per area (LMA):</span>
-<span class="va">ma_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sma.html">ma</a></span><span class="op">(</span><span class="va">longev</span> <span class="op">~</span> <span class="va">lma</span>, log<span class="op">=</span><span class="st">'xy'</span>, slope.test<span class="op">=</span><span class="fl">1</span>, data<span class="op">=</span><span class="va">leaflife</span><span class="op">)</span> 
-
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">ma_obj</span><span class="op">)</span>
-<span class="co">#&gt; Call: sma(formula = ..1, data = ..4, log = "xy", method = "MA", slope.test = 1) </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Fit using Major Axis </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; These variables were log-transformed before fitting: xy </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Confidence intervals (CI) are at 95%</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ------------------------------------------------------------</span>
-<span class="co">#&gt; Coefficients:</span>
-<span class="co">#&gt;             elevation    slope</span>
-<span class="co">#&gt; estimate    -3.085214 1.492616</span>
-<span class="co">#&gt; lower limit -3.968020 1.146777</span>
-<span class="co">#&gt; upper limit -2.202407 2.001084</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : variables uncorrelated</span>
-<span class="co">#&gt; R-squared : 0.4544809 </span>
-<span class="co">#&gt; P-value : 4.0171e-10 </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ------------------------------------------------------------</span>
-<span class="co">#&gt; H0 : slope not different from 1 </span>
-<span class="co">#&gt; Test statistic : r= 0.3515 with 65 degrees of freedom under H0</span>
-<span class="co">#&gt; P-value : 0.0035393</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">ma_obj</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Test if the MA slope is not significantly different from 1 for longevity and leaf mass per area (LMA):</span></span>
+<span><span class="va">ma_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ma.html">ma</a></span><span class="op">(</span><span class="va">longev</span> <span class="op">~</span> <span class="va">lma</span>, log<span class="op">=</span><span class="st">'xy'</span>, slope.test<span class="op">=</span><span class="fl">1</span>, data<span class="op">=</span><span class="va">leaflife</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">ma_obj</span><span class="op">)</span></span>
+<span><span class="co">#&gt;       group  n        r2        pval    Slope Slope_lowCI Slope_highCI</span></span>
+<span><span class="co">#&gt; group   all 67 0.4544809 4.01707e-10 1.492616    1.146777     2.001084</span></span>
+<span><span class="co">#&gt;             Int Int_lowCI Int_highCI Slope_test Slope_test_p Elev_test</span></span>
+<span><span class="co">#&gt; group -3.085214  -3.96802  -2.202407          1  0.003539277        NA</span></span>
+<span><span class="co">#&gt;       Elev_test_p</span></span>
+<span><span class="co">#&gt; group          NA</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">ma_obj</span><span class="op">)</span></span></code></pre></div>
 <p><img src="smatr_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
 </div>
-<div id="multiple-sample-analyses" class="section level3">
-<h3 class="hasAnchor">
-<a href="#multiple-sample-analyses" class="anchor"></a>Multiple sample analyses</h3>
+<div class="section level3">
+<h3 id="multiple-sample-analyses">Multiple sample analyses<a class="anchor" aria-label="anchor" href="#multiple-sample-analyses"></a>
+</h3>
 <p>Often researchers wish to compare between slopes or intercepts of axes between different groups. Lets say we want to compare between high and low rainfall for low nutrient sites ONLY</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># First we subset the data that is relevant</span>
-<span class="va">leaf.low.soilp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">leaflife</span>, <span class="va">soilp</span> <span class="op">==</span> <span class="st">'low'</span><span class="op">)</span>
-
-<span class="co"># Then using * we can fit SMAs separately at each of high and low rainfall sites and test for whether sites with different rainfall share a common slope</span>
-<span class="va">rain_sma_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sma.html">sma</a></span><span class="op">(</span><span class="va">longev</span><span class="op">~</span><span class="va">lma</span><span class="op">*</span><span class="va">rain</span>, log<span class="op">=</span><span class="st">"xy"</span>, data<span class="op">=</span><span class="va">leaf.low.soilp</span><span class="op">)</span>
-
-<span class="co"># Lets plot longevity vs LMA separately for each group first:</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">rain_sma_obj</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># First we subset the data that is relevant</span></span>
+<span><span class="va">leaf.low.soilp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">leaflife</span>, <span class="va">soilp</span> <span class="op">==</span> <span class="st">'low'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Then using * we can fit SMAs separately at each of high and low rainfall sites and test for whether sites with different rainfall share a common slope</span></span>
+<span><span class="va">rain_sma_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sma.html">sma</a></span><span class="op">(</span><span class="va">longev</span><span class="op">~</span><span class="va">lma</span><span class="op">*</span><span class="va">rain</span>, log<span class="op">=</span><span class="st">"xy"</span>, data<span class="op">=</span><span class="va">leaf.low.soilp</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Lets plot longevity vs LMA separately for each group first:</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">rain_sma_obj</span><span class="op">)</span></span></code></pre></div>
 <p><img src="smatr_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
 <p>By default, the <code><a href="../reference/sma.html">sma()</a></code> function will first fit a common slope for all groups and then test whether there is a difference in elevation</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Fit SMAs for each group and tests if several SMA lines share a common slope. </span>
-<span class="va">rain_sma_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sma.html">sma</a></span><span class="op">(</span><span class="va">longev</span><span class="op">~</span><span class="va">lma</span><span class="op">*</span><span class="va">rain</span>, log<span class="op">=</span><span class="st">"xy"</span>, data<span class="op">=</span><span class="va">leaf.low.soilp</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">rain_sma_obj</span><span class="op">)</span>
-<span class="co">#&gt; Call: sma(formula = longev ~ lma * rain, data = leaf.low.soilp, log = "xy") </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Fit using Standardized Major Axis </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; These variables were log-transformed before fitting: xy </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Confidence intervals (CI) are at 95%</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ------------------------------------------------------------</span>
-<span class="co">#&gt; Results of comparing lines among groups.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : slopes are equal.</span>
-<span class="co">#&gt; Likelihood ratio statistic : 2.367 with 1 degrees of freedom</span>
-<span class="co">#&gt; P-value : 0.12395 </span>
-<span class="co">#&gt; ------------------------------------------------------------</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Coefficients by group in variable "rain"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Group: high </span>
-<span class="co">#&gt;             elevation     slope</span>
-<span class="co">#&gt; estimate    -2.321737 1.1768878</span>
-<span class="co">#&gt; lower limit -3.475559 0.7631512</span>
-<span class="co">#&gt; upper limit -1.167915 1.8149286</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : variables uncorrelated.</span>
-<span class="co">#&gt; R-squared : 0.3407371 </span>
-<span class="co">#&gt; P-value : 0.013891 </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Group: low </span>
-<span class="co">#&gt;             elevation    slope</span>
-<span class="co">#&gt; estimate    -3.837710 1.786551</span>
-<span class="co">#&gt; lower limit -5.291926 1.257257</span>
-<span class="co">#&gt; upper limit -2.383495 2.538672</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : variables uncorrelated.</span>
-<span class="co">#&gt; R-squared : 0.80651 </span>
-<span class="co">#&gt; P-value : 0.00041709</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Fit SMAs for each group and tests if several SMA lines share a common slope. </span></span>
+<span><span class="va">rain_sma_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sma.html">sma</a></span><span class="op">(</span><span class="va">longev</span><span class="op">~</span><span class="va">lma</span><span class="op">*</span><span class="va">rain</span>, log<span class="op">=</span><span class="st">"xy"</span>, data<span class="op">=</span><span class="va">leaf.low.soilp</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">rain_sma_obj</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   group  n        r2         pval    Slope Slope_lowCI Slope_highCI       Int</span></span>
+<span><span class="co">#&gt; 1  high 17 0.3407371 0.0138909094 1.176888   0.7631512     1.814929 -2.321737</span></span>
+<span><span class="co">#&gt; 2   low 10 0.8065100 0.0004170919 1.786551   1.2572572     2.538672 -3.837710</span></span>
+<span><span class="co">#&gt;   Int_lowCI Int_highCI Slope_test Slope_test_p Elev_test Elev_test_p</span></span>
+<span><span class="co">#&gt; 1 -3.475559  -1.167915         NA           NA        NA          NA</span></span>
+<span><span class="co">#&gt; 2 -5.291926  -2.383495         NA           NA        NA          NA</span></span></code></pre></div>
 <p>Again, using the <code>slope.test</code> will test whether the common slope is significantly different to 1.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Fit SMAs separately at each of high and low rainfall sites,</span>
-<span class="co"># and test if there is a common slope and whether it is equal to 1:</span>
-<span class="va">rain_slope_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sma.html">sma</a></span><span class="op">(</span><span class="va">longev</span><span class="op">~</span><span class="va">lma</span><span class="op">*</span><span class="va">rain</span>, log<span class="op">=</span><span class="st">"xy"</span>, slope.test<span class="op">=</span><span class="fl">1</span>, data<span class="op">=</span><span class="va">leaf.low.soilp</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">rain_slope_obj</span><span class="op">)</span>
-<span class="co">#&gt; Call: sma(formula = longev ~ lma * rain, data = leaf.low.soilp, log = "xy", </span>
-<span class="co">#&gt;     slope.test = 1) </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Fit using Standardized Major Axis </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; These variables were log-transformed before fitting: xy </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Confidence intervals (CI) are at 95%</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ------------------------------------------------------------</span>
-<span class="co">#&gt; Results of comparing lines among groups.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : slopes are equal.</span>
-<span class="co">#&gt; Likelihood ratio statistic : 2.367 with 1 degrees of freedom</span>
-<span class="co">#&gt; P-value : 0.12395 </span>
-<span class="co">#&gt; ------------------------------------------------------------</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : common slope not different from 1 </span>
-<span class="co">#&gt; Likelihood ratio statistic = 8.677 with 2 degrees of freedom under H0</span>
-<span class="co">#&gt; P-value : 0.013057 </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Coefficients by group in variable "rain"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Group: high </span>
-<span class="co">#&gt;             elevation     slope</span>
-<span class="co">#&gt; estimate    -2.321737 1.1768878</span>
-<span class="co">#&gt; lower limit -3.475559 0.7631512</span>
-<span class="co">#&gt; upper limit -1.167915 1.8149286</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : variables uncorrelated.</span>
-<span class="co">#&gt; R-squared : 0.3407371 </span>
-<span class="co">#&gt; P-value : 0.013891 </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : slope not different from 1 </span>
-<span class="co">#&gt; Test statistic: r= 0.1975 with 15 degrees of freedom under H0</span>
-<span class="co">#&gt; P-value : 0.44733 </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Group: low </span>
-<span class="co">#&gt;             elevation    slope</span>
-<span class="co">#&gt; estimate    -3.837710 1.786551</span>
-<span class="co">#&gt; lower limit -5.291926 1.257257</span>
-<span class="co">#&gt; upper limit -2.383495 2.538672</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : variables uncorrelated.</span>
-<span class="co">#&gt; R-squared : 0.80651 </span>
-<span class="co">#&gt; P-value : 0.00041709 </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : slope not different from 1 </span>
-<span class="co">#&gt; Test statistic: r= 0.8126 with 8 degrees of freedom under H0</span>
-<span class="co">#&gt; P-value : 0.0042704</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Fit SMAs separately at each of high and low rainfall sites,</span></span>
+<span><span class="co"># and test if there is a common slope and whether it is equal to 1:</span></span>
+<span><span class="va">rain_slope_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sma.html">sma</a></span><span class="op">(</span><span class="va">longev</span><span class="op">~</span><span class="va">lma</span><span class="op">*</span><span class="va">rain</span>, log<span class="op">=</span><span class="st">"xy"</span>, slope.test<span class="op">=</span><span class="fl">1</span>, data<span class="op">=</span><span class="va">leaf.low.soilp</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">rain_slope_obj</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   group  n        r2         pval    Slope Slope_lowCI Slope_highCI       Int</span></span>
+<span><span class="co">#&gt; 1  high 17 0.3407371 0.0138909094 1.176888   0.7631512     1.814929 -2.321737</span></span>
+<span><span class="co">#&gt; 2   low 10 0.8065100 0.0004170919 1.786551   1.2572572     2.538672 -3.837710</span></span>
+<span><span class="co">#&gt;   Int_lowCI Int_highCI Slope_test Slope_test_p Elev_test Elev_test_p</span></span>
+<span><span class="co">#&gt; 1 -3.475559  -1.167915          1   0.44732920        NA          NA</span></span>
+<span><span class="co">#&gt; 2 -5.291926  -2.383495          1   0.00427036        NA          NA</span></span></code></pre></div>
 <p>The <code>type</code> argument allows users to test for a change in elevation</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Fit SMAs separately at each of high and low rainfall sites, and test whether sites differ in the elevation of their SMA</span>
-<span class="va">rain_elev_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sma.html">sma</a></span><span class="op">(</span><span class="va">longev</span><span class="op">~</span><span class="va">lma</span><span class="op">*</span><span class="va">rain</span>, log<span class="op">=</span><span class="st">"xy"</span>, type <span class="op">=</span> <span class="st">"elevation"</span>, data<span class="op">=</span><span class="va">leaf.low.soilp</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">rain_elev_obj</span><span class="op">)</span>
-<span class="co">#&gt; Call: sma(formula = longev ~ lma * rain, data = leaf.low.soilp, log = "xy", </span>
-<span class="co">#&gt;     type = "elevation") </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Fit using Standardized Major Axis </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; These variables were log-transformed before fitting: xy </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Confidence intervals (CI) are at 95%</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ------------------------------------------------------------</span>
-<span class="co">#&gt; Results of comparing lines among groups.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : slopes are equal.</span>
-<span class="co">#&gt; Likelihood ratio statistic : 2.367 with 1 degrees of freedom</span>
-<span class="co">#&gt; P-value : 0.12395 </span>
-<span class="co">#&gt; ------------------------------------------------------------</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Coefficients by group in variable "rain"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Group: high </span>
-<span class="co">#&gt;             elevation     slope</span>
-<span class="co">#&gt; estimate    -2.321737 1.1768878</span>
-<span class="co">#&gt; lower limit -3.475559 0.7631512</span>
-<span class="co">#&gt; upper limit -1.167915 1.8149286</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : variables uncorrelated.</span>
-<span class="co">#&gt; R-squared : 0.3407371 </span>
-<span class="co">#&gt; P-value : 0.013891 </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Group: low </span>
-<span class="co">#&gt;             elevation    slope</span>
-<span class="co">#&gt; estimate    -3.837710 1.786551</span>
-<span class="co">#&gt; lower limit -5.291926 1.257257</span>
-<span class="co">#&gt; upper limit -2.383495 2.538672</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : variables uncorrelated.</span>
-<span class="co">#&gt; R-squared : 0.80651 </span>
-<span class="co">#&gt; P-value : 0.00041709</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Fit SMAs separately at each of high and low rainfall sites, and test whether sites differ in the elevation of their SMA</span></span>
+<span><span class="va">rain_elev_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sma.html">sma</a></span><span class="op">(</span><span class="va">longev</span><span class="op">~</span><span class="va">lma</span><span class="op">*</span><span class="va">rain</span>, log<span class="op">=</span><span class="st">"xy"</span>, type <span class="op">=</span> <span class="st">"elevation"</span>, data<span class="op">=</span><span class="va">leaf.low.soilp</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">rain_elev_obj</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   group  n        r2         pval    Slope Slope_lowCI Slope_highCI       Int</span></span>
+<span><span class="co">#&gt; 1  high 17 0.3407371 0.0138909094 1.176888   0.7631512     1.814929 -2.321737</span></span>
+<span><span class="co">#&gt; 2   low 10 0.8065100 0.0004170919 1.786551   1.2572572     2.538672 -3.837710</span></span>
+<span><span class="co">#&gt;   Int_lowCI Int_highCI Slope_test Slope_test_p Elev_test Elev_test_p</span></span>
+<span><span class="co">#&gt; 1 -3.475559  -1.167915         NA           NA        NA          NA</span></span>
+<span><span class="co">#&gt; 2 -5.291926  -2.383495         NA           NA        NA          NA</span></span></code></pre></div>
 <p>The <code>type</code> argument allows users to also test for shifts along a common axis</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Fit SMAs with common slope across each of high and low rainfall sites, and test for no shift along common SMA:</span>
-<span class="va">rain_shift_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sma.html">sma</a></span><span class="op">(</span><span class="va">longev</span><span class="op">~</span><span class="va">lma</span><span class="op">+</span><span class="va">rain</span>, log<span class="op">=</span><span class="st">"xy"</span>, type<span class="op">=</span><span class="st">"shift"</span>, data<span class="op">=</span><span class="va">leaf.low.soilp</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">rain_shift_obj</span><span class="op">)</span>
-<span class="co">#&gt; Call: sma(formula = longev ~ lma + rain, data = leaf.low.soilp, log = "xy", </span>
-<span class="co">#&gt;     type = "shift") </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Fit using Standardized Major Axis </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; These variables were log-transformed before fitting: xy </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Confidence intervals (CI) are at 95%</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ------------------------------------------------------------</span>
-<span class="co">#&gt; Results of comparing lines among groups.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : slopes are equal.</span>
-<span class="co">#&gt; Likelihood ratio statistic : 2.367 with 1 degrees of freedom</span>
-<span class="co">#&gt; P-value : 0.12395 </span>
-<span class="co">#&gt; ------------------------------------------------------------</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : no shift along common axis.</span>
-<span class="co">#&gt; Wald statistic: 0.2091 with 1 degrees of freedom</span>
-<span class="co">#&gt; P-value : 0.64745 </span>
-<span class="co">#&gt; ------------------------------------------------------------</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Coefficients by group in variable "rain"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Group: high </span>
-<span class="co">#&gt;             elevation    slope</span>
-<span class="co">#&gt; estimate    -3.140896 1.551400</span>
-<span class="co">#&gt; lower limit -3.475559 1.109374</span>
-<span class="co">#&gt; upper limit -1.167915 2.011726</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : variables uncorrelated.</span>
-<span class="co">#&gt; R-squared : 0.3407371 </span>
-<span class="co">#&gt; P-value : 0.013891 </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Group: low </span>
-<span class="co">#&gt;             elevation    slope</span>
-<span class="co">#&gt; estimate    -3.304865 1.551400</span>
-<span class="co">#&gt; lower limit -5.291926 1.109374</span>
-<span class="co">#&gt; upper limit -2.383495 2.011726</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H0 : variables uncorrelated.</span>
-<span class="co">#&gt; R-squared : 0.80651 </span>
-<span class="co">#&gt; P-value : 0.00041709</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Fit SMAs with common slope across each of high and low rainfall sites, and test for no shift along common SMA:</span></span>
+<span><span class="va">rain_shift_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sma.html">sma</a></span><span class="op">(</span><span class="va">longev</span><span class="op">~</span><span class="va">lma</span><span class="op">+</span><span class="va">rain</span>, log<span class="op">=</span><span class="st">"xy"</span>, type<span class="op">=</span><span class="st">"shift"</span>, data<span class="op">=</span><span class="va">leaf.low.soilp</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">rain_shift_obj</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   group  n        r2         pval  Slope Slope_lowCI Slope_highCI       Int</span></span>
+<span><span class="co">#&gt; 1  high 17 0.3407371 0.0138909094 1.5514    1.109374     2.011726 -3.140896</span></span>
+<span><span class="co">#&gt; 2   low 10 0.8065100 0.0004170919 1.5514    1.109374     2.011726 -3.304865</span></span>
+<span><span class="co">#&gt;   Int_lowCI Int_highCI Slope_test Slope_test_p Elev_test Elev_test_p</span></span>
+<span><span class="co">#&gt; 1 -3.475559  -1.167915         NA           NA        NA          NA</span></span>
+<span><span class="co">#&gt; 2 -5.291926  -2.383495         NA           NA        NA          NA</span></span></code></pre></div>
 </div>
   </div>
 
@@ -384,11 +219,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by David Warton, Remko Duursma, Daniel Falster, Sara Taskinen.</p>
+  <p></p>
+<p>Developed by David Warton, Remko Duursma, Daniel Falster, Sara Taskinen, Fonti Kar.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -396,6 +233,8 @@
 
   
 
+
+  
 
   </body>
 </html>

@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,18 +40,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">smatr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.4-8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.4-8</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="articles/smatr.html">Get started</a>
 </li>
@@ -62,7 +58,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/traitecoevo/smatr/">
+  <a href="https://github.com/traitecoevo/smatr/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -81,33 +77,41 @@
   <div class="contents col-md-9">
 
 
-<div id="smatr-standardised-major-axis-estimation-and-testing-routines" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#smatr-standardised-major-axis-estimation-and-testing-routines" class="anchor"></a>smatr: (Standardised) Major Axis Estimation and Testing Routines</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="smatr-">smatr <img src="reference/figures/smatr_hex.png" align="right" width="120"><a class="anchor" aria-label="anchor" href="#smatr-"></a>
+</h1></div>
+<div class="section level3">
+<h3 id="standardised-major-axis-estimation-and-testing-routines">(Standardised) Major Axis Estimation and Testing Routines<a class="anchor" aria-label="anchor" href="#standardised-major-axis-estimation-and-testing-routines"></a>
+</h3>
 <p><code>smatr</code> is an R package for fitting (Standardised) Major Axis Lines to bivariate data. The package is described in the following publication:</p>
-<p>Warton, David I., Duursma, Remko A., Falster, Daniel S. and Taskinen, Sara (2012) <strong>smatr 3 - an R package for estimation and inference about allometric lines</strong>. Methods in Ecology and Evolution, 3(2), 257-259. <a href="doi:%5B10.1111/j.2041-210X.2011.00153.x" class="uri">doi:[10.1111/j.2041-210X.2011.00153.x</a>](<a href="http://doi.org/10.1111/j.2041-210X.2011.00153.x" class="uri">http://doi.org/10.1111/j.2041-210X.2011.00153.x</a>).</p>
+<p>Warton, David I., Duursma, Remko A., Falster, Daniel S. and Taskinen, Sara (2012) <strong>smatr 3 - an R package for estimation and inference about allometric lines</strong>. Methods in Ecology and Evolution, 3(2), 257-259. <a href="http://doi.org/10.1111/j.2041-210X.2011.00153.x" class="external-link">doi:10.1111/j.2041-210X.2011.00153.x</a>.</p>
 <p><strong>Abstract:</strong></p>
 <p>1. The Standardised Major Axis Tests and Routines (SMATR) software provides tools for estimation and inference about allometric lines, currently widely used in ecology and evolution. 2. This paper describes some significant improvements to the functionality of the package, now available on R in smatr version 3. 3. New inclusions in the package include sma and ma functions that accept formula input and perform the key inference tasks; multiple comparisons; graphical methods for visualising data and checking (S)MA assumptions; robust (S)MA estimation and inference tools.</p>
-<p>The package was programmed by <a href="http://web.maths.unsw.edu.au/~dwarton/">David Warton</a>, <a href="http://www.remkoduursma.com">Remko Duursma</a> and <a href="http://danielfalster.com">Daniel Falster</a> and is maintained by Remko Duursma <a href="https://bitbucket.org/remkoduursma/smatr/">here</a>.</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<p>The package was programmed by <a href="http://web.maths.unsw.edu.au/~dwarton/" class="external-link">David Warton</a>, <a href="http://www.remkoduursma.com" class="external-link">Remko Duursma</a> and <a href="http://danielfalster.com" class="external-link">Daniel Falster</a> and is maintained by <a href="https://github.com/fontikar" class="external-link">Fonti Kar</a></p>
+</div>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>You can simply install this package from CRAN,</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"smatr"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"smatr"</span><span class="op">)</span></span></code></pre></div>
 <p>Or install the development version from bitbucket,</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_bitbucket</span> <span class="op">(</span><span class="st">"smatr"</span>, <span class="st">"remkoduursma"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"traitecoevo/smatr"</span><span class="op">)</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="issues-and-feature-requests">Issues and feature requests<a class="anchor" aria-label="anchor" href="#issues-and-feature-requests"></a>
+</h3>
+<p>Please report any <a href="https://bitbucket.org/remkoduursma/smatr/issues" class="external-link">issues or bugs</a>.</p>
 </div>
-<div id="meta" class="section level2">
-<h2 class="hasAnchor">
-<a href="#meta" class="anchor"></a>Meta</h2>
-<p>Please report any <a href="https://bitbucket.org/remkoduursma/smatr/issues">issues or bugs</a>.</p>
-<p>To cite package <code>smatr</code> in publications use:</p>
+<div class="section level3">
+<h3 id="to-cite-package-smatr-in-publications-use">To cite package <code>smatr</code> in publications use:<a class="anchor" aria-label="anchor" href="#to-cite-package-smatr-in-publications-use"></a>
+</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode coffee"><code class="sourceCode coffee"><span id="cb3-1"><a href="#cb3-1"></a>   Warton<span class="kw">,</span> David I<span class="kw">.,</span> Duursma<span class="kw">,</span> Remko A<span class="kw">.,</span> Falster<span class="kw">,</span> Daniel S<span class="kw">.</span> and Taskinen<span class="kw">,</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>  Sara <span class="kw">(</span><span class="dv">2012</span><span class="kw">)</span> smatr <span class="dv">3</span> <span class="kw">-</span> an R package <span class="kw">for</span> estimation <span class="kw">and</span> inference about</span>
 <span id="cb3-3"><a href="#cb3-3"></a>  allometric lines Methods <span class="kw">in</span> Ecology <span class="kw">and</span> Evolution<span class="kw">,</span> <span class="dv">3</span><span class="kw">(</span><span class="dv">2</span><span class="kw">),</span> <span class="dv">257</span><span class="fl">-259.</span>  doi<span class="kw">:</span><span class="fl">10.1111</span><span class="kw">/</span>j<span class="fl">.2041</span><span class="kw">-</span>210X<span class="kw">.</span><span class="dv">2011</span><span class="kw">.</span><span class="fl">00153.</span>x<span class="kw">.</span> </span></code></pre></div>
-<p>Get citation information for <code>smatr</code> in R with <code><a href="https://rdrr.io/r/utils/citation.html">citation(package = 'smatr')</a></code>.</p>
+<p>Get citation information for <code>smatr</code> in R with <code>citation(package = 'smatr')</code>.</p>
+</div>
 </div>
 </div>
 
@@ -115,57 +119,62 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=smatr">https://​cloud.r-project.org/​package=smatr</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/traitecoevo/smatr/">https://​github.com/​traitecoevo/​smatr/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/traitecoevo/smatr/issues">https://​github.com/​traitecoevo/​smatr/​issues</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li><a href="LICENSE.html">Full license</a></li>
-<li><small>GPL (&gt;= 3)</small></li>
-</ul>
-</div>
-<div class="citation">
-<h2>Citation</h2>
-<ul class="list-unstyled">
-<li><a href="authors.html">Citing smatr</a></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>David Warton <br><small class="roles"> Author </small>  </li>
-<li>Remko Duursma <br><small class="roles"> Author, maintainer </small>  </li>
-<li>Daniel Falster <br><small class="roles"> Author </small> <a href="https://orcid.org/0002-9814-092X" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Sara Taskinen <br><small class="roles"> Author </small>  </li>
+<li><a href="https://cloud.r-project.org/package=smatr" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/traitecoevo/smatr/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/traitecoevo/smatr/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://CRAN.R-project.org/package=smatr"><img src="https://www.r-pkg.org/badges/version/smatr" alt="CRAN status"></a></li>
-<li><a href="https://github.com/traitecoevo/smatr/master"><img src="https://github.com/traitecoevo/smatr/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://codecov.io/gh/traitecoevo/smatr?branch=master"><img src="https://codecov.io/gh/traitecoevo/smatr/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small>GPL (&gt;= 3) + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing smatr</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>David Warton <br><small class="roles"> Author </small>  </li>
+<li>Remko Duursma <br><small class="roles"> Author </small>  </li>
+<li>Daniel Falster <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-9814-092X" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Sara Taskinen <br><small class="roles"> Author </small>  </li>
+<li>Fonti Kar <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-2760-3974" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=smatr" class="external-link"><img src="https://www.r-pkg.org/badges/version/smatr" alt="CRAN status"></a></li>
+<li><a href="https://github.com/traitecoevo/smatr/master" class="external-link"><img src="https://github.com/traitecoevo/smatr/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://codecov.io/gh/traitecoevo/smatr?branch=master" class="external-link"><img src="https://codecov.io/gh/traitecoevo/smatr/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+</ul>
+</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by David Warton, Remko Duursma, Daniel Falster, Sara Taskinen.</p>
+  <p></p>
+<p>Developed by David Warton, Remko Duursma, Daniel Falster, Sara Taskinen, Fonti Kar.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -173,6 +182,8 @@
 
   
 
+
+  
 
   </body>
 </html>
