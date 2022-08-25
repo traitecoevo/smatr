@@ -1,4 +1,12 @@
-
+#' Likelihood ratio statistic, assuming a common slope (called by slope.com)
+#' 
+#' 
+#' @param b Common slope estimate.
+#' @param arguments A list of other required arguments.
+#' @author Warton, D. \email{David.Warton@@unsw.edu.au}, translated to R by
+#' Ormerod, J. 2005-12-08
+#' @seealso \code{\link{slope.com}}
+#' @keywords internal
 lr.b.com <- function( b, arguments )
 {
     

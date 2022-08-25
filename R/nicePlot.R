@@ -1,3 +1,17 @@
+#' Creates nice plot
+#'
+#' @param xaxis X axis
+#' @param yaxis Y axis
+#' @param log logical
+#' @param ann 
+#' @param xlab 
+#' @param ylab 
+#' @param tck 
+#' @param frame.plot 
+#' @param ... arguments passed
+#' @importFrom graphics box curve mtext par points
+#' @keywords internal
+#' @noRd
 nicePlot<-function(xaxis,
                    yaxis,
                    log='', 
@@ -40,7 +54,7 @@ nicePlot<-function(xaxis,
 			makeAxis(xaxis, 3, 0, tck=tck,...)
 		#add box if appropriate
 		if(frame.plot) 
-		    box(...)
+		  box(...)
 	
 		#plot axis titles if appropriate
 		if(ann && !is.null(xlab))

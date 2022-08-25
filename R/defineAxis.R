@@ -1,3 +1,12 @@
+#' Defines axis for SMA object
+#'
+#' @param major.ticks values for major ticks
+#' @param limits limits for axes
+#' @param minor.ticks values for minor ticks
+#' @param major.tick.labels labels for major ticks
+#' @param both.sides deprecated
+#' @keywords internal
+
 defineAxis<-function(major.ticks, limits=NULL, minor.ticks=NULL, major.tick.labels=major.ticks, both.sides=FALSE){
 	l <- list()
 	

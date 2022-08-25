@@ -1,3 +1,16 @@
+#' Print an object of class 'sma'.
+#' 
+#' @description Prints the coefficients and the results of the various hypothesis tests of
+#' an sma object.
+#' 
+#' 
+#' @param x Object of class 'sma'.
+#' @param coefbygroup Whether or not to print the coefficients by group.
+#' @param \dots Further arguments ignored.
+#' @author R.A. Duursma, D. Falster, D.I. Warton
+#' @seealso \code{\link{sma}}
+#' @keywords misc
+#' @export
 print.sma <- function(x, ..., coefbygroup=FALSE){
 
 	obj <- x
