@@ -13,3 +13,4 @@ ignore/
 ^doc$
 ^Meta$
 ignore/
+LICENSE.md
