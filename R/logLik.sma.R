@@ -1,3 +1,9 @@
+#' Computes log liklihood of SMA object
+#'
+#' @param object sma object
+#' @param ... 
+#' @noRd
+#' @export
 
 logLik.sma <- function(object, ...){
   

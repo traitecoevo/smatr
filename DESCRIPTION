@@ -3,10 +3,15 @@ Version: 3.4-8
 Title: (Standardised) Major Axis Estimation and Testing Routines
 Authors@R: c(
     person("David", "Warton", email = "david.warton@unsw.edu.au", role = "aut"),
-    person("Remko", "Duursma", email = "remkoduursma@gmail.com", role = c("aut", "cre")),
+    person("Remko", "Duursma", email = "remkoduursma@gmail.com", role = "aut"),
     person("Daniel", "Falster", email = "daniel.falster@unsw.edu.au", role = "aut", 
-    comment = c(ORCID = "0002-9814-092X")),
-    person("Sara", "Taskinen", role = "aut")
+    comment = c(ORCID = "0000-0002-9814-092X")),
+    person("Sara", "Taskinen", role = "aut"),
+     person(given = "Fonti",
+             family = "Kar",
+             role = c("aut", "cre"),
+             email = "f.kar@unsw.edu.au",
+             comment = c(ORCID = "0000-0002-2760-3974"))
     )
 Description: Methods for fitting bivariate lines in
     allometry using the major axis (MA) or standardised major axis (SMA), and
@@ -35,8 +40,10 @@ Collate:
     'elev.test.R'
     'fitted.sma.R'
     'huber.M.R'
+    'leaflife.R'
+    'leafmeas.R'
     'line.cis.R'
-    'logLik_sma.R'
+    'logLik.sma.R'
     'lr.b.com.R'
     'ma.R'
     'makeLogMinor.R'
@@ -53,7 +60,9 @@ Collate:
     'slope.com.R'
     'slope.test.R'
     'sma.R'
+    'smatr.R'
     'summary.sma.R'
+    'utils.R'
 Suggests: 
     covr,
     knitr,
@@ -63,4 +72,6 @@ Suggests:
 Config/testthat/edition: 3
 VignetteBuilder: knitr
 BugReports: https://github.com/traitecoevo/smatr/issues
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
+Encoding: UTF-8
+LazyData: true

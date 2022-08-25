@@ -1,4 +1,17 @@
-
+#' Common slope estimation
+#' 
+#' @description Estimates a common slope from bivariate data for several independent groups.
+#' Called by \code{\link{slope.com}}.
+#' 
+#' 
+#' @param z Variances and covariances of each group.
+#' @param n Sample sizes of each group.
+#' @param method See \code{\link{slope.com}} for details.
+#' @param lambda Error variance ration (implied by choice of method).
+#' @param res.df Residual degrees of freedom, for each group.
+#' @author Warton, D. \email{David.Warton@@unsw.edu.au} and J. Ormerod
+#' @seealso \code{\link{slope.com}}
+#' @keywords internal
 b.com.est <- function( z, n, method, lambda=1, res.df)
 {
     zcom    <- t(z) %*% ( n - 1 )

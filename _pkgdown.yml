@@ -7,14 +7,21 @@ reference:
 - title: Estimating a (Standardised) Major Axis
   desc: Functions used to fit allometric lines
 - contents:
+  - ma
   - sma
+  - meas.est
+  - summary.sma
   - coef.sma
+  - print.sma
+  - predict.sma
   - fitted.sma
+  - confint.sma
   - residuals.sma
 - title: Testing and making inferences about (S)MA
   desc: Functions used to perform hypothesis testing using estimated lines
 - contents:
   - slope.test
+  - slope.com
   - elev.test
   - elev.com
   - shift.com

@@ -1,4 +1,8 @@
-# Huber's M-estimator; choice q=pchisq(k+1,k) gives maximum breakdown point
+#' Huber's M-estimator
+#'
+#' @param data 
+#' @param q q=pchisq(k+1,k) gives maximum breakdown point
+#' @keywords internal
 
 huber.M<-function( data, q=pchisq(3,2) )
 {
