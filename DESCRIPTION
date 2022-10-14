@@ -29,40 +29,6 @@ Imports:
     stringr,
     rlang,
     magrittr
-Collate:
-    'alpha.fun.R'
-    'b.com.est.R'
-    'coef.sma.R'
-    'com.ci.R'
-    'confint.sma.R'
-    'defineAxis.R'
-    'elev.com.R'
-    'elev.test.R'
-    'fitted.sma.R'
-    'huber.M.R'
-    'leaflife.R'
-    'leafmeas.R'
-    'line.cis.R'
-    'logLik.sma.R'
-    'lr.b.com.R'
-    'ma.R'
-    'makeLogMinor.R'
-    'meas.est.R'
-    'multcompmatrix.R'
-    'nicePlot.R'
-    'plot.sma.R'
-    'predict.sma.R'
-    'print.sma.R'
-    'residuals.sma.R'
-    'robust.factor.R'
-    'seqLog.R'
-    'shift.com.R'
-    'slope.com.R'
-    'slope.test.R'
-    'sma.R'
-    'smatr.R'
-    'summary.sma.R'
-    'utils.R'
 Suggests: 
     covr,
     knitr,
