@@ -29,10 +29,11 @@ ggplot_none <- function(obj, pdat, grp = NULL, ...){
   p <- ggplot(data = pdat, aes(x = X, y = line_Y), ...) 
   
   if(length(obj$groups) > 1)
-  p <- ggplot(data = pdat, aes(x = X, y = line_Y, group = group), ...)
+  p <- ggplot(data = pdat, aes(x = X, y = line_Y, group = group, colour = group), ...)
   
   # Construct rest of plot
   p +
+    geom_point(aes(x = X, y = Y, group = group, colour = group), shape = 21, size = 2) + 
     geom_line(...) + 
     ylab(label = obj$variables[1]) +
     xlab(label = obj$variables[2]) +
