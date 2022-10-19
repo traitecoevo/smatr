@@ -14,9 +14,9 @@ ggplot.sma <- function(obj, ...){
   p <- ggplot_none(obj, pdat, ...)
   else(
   p <- switch(obj$log,
-              "x" = ggplot_x(obj, ...),
-              "y" = ggplot_y(obj, ...),
-              "xy" = ggplot_xy(obj, ...))
+              "x" = ggplot_x(obj, pdat, ...),
+              "y" = ggplot_y(obj, pdat, ...),
+              "xy" = ggplot_xy(obj, pdat, ...))
   )
   p
 }
@@ -25,7 +25,14 @@ ggplot.sma <- function(obj, ...){
 #' @importFrom ggplot2 ggplot aes geom_line xlab ylab theme_bw
 
 ggplot_none <- function(obj, pdat, grp = NULL, ...){
-  ggplot(data = pdat, aes(x = X, y = line_Y, group = grp), ...) + 
+  if(any(obj$groups == "all"))
+  p <- ggplot(data = pdat, aes(x = X, y = line_Y), ...) 
+  
+  if(length(obj$groups) > 1)
+  p <- ggplot(data = pdat, aes(x = X, y = line_Y, group = group), ...)
+  
+  # Construct rest of plot
+  p +
     geom_line(...) + 
     ylab(label = obj$variables[1]) +
     xlab(label = obj$variables[2]) +
@@ -71,17 +78,31 @@ make_plot_data <- function(obj){
 #' @keywords internal
 
  make_data_raw <- function(obj){
-   if(obj$gt == "none"){
+   if(any(obj$groups == "all")){
      # No groups
     pdat <- dplyr::tibble(X = obj$data[,2],
                    Y = obj$data[,1],
                    line_Y = summary(obj)$Int + X*summary(obj)$Slope) #a + x*B
    }else{
      groups <- levels(obj$data[,3])
+     
      pdat <- dplyr::tibble(X = obj$data[,2],
                            Y = obj$data[,1],
                            group = obj$data[,3])
+     
+     for(i in 1:length(groups)){
+       pdat[pdat$group == groups[i],"a"] <- get_coef(obj = obj, 
+                                                   group_level = groups[i],
+                                                   coef_type = "a")
+       
+       pdat[pdat$group == groups[i],"B"] <- get_coef(obj = obj, 
+                                                   group_level = groups[i],
+                                                   coef_type = "B")
+       
+       pdat <- pdat |> mutate(line_Y = a + X*B)
+     }
    }
+   pdat
  }
  
  #' Reformat data for plotting on log transformed x
@@ -120,3 +141,24 @@ make_plot_data <- function(obj){
  }
 
 
+ #' Extract coefficients for each level of group
+ #'
+ #' @param obj object with sma class 
+ #' @param group_level character string of group level
+ #' @param coef_type type of coefficient you want a for intercept B for slope
+ 
+ get_coef <- function(obj, group_level, coef_type){
+   
+   groupsum <- obj$groupsummary
+   
+   if(coef_type == "a"){
+     a <- groupsum |> filter(group == group_level) |>  pull("Int")
+     return(a)
+   } 
+   
+   if(coef_type == "B"){
+     B <- groupsum |> filter(group == group_level) |>  pull("Slope")
+     return(B)
+   }
+ }
+ 
