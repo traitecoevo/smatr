@@ -51,7 +51,6 @@ ggplot_x <- function(obj, pdat, ...){
     theme_bw()
 }
 
-
 #' Make plotting data from sma obj 
 #'
 #' @param obj 
@@ -111,12 +110,35 @@ make_plot_data <- function(obj){
  #' @inheritParams make_data_raw
 
  make_data_x <- function(obj){
-   dplyr::tibble(X = obj$data[,2], #On log scale
-                 Y = obj$data[,1],
-                 X_raw = 10^X,
-                 line_Y = summary(obj)$Int + summary(obj)$Slope*log10(X_raw) #a+B*log10(x) 
-   )
+   if(any(obj$groups == "all")){
+     dplyr::tibble(X = obj$data[,2], #On log scale
+                   Y = obj$data[,1],
+                   X_raw = 10^X,
+                   line_Y = summary(obj)$Int + summary(obj)$Slope*log10(X_raw) #a+B*log10(x) 
+     )
+   }else{
+     pdat <- dplyr::tibble(X = obj$data[,2],
+                           Y = obj$data[,1],
+                           X_raw = 10^X,
+                           group = obj$data[,3])
+     
+     groups <- levels(obj$data[,3])
+     
+     for(i in 1:length(groups)){
+       pdat[pdat$group == groups[i],"a"] <- get_coef(obj = obj, 
+                                                     group_level = groups[i],
+                                                     coef_type = "a")
+       
+       pdat[pdat$group == groups[i],"B"] <- get_coef(obj = obj, 
+                                                     group_level = groups[i],
+                                                     coef_type = "B")
+       
+       pdat <- pdat |> mutate(line_Y = a + B*log10(X_raw))
+     }
+   }
+   pdat
  }
+ 
 
  #' Reformat data for plotting on log transformed y
  #'
