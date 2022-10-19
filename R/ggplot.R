@@ -60,6 +60,26 @@ ggplot_x <- function(obj, pdat, ...){
     theme_bw()
 }
 
+#' Make ggplot with transformed y axes only
+#' @inheritParams ggplot.sma
+
+ggplot_y <- function(obj, pdat, ...){
+  if(any(obj$groups == "all"))
+    p <- ggplot(data = pdat, aes(x = X, y = line_Y), ...) 
+  
+  if(length(obj$groups) > 1)
+    p <- ggplot(data = pdat, aes(x = X, y = line_Y, group = group, colour = group), ...)
+  
+  # Construct rest of plot
+  p +
+    geom_point(aes(x = X, y = Y_raw, group = group, colour = group), shape = 21, size = 2) + 
+    geom_line(...) + 
+    scale_y_log10() + 
+    ylab(label = obj$variables[1]) +
+    xlab(label = obj$variables[2]) +
+    theme_bw()
+}
+
 #' Make plotting data from sma obj 
 #'
 #' @param obj 
@@ -154,10 +174,32 @@ make_plot_data <- function(obj){
  #' @inheritParams make_data_raw
  
  make_data_y <- function(obj){
-   dplyr::tibble(X = obj$data[,2],
-                 Y = obj$data[,1], #On log scale
-                 line_Y = 10^(summary(obj)$Int + summary(obj)$Slope*X) # 10^(a+x*B)
-   )
+   if(any(obj$groups == "all")){
+     pdat <-  dplyr::tibble(X = obj$data[,2],
+                            Y = obj$data[,1], #On log scale
+                            Y_raw = 10^Y,
+                            line_Y = 10^(summary(obj)$Int + summary(obj)$Slope*X) # 10^(a+x*B)
+     )
+   }else{
+     pdat <- dplyr::tibble(X = obj$data[,2],
+                           Y = obj$data[,1],
+                           Y_raw = 10^Y,
+                           group = obj$data[,3])
+     
+     groups <- levels(obj$data[,3])
+     for(i in 1:length(groups)){
+       pdat[pdat$group == groups[i],"a"] <- get_coef(obj = obj, 
+                                                     group_level = groups[i],
+                                                     coef_type = "a")
+       
+       pdat[pdat$group == groups[i],"B"] <- get_coef(obj = obj, 
+                                                     group_level = groups[i],
+                                                     coef_type = "B")
+       
+       pdat <- pdat |> mutate(line_Y = 10^(a + B*X)) # 10^(a+x*B)
+     }
+   }
+   pdat
  }
 
  #' Reformat data for plotting on log transformed x and y
