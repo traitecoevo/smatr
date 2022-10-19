@@ -229,7 +229,7 @@ make_plot_data <- function(obj){
  
  make_data_xy <- function(obj){
    if(any(obj$groups == "all")){
-   dplyr::tibble(X = obj$data[,2], #On log scale
+   pdat <- dplyr::tibble(X = obj$data[,2], #On log scale
                  Y = obj$data[,1], #On log scale
                  X_raw = 10^X,
                  Y_raw = 10^Y,
