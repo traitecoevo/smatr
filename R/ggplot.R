@@ -24,7 +24,7 @@ ggplot.sma <- function(obj, ...){
 #' Make ggplot with untransformed data
 #' @importFrom ggplot2 ggplot aes geom_line xlab ylab theme_bw
 
-ggplot_none <- function(obj, pdat, grp = NULL, ...){
+ggplot_none <- function(obj, pdat, ...){
   if(any(obj$groups == "all"))
   p <- ggplot(data = pdat, aes(x = X, y = line_Y), ...) 
   
@@ -44,8 +44,17 @@ ggplot_none <- function(obj, pdat, grp = NULL, ...){
 #' @inheritParams ggplot.sma
 
 ggplot_x <- function(obj, pdat, ...){
-  ggplot(data = pdat, aes(x = X_raw, y = line_Y), ...) + 
+  if(any(obj$groups == "all"))
+    p <- ggplot(data = pdat, aes(x = X_raw, y = line_Y), ...) 
+    
+  if(length(obj$groups) > 1)
+   p <- ggplot(data = pdat, aes(x = X_raw, y = line_Y, group = group, colour = group), ...) 
+    
+  # Construct rest of plot
+    p + 
+    geom_point(aes(x = X_raw, y = Y, group = group, colour = group), shape = 21, size = 2) +
     geom_line(...) + 
+    scale_x_log10() +
     ylab(label = obj$variables[1]) +
     xlab(label = obj$variables[2]) +
     theme_bw()
@@ -111,7 +120,7 @@ make_plot_data <- function(obj){
 
  make_data_x <- function(obj){
    if(any(obj$groups == "all")){
-     dplyr::tibble(X = obj$data[,2], #On log scale
+    pdat <- dplyr::tibble(X = obj$data[,2], #On log scale
                    Y = obj$data[,1],
                    X_raw = 10^X,
                    line_Y = summary(obj)$Int + summary(obj)$Slope*log10(X_raw) #a+B*log10(x) 
