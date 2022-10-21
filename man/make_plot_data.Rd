@@ -7,7 +7,7 @@
 make_plot_data(obj)
 }
 \arguments{
-\item{obj}{}
+\item{obj}{object with class sma}
 }
 \description{
 Make plotting data from sma obj

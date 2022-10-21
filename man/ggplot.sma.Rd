@@ -2,18 +2,18 @@
 % Please edit documentation in R/ggplot.R
 \name{ggplot.sma}
 \alias{ggplot.sma}
-\title{Title}
+\title{Plot (S)MA using ggplot2}
 \usage{
 \method{ggplot}{sma}(obj, ...)
 }
 \arguments{
-\item{obj}{}
+\item{obj}{object with class sma}
 
-\item{...}{arguments passed to ggplot()}
+\item{...}{arguments passed to geom_line()}
 }
 \value{
 ggplot2 obj
 }
 \description{
-Title
+Plot (S)MA using ggplot2
 }

@@ -28,7 +28,8 @@ Imports:
     tidyr,
     stringr,
     rlang,
-    magrittr
+    magrittr,
+    ggplot2
 Suggests: 
     covr,
     knitr,
