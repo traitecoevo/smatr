@@ -1,5 +1,5 @@
 Package: smatr
-Version: 3.4-8
+Version: 3.5
 Title: (Standardised) Major Axis Estimation and Testing Routines
 Authors@R: c(
     person("David", "Warton", email = "david.warton@unsw.edu.au", role = "aut"),
