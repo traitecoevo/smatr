@@ -30,6 +30,7 @@ reference:
   desc: Functions for visualisation axes
 - contents:
   - starts_with("plot")
+  - ggplot.sma
   - multcompmatrix
 - title: Datasets
   desc: Example datasets included with smatr

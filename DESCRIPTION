@@ -22,7 +22,7 @@ Description: Methods for fitting bivariate lines in
     testing for no shift along a common axis, amongst several samples. 
     See Warton et al. 2012 <doi:10.1111/j.2041-210X.2011.00153.x> for methods description.
 License: GPL (>= 3) + file LICENSE
-URL: https://github.com/traitecoevo
+URL: https://github.com/traitecoevo/smatr, https://traitecoevo.github.io/smatr/
 Imports:
     dplyr,
     tidyr,
