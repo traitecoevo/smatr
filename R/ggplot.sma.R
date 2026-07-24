@@ -17,10 +17,11 @@
 #' customised with additional layers, themes, scales and facets in the usual
 #' way.
 #'
-#' @param data,mapping Present for compatibility with the \code{ggplot2::ggplot}
-#' generic; not used. Pass the \code{sma} object as the first argument.
-#' @param obj An object of class \code{sma}, as returned by \code{\link{sma}} or
-#' \code{\link{ma}}.
+#' @param data An object of class \code{sma}, as returned by \code{\link{sma}}
+#' or \code{\link{ma}}. (Named \code{data} for consistency with the
+#' \code{ggplot2::ggplot} generic.)
+#' @param mapping,environment Present for consistency with the
+#' \code{ggplot2::ggplot} generic; not used.
 #' @param ... Further arguments passed to \code{\link[ggplot2]{geom_line}} for
 #' the fitted lines (for example \code{linewidth} or \code{linetype}).
 #'
@@ -46,9 +47,11 @@
 #' # ggplot object can be extended as usual
 #' ggplot2::ggplot(ft2) + ggplot2::theme_minimal()
 #' }
-ggplot.sma <- function(obj, ..., data = NULL, mapping = NULL) {
+ggplot.sma <- function(data = NULL, mapping = aes(), ...,
+                       environment = parent.frame()) {
+  obj <- data
   if (!inherits(obj, "sma")) {
-    stop("`obj` must be an object of class 'sma'.", call. = FALSE)
+    stop("`data` must be an object of class 'sma'.", call. = FALSE)
   }
 
   pd <- make_plot_data(obj)

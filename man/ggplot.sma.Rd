@@ -4,17 +4,18 @@
 \alias{ggplot.sma}
 \title{Plot a (S)MA fit using ggplot2}
 \usage{
-\method{ggplot}{sma}(obj, ..., data = NULL, mapping = NULL)
+\method{ggplot}{sma}(data = NULL, mapping = aes(), ..., environment = parent.frame())
 }
 \arguments{
-\item{obj}{An object of class \code{sma}, as returned by \code{\link{sma}} or
-\code{\link{ma}}.}
+\item{data}{An object of class \code{sma}, as returned by \code{\link{sma}}
+or \code{\link{ma}}. (Named \code{data} for consistency with the
+\code{ggplot2::ggplot} generic.)}
+
+\item{mapping, environment}{Present for consistency with the
+\code{ggplot2::ggplot} generic; not used.}
 
 \item{...}{Further arguments passed to \code{\link[ggplot2]{geom_line}} for
 the fitted lines (for example \code{linewidth} or \code{linetype}).}
-
-\item{data, mapping}{Present for compatibility with the \code{ggplot2::ggplot}
-generic; not used. Pass the \code{sma} object as the first argument.}
 }
 \value{
 A \code{ggplot} object.
