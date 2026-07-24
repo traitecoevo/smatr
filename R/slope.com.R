@@ -142,6 +142,19 @@ slope.com <- function( y, x, groups, method="SMA", alpha=0.05, data=NULL,
       stop("'data' argument no longer supported.")
     
     dat    <- cbind(y, x)
+
+    # Drop any requested groups that have no (non-missing) observations. This
+    # can happen when 'group.names' comes from the factor levels (e.g. via sma())
+    # and a level is retained but unused after subsetting the data.
+    present <- sapply( group.names,
+                       function(gn) any( groups == gn & !is.na(x + y) ) )
+    if ( any(!present) ){
+        group.names <- group.names[present]
+        # Keep the measurement-error array V aligned with the retained groups.
+        if ( length(dim(V)) == 3 && dim(V)[3] == length(present) ){
+            V <- V[, , present, drop=FALSE]
+        }
+    }
     g      <- length(group.names)
 
     # Find sample size, variances for each group:
@@ -151,7 +164,10 @@ slope.com <- function( y, x, groups, method="SMA", alpha=0.05, data=NULL,
     z      <- matrix( 0, g, 3 )
     do.bs  <- bs
     bs     <- matrix( NA, 3, g, dimnames=list(c("slope","lower.CI.lim","upper.CI.lim"),group.names) )
-    for (i in 1:g)
+    if ( g < 2 ){
+        stop("Sorry, need at least two groups (each with sufficient observations) to test for a common slope.")
+    }
+    for (i in seq_len(g))
     {
         iref   <- ( groups==group.names[i] )
         iref   <- iref & ( is.na(x+y) == FALSE )
