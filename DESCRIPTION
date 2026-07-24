@@ -1,5 +1,5 @@
 Package: smatr
-Version: 3.4-9
+Version: 3.5-0
 Title: (Standardised) Major Axis Estimation and Testing Routines
 Authors@R: c(
     person("David", "Warton", email = "david.warton@unsw.edu.au", role = "aut"),
@@ -23,12 +23,13 @@ Description: Methods for fitting bivariate lines in
     See Warton et al. 2012 <doi:10.1111/j.2041-210X.2011.00153.x> for methods description.
 License: GPL (>= 3) + file LICENSE
 URL: https://github.com/traitecoevo
-Imports: 
+Imports:
     dplyr,
     tidyr,
     stringr,
     rlang,
-    magrittr
+    magrittr,
+    ggplot2
 Collate:
     'alpha.fun.R'
     'b.com.est.R'
@@ -39,6 +40,7 @@ Collate:
     'elev.com.R'
     'elev.test.R'
     'fitted.sma.R'
+    'ggplot.sma.R'
     'huber.M.R'
     'leaflife.R'
     'leafmeas.R'
@@ -63,12 +65,13 @@ Collate:
     'smatr.R'
     'summary.sma.R'
     'utils.R'
-Suggests: 
+Suggests:
     covr,
     knitr,
     rmarkdown,
     markdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    withr
 Config/testthat/edition: 3
 VignetteBuilder: knitr
 BugReports: https://github.com/traitecoevo/smatr/issues

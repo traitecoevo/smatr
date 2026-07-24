@@ -83,6 +83,20 @@ rain_sma_obj <- sma(longev~lma*rain, log="xy", data=leaf.low.soilp)
 plot(rain_sma_obj)
 ```
 
+The same fit can be drawn with `ggplot2` by calling `ggplot()` on the fitted object. This plots the data and fitted (S)MA line(s), colours by group where present, and log-scales any axes that were log-transformed in the fit. Because it returns a standard `ggplot` object, you can add themes, labels and further layers as usual:
+
+```{r, message=FALSE}
+library(ggplot2)
+
+# ggplot2 version of the grouped SMA fit
+ggplot(rain_sma_obj)
+
+# The result is a normal ggplot object, so extend it however you like:
+ggplot(rain_sma_obj) +
+  theme_minimal() +
+  labs(title = "Leaf longevity vs LMA", colour = "Rainfall")
+```
+
 By default, the `sma()` function will first fit a common slope for all groups and then test whether there is a difference in elevation
 
 ```{r}
