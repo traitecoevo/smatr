@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">smatr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.4-9</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.5-1</span>
       </span>
     </div>
 
@@ -50,6 +50,15 @@
       <small>Source: <a href="https://github.com/traitecoevo/smatr/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="3.5-1" id="smatr-35-1">smatr 3.5-1<a class="anchor" aria-label="anchor" href="#smatr-35-1"></a></h2>
+<ul><li>Fixed <code><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef()</a></code> returning <code>NULL</code> for <code>sma</code>/<code>ma</code> fits: <code><a href="../reference/coef.sma.html">coef.sma()</a></code> was never registered as an S3 method, so the generic did not dispatch to it for users of the installed package (<a href="https://github.com/traitecoevo/smatr/issues/26" class="external-link">#26</a>).</li>
+<li>Removed the ad hoc <code>test/</code> directory of user bug reproductions; the checks that remain relevant are now covered by the <code>testthat</code> suite (<a href="https://github.com/traitecoevo/smatr/issues/26" class="external-link">#26</a>).</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="3.5-0" id="smatr-35-0">smatr 3.5-0<a class="anchor" aria-label="anchor" href="#smatr-35-0"></a></h2>
+<ul><li>Added <code><a href="../reference/ggplot.sma.html">ggplot.sma()</a></code>, a <code>ggplot2</code> method for <code>sma</code> objects. Call <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot()</a></code> on a fit to draw the data and fitted (S)MA line(s), coloured by group where present, with log-scaled axes for any log-transformed variables (<a href="https://github.com/traitecoevo/smatr/issues/33" class="external-link">#33</a>). Revives earlier work by Fonti Kar.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="3.4-9" id="smatr-34-9">smatr 3.4-9<a class="anchor" aria-label="anchor" href="#smatr-34-9"></a></h2>
 <ul><li>Fixed <code>object 'xi' not found</code> error in <code><a href="../reference/slope.com.html">slope.com()</a></code> (and therefore <code><a href="../reference/sma.html">sma()</a></code> with a grouping variable, e.g. <code>sma(y ~ x * group)</code>) that occurred when the grouping factor contained a level with no observations — for example, an unused level retained after <code><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset()</a></code>. This also affected <code>sma(..., multcomp = TRUE)</code>. Empty groups are now dropped before fitting (which also removes a latent bug where a non-first empty group silently reused the previous group’s variance matrix), and a common-slope test with fewer than two usable groups gives a clear error instead of crashing (<a href="https://github.com/traitecoevo/smatr/issues/30" class="external-link">#30</a>, <a href="https://github.com/traitecoevo/smatr/issues/34" class="external-link">#34</a>).</li>
