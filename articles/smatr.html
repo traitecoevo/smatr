@@ -6,20 +6,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Getting Started • smatr</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Getting Started">
-<meta property="og:description" content="smatr">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -53,7 +52,7 @@
 <li>
   <a href="https://github.com/traitecoevo/smatr/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul>
@@ -64,23 +63,28 @@
 </div>
 <!--/.navbar -->
 
-      
 
-      </header><script src="smatr_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Getting Started</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/traitecoevo/smatr/blob/HEAD/vignettes/smatr.Rmd" class="external-link"><code>vignettes/smatr.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/traitecoevo/smatr/blob/master/vignettes/smatr.Rmd" class="external-link"><code>vignettes/smatr.Rmd</code></a></small>
       <div class="hidden name"><code>smatr.Rmd</code></div>
 
     </div>
 
     
     
-<p>Below contains a brief overview on how to get users started with <code>smatr</code></p>
-<p>More detailed information about the package can be found here: Warton, D. I., Duursma, R. A., Falster, D. S., &amp; Taskinen, S. (2012). <a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210X.2011.00153.x" class="external-link">smatr 3–an R package for estimation and inference about allometric lines</a>. Methods in Ecology and Evolution, 3(2), 257-259.</p>
+<p>Below contains a brief overview on how to get users started with
+<code>smatr</code></p>
+<p>More detailed information about the package can be found here:
+Warton, D. I., Duursma, R. A., Falster, D. S., &amp; Taskinen, S.
+(2012). <a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210X.2011.00153.x" class="external-link">smatr
+3–an R package for estimation and inference about allometric lines</a>.
+Methods in Ecology and Evolution, 3(2), 257-259.</p>
 <p>First, install smatr`</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Install via CRAN or github</span></span>
@@ -90,7 +94,9 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load library</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/traitecoevo" class="external-link">smatr</a></span><span class="op">)</span></span></code></pre></div>
-<p>Note we will illustrate some of the core functions of <code>smatr</code> using one of the two data sets included in the package</p>
+<p>Note we will illustrate some of the core functions of
+<code>smatr</code> using one of the two data sets included in the
+package</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">leaflife</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">leafmeas</span><span class="op">)</span></span>
@@ -101,7 +107,10 @@
 <div class="section level3">
 <h3 id="one-sample-analyses">One sample analyses<a class="anchor" aria-label="anchor" href="#one-sample-analyses"></a>
 </h3>
-<p>Users can fit a single major axis to their data using the <code>ma(y ~ x)</code> or <code>sma(y ~x)</code> functions for y against x. The <code>log</code> argument allows quick transformations to one or both axes before estimation occurs. For example:</p>
+<p>Users can fit a single major axis to their data using the
+<code>ma(y ~ x)</code> or <code>sma(y ~x)</code> functions for y against
+x. The <code>log</code> argument allows quick transformations to one or
+both axes before estimation occurs. For example:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Extract only low-nutrient, low-rainfall data from leaflife dataset:</span></span>
 <span><span class="va">leaf.low</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">leaflife</span>, <span class="va">soilp</span> <span class="op">==</span> <span class="st">'low'</span> <span class="op">&amp;</span> <span class="va">rain</span> <span class="op">==</span> <span class="st">'low'</span><span class="op">)</span></span>
@@ -130,7 +139,11 @@
 <div class="section level3">
 <h3 id="testing-for-significance">Testing for significance<a class="anchor" aria-label="anchor" href="#testing-for-significance"></a>
 </h3>
-<p>Users can specify using the argument <code>slope.test</code> in the <code><a href="../reference/ma.html">ma()</a></code> or <code><a href="../reference/sma.html">sma()</a></code> function to test whether the estimated slope is significantly different from 1. Calling summary to <code>sma</code> or <code>ma</code> objects will return confidence intervals for the slope and/or elevation.</p>
+<p>Users can specify using the argument <code>slope.test</code> in the
+<code><a href="../reference/ma.html">ma()</a></code> or <code><a href="../reference/sma.html">sma()</a></code> function to test whether the
+estimated slope is significantly different from 1. Calling summary to
+<code>sma</code> or <code>ma</code> objects will return confidence
+intervals for the slope and/or elevation.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Test if the MA slope is not significantly different from 1 for longevity and leaf mass per area (LMA):</span></span>
 <span><span class="va">ma_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ma.html">ma</a></span><span class="op">(</span><span class="va">longev</span> <span class="op">~</span> <span class="va">lma</span>, log<span class="op">=</span><span class="st">'xy'</span>, slope.test<span class="op">=</span><span class="fl">1</span>, data<span class="op">=</span><span class="va">leaflife</span><span class="op">)</span> </span>
@@ -143,12 +156,14 @@
 <span><span class="co">#&gt;       Elev_test_p</span></span>
 <span><span class="co">#&gt; group          NA</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">ma_obj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="smatr_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+<p><img src="smatr_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" alt="" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="multiple-sample-analyses">Multiple sample analyses<a class="anchor" aria-label="anchor" href="#multiple-sample-analyses"></a>
 </h3>
-<p>Often researchers wish to compare between slopes or intercepts of axes between different groups. Lets say we want to compare between high and low rainfall for low nutrient sites ONLY</p>
+<p>Often researchers wish to compare between slopes or intercepts of
+axes between different groups. Lets say we want to compare between high
+and low rainfall for low nutrient sites ONLY</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># First we subset the data that is relevant</span></span>
 <span><span class="va">leaf.low.soilp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">leaflife</span>, <span class="va">soilp</span> <span class="op">==</span> <span class="st">'low'</span><span class="op">)</span></span>
@@ -158,8 +173,10 @@
 <span></span>
 <span><span class="co"># Lets plot longevity vs LMA separately for each group first:</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">rain_sma_obj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="smatr_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
-<p>By default, the <code><a href="../reference/sma.html">sma()</a></code> function will first fit a common slope for all groups and then test whether there is a difference in elevation</p>
+<p><img src="smatr_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" alt="" width="700"></p>
+<p>By default, the <code><a href="../reference/sma.html">sma()</a></code> function will first fit a common
+slope for all groups and then test whether there is a difference in
+elevation</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Fit SMAs for each group and tests if several SMA lines share a common slope. </span></span>
 <span><span class="va">rain_sma_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sma.html">sma</a></span><span class="op">(</span><span class="va">longev</span><span class="op">~</span><span class="va">lma</span><span class="op">*</span><span class="va">rain</span>, log<span class="op">=</span><span class="st">"xy"</span>, data<span class="op">=</span><span class="va">leaf.low.soilp</span><span class="op">)</span></span>
@@ -171,7 +188,8 @@
 <span><span class="co">#&gt;   Int_lowCI Int_highCI Slope_test Slope_test_p Elev_test Elev_test_p</span></span>
 <span><span class="co">#&gt; 1 -3.475559  -1.167915         NA           NA        NA          NA</span></span>
 <span><span class="co">#&gt; 2 -5.291926  -2.383495         NA           NA        NA          NA</span></span></code></pre></div>
-<p>Again, using the <code>slope.test</code> will test whether the common slope is significantly different to 1.</p>
+<p>Again, using the <code>slope.test</code> will test whether the common
+slope is significantly different to 1.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Fit SMAs separately at each of high and low rainfall sites,</span></span>
 <span><span class="co"># and test if there is a common slope and whether it is equal to 1:</span></span>
@@ -184,7 +202,8 @@
 <span><span class="co">#&gt;   Int_lowCI Int_highCI Slope_test Slope_test_p Elev_test Elev_test_p</span></span>
 <span><span class="co">#&gt; 1 -3.475559  -1.167915          1   0.44732920        NA          NA</span></span>
 <span><span class="co">#&gt; 2 -5.291926  -2.383495          1   0.00427036        NA          NA</span></span></code></pre></div>
-<p>The <code>type</code> argument allows users to test for a change in elevation</p>
+<p>The <code>type</code> argument allows users to test for a change in
+elevation</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Fit SMAs separately at each of high and low rainfall sites, and test whether sites differ in the elevation of their SMA</span></span>
 <span><span class="va">rain_elev_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sma.html">sma</a></span><span class="op">(</span><span class="va">longev</span><span class="op">~</span><span class="va">lma</span><span class="op">*</span><span class="va">rain</span>, log<span class="op">=</span><span class="st">"xy"</span>, type <span class="op">=</span> <span class="st">"elevation"</span>, data<span class="op">=</span><span class="va">leaf.low.soilp</span><span class="op">)</span></span>
@@ -196,7 +215,8 @@
 <span><span class="co">#&gt;   Int_lowCI Int_highCI Slope_test Slope_test_p Elev_test Elev_test_p</span></span>
 <span><span class="co">#&gt; 1 -3.475559  -1.167915         NA           NA        NA          NA</span></span>
 <span><span class="co">#&gt; 2 -5.291926  -2.383495         NA           NA        NA          NA</span></span></code></pre></div>
-<p>The <code>type</code> argument allows users to also test for shifts along a common axis</p>
+<p>The <code>type</code> argument allows users to also test for shifts
+along a common axis</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Fit SMAs with common slope across each of high and low rainfall sites, and test for no shift along common SMA:</span></span>
 <span><span class="va">rain_shift_obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sma.html">sma</a></span><span class="op">(</span><span class="va">longev</span><span class="op">~</span><span class="va">lma</span><span class="op">+</span><span class="va">rain</span>, log<span class="op">=</span><span class="st">"xy"</span>, type<span class="op">=</span><span class="st">"shift"</span>, data<span class="op">=</span><span class="va">leaf.low.soilp</span><span class="op">)</span></span>
@@ -225,16 +245,16 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
       </footer>
 </div>
 
-  
 
 
-  
+
+
 
   </body>
 </html>
