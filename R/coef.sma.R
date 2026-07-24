@@ -12,6 +12,7 @@
 #' @author R.A. Duursma
 #' @seealso \code{\link{sma}}
 #' @keywords misc
+#' @export
 coef.sma <- function(object, ...){
 
 	x <- object
