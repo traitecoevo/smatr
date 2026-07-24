@@ -1,3 +1,11 @@
+# smatr 3.5-1
+
+* Fixed `coef()` returning `NULL` for `sma`/`ma` fits: `coef.sma()` was never
+  registered as an S3 method, so the generic did not dispatch to it for users
+  of the installed package (#26).
+* Removed the ad hoc `test/` directory of user bug reproductions; the checks
+  that remain relevant are now covered by the `testthat` suite (#26).
+
 # smatr 3.5-0
 
 * Added `ggplot.sma()`, a `ggplot2` method for `sma` objects. Call

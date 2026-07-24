@@ -59,3 +59,19 @@ test_that("Calculations are correct", {
   expect_equal(fitted.sma(sma_slop_obj, centered = FALSE), c(fitted_high, fitted_low))
   expect_equal(fitted.sma(sma_slop_obj, centered = TRUE), c(fitted_high, fitted_low) - mean( c(fitted_high, fitted_low)))
 })
+
+# Robust, grouped fit: residuals must match a manual y - (elevation + slope*x)
+# calculation done from coef(). Reproduces the check a user reported (issue #26,
+# joan.R in the old test/ directory), which the sample data file for could no
+# longer be loaded.
+test_that("residuals of a robust grouped fit match manual calculation", {
+  robust_obj <- sma(longev ~ lma * rain, log = "xy", robust = TRUE, data = soil.low)
+
+  cf <- coef(robust_obj)
+  grp <- as.character(soil.low$rain)
+  manual <- log10(soil.low$longev) -
+    (cf[grp, "elevation"] + cf[grp, "slope"] * log10(soil.low$lma))
+
+  expect_equal(unname(residuals.sma(robust_obj)), unname(manual))
+  expect_length(residuals.sma(robust_obj), nrow(soil.low))
+})
