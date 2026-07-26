@@ -16,4 +16,5 @@ LICENSE.md
 ^x_archive$
 ^\.\.Rcheck$
 ^cran-comments\.md$
+^revdep$
 
