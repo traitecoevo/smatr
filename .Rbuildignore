@@ -17,5 +17,6 @@ LICENSE.md
 ^\.\.Rcheck$
 ^cran-comments\.md$
 ^revdep$
+^\.vscode$
 
 ^CRAN-SUBMISSION$
