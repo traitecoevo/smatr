@@ -3,8 +3,7 @@
 #' @description Functions used by \code{\link{sma}} when 'robust = TRUE'.
 #' 
 #' 
-#' @param r,k,q, Parameters.
-#' @param data .....
+#' @param r,k,q Parameters.
 #' @author Warton, D. I. \email{David.Warton@@unsw.edu.au}, S. Taskinen
 #' @seealso \code{\link{sma}}
 #' @keywords internal

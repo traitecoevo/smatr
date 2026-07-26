@@ -6,11 +6,6 @@
 \usage{
 robust.factor(data, q)
 }
-\arguments{
-\item{data}{}
-
-\item{q}{}
-}
 \description{
 Computers robust factor for elevation, slope and CI
 }
