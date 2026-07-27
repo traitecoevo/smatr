@@ -9,3 +9,6 @@ ignore/
 
 /doc/
 /Meta/
+
+smatr.Rcheck/
+*.tar.gz
