@@ -1,3 +1,11 @@
+## Resubmission
+
+This is a resubmission. In response to the previous review:
+
+* Removed "+ file LICENSE" from the License field and deleted the LICENSE
+  file. The package is licensed under GPL (>= 3) with no additional
+  restrictions, so the License field is now simply `GPL (>= 3)`.
+
 ## Submission notes
 
 This is a maintenance release of smatr, updating from the archived/previous
