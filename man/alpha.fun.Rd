@@ -7,9 +7,7 @@
 alpha.fun(r, k, q)
 }
 \arguments{
-\item{r, k, q, }{Parameters.}
-
-\item{data}{.....}
+\item{r, k, q}{Parameters.}
 }
 \description{
 Functions used by \code{\link{sma}} when 'robust = TRUE'.

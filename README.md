@@ -1,7 +1,7 @@
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/smatr)](https://CRAN.R-project.org/package=smatr)
-[![R-CMD-check](https://github.com/traitecoevo/smatr/workflows/R-CMD-check/badge.svg)](https://github.com/traitecoevo/smatr/master)
-[![Codecov test coverage](https://codecov.io/gh/traitecoevo/smatr/branch/master/graph/badge.svg)](https://codecov.io/gh/traitecoevo/smatr?branch=master)
+[![R-CMD-check](https://github.com/traitecoevo/smatr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/traitecoevo/smatr/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/traitecoevo/smatr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/traitecoevo/smatr)
 <!-- badges: end -->
 
 # smatr  <img src="man/figures/smatr_hex.png" align="right" width="120"/>
@@ -11,7 +11,7 @@
 
 Warton, David I., Duursma, Remko A., Falster, Daniel S. and Taskinen,
   Sara (2012) **smatr 3 - an R package for estimation and inference about
-  allometric lines**. Methods in Ecology and Evolution, 3(2), 257-259. [doi:10.1111/j.2041-210X.2011.00153.x](http://doi.org/10.1111/j.2041-210X.2011.00153.x).
+  allometric lines**. Methods in Ecology and Evolution, 3(2), 257-259. [doi:10.1111/j.2041-210X.2011.00153.x](https://doi.org/10.1111/j.2041-210X.2011.00153.x).
 
 
 **Abstract:**
@@ -20,7 +20,7 @@ Warton, David I., Duursma, Remko A., Falster, Daniel S. and Taskinen,
 2. This paper describes some significant improvements to the functionality of the package, now available on R in smatr version 3.
 3. New inclusions in the package include sma and ma functions that accept formula input and perform the key inference tasks; multiple comparisons; graphical methods for visualising data and checking (S)MA assumptions; robust (S)MA estimation and inference tools.
 
-The package was programmed by [David Warton](http://web.maths.unsw.edu.au/~dwarton/), [Remko Duursma](http://www.remkoduursma.com) and [Daniel Falster](http://danielfalster.com) and is maintained by [Fonti Kar](https://github.com/fontikar)
+The package was programmed by [David Warton](https://web.maths.unsw.edu.au/~dwarton/), Remko Duursma and [Daniel Falster](https://danielfalster.com), and is maintained by [Daniel Falster](https://danielfalster.com).
 
 
 ## Installation
@@ -31,18 +31,24 @@ You can simply install this package from CRAN,
 install.packages("smatr")
 ```
 
-Or install the development version from bitbucket,
+Or install the development version from GitHub,
 
 ```R
 # install.packages("remotes")
 remotes::install_github("traitecoevo/smatr")
 ```
 
-### Issues and feature requests
+## Documentation
 
-Please report any [issues or bugs](https://bitbucket.org/remkoduursma/smatr/issues).
+Function reference, vignettes and a changelog are available at
+<https://traitecoevo.github.io/smatr/>. Within R, start with `vignette("smatr")`
+and `?sma`.
 
-### To cite package `smatr` in publications use:
+## Issues and feature requests
+
+Please report any [issues or bugs](https://github.com/traitecoevo/smatr/issues).
+
+## To cite package `smatr` in publications use:
 
 ```coffee
    Warton, David I., Duursma, Remko A., Falster, Daniel S. and Taskinen,

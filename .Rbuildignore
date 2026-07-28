@@ -12,6 +12,11 @@ test/
 ignore/
 ^doc$
 ^Meta$
-ignore/
 LICENSE.md
+^x_archive$
+^\.\.Rcheck$
+^cran-comments\.md$
+^revdep$
+^\.vscode$
 
+^CRAN-SUBMISSION$

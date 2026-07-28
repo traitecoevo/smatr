@@ -6,15 +6,6 @@
 \usage{
 \method{gamma}{fun}(r, k, q)
 }
-\arguments{
-\item{r}{}
-
-\item{k}{}
-
-\item{q}{}
-
-\item{data}{}
-}
 \value{
 Computers robust factor for elevation, slope and CI
 }

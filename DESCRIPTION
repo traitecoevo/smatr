@@ -4,12 +4,12 @@ Title: (Standardised) Major Axis Estimation and Testing Routines
 Authors@R: c(
     person("David", "Warton", email = "david.warton@unsw.edu.au", role = "aut"),
     person("Remko", "Duursma", email = "remkoduursma@gmail.com", role = "aut"),
-    person("Daniel", "Falster", email = "daniel.falster@unsw.edu.au", role = "aut", 
+    person("Daniel", "Falster", email = "daniel.falster@unsw.edu.au", role = c("aut", "cre"),
     comment = c(ORCID = "0000-0002-9814-092X")),
     person("Sara", "Taskinen", role = "aut"),
      person(given = "Fonti",
              family = "Kar",
-             role = c("aut", "cre"),
+             role = "aut",
              email = "f.kar@unsw.edu.au",
              comment = c(ORCID = "0000-0002-2760-3974"))
     )
@@ -21,7 +21,7 @@ Description: Methods for fitting bivariate lines in
     constructing a confidence interval for a common slope or elevation, and
     testing for no shift along a common axis, amongst several samples. 
     See Warton et al. 2012 <doi:10.1111/j.2041-210X.2011.00153.x> for methods description.
-License: GPL (>= 3) + file LICENSE
+License: GPL (>= 3)
 URL: https://github.com/traitecoevo/smatr, https://traitecoevo.github.io/smatr/
 Imports:
     dplyr,
@@ -75,6 +75,6 @@ Suggests:
 Config/testthat/edition: 3
 VignetteBuilder: knitr
 BugReports: https://github.com/traitecoevo/smatr/issues
-RoxygenNote: 7.2.1
 Encoding: UTF-8
 LazyData: true
+Config/roxygen2/version: 8.0.0

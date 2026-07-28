@@ -7,8 +7,6 @@
 huber.M(data, q = pchisq(3, 2))
 }
 \arguments{
-\item{data}{}
-
 \item{q}{q=pchisq(k+1,k) gives maximum breakdown point}
 }
 \description{
