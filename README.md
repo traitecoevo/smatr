@@ -44,11 +44,11 @@ Function reference, vignettes and a changelog are available at
 <https://traitecoevo.github.io/smatr/>. Within R, start with `vignette("smatr")`
 and `?sma`.
 
-### Issues and feature requests
+## Issues and feature requests
 
 Please report any [issues or bugs](https://github.com/traitecoevo/smatr/issues).
 
-### To cite package `smatr` in publications use:
+## To cite package `smatr` in publications use:
 
 ```coffee
    Warton, David I., Duursma, Remko A., Falster, Daniel S. and Taskinen,
