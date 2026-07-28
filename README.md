@@ -1,6 +1,6 @@
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/smatr)](https://CRAN.R-project.org/package=smatr)
-[![R-CMD-check](https://github.com/traitecoevo/smatr/workflows/R-CMD-check/badge.svg)](https://github.com/traitecoevo/smatr/actions)
+[![R-CMD-check](https://github.com/traitecoevo/smatr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/traitecoevo/smatr/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/traitecoevo/smatr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/traitecoevo/smatr)
 <!-- badges: end -->
 
@@ -37,6 +37,12 @@ Or install the development version from GitHub,
 # install.packages("remotes")
 remotes::install_github("traitecoevo/smatr")
 ```
+
+## Documentation
+
+Function reference, vignettes and a changelog are available at
+<https://traitecoevo.github.io/smatr/>. Within R, start with `vignette("smatr")`
+and `?sma`.
 
 ### Issues and feature requests
 
