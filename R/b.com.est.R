@@ -12,6 +12,7 @@
 #' @author Warton, D. \email{David.Warton@@unsw.edu.au} and J. Ormerod
 #' @seealso \code{\link{slope.com}}
 #' @keywords internal
+#' @export
 b.com.est <- function( z, n, method, lambda=1, res.df)
 {
     zcom    <- t(z) %*% ( n - 1 )

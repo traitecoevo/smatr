@@ -11,13 +11,12 @@
 #' log-transformed axes.
 #' 
 #' @param major a vector of values giving major tick marks.
-#' @keywords internal
-#' @return vector of minor tick spacings approrpaite for log 10 scaled axis with major ticks given by 'major'
+#' @seealso \code{\link{plotutils}}
+#' @export
+#' @return vector of minor tick spacings appropriate for log 10 scaled axis with major ticks given by 'major'
 #' @examples
-#' \dontrun{
 #' #Sequence suitable for log base 10 labels
 #' makeLogMinor(seqLog(1E-5, 1E5))
-#' }
 makeLogMinor<-function(major){	
 	temp <- NULL
 	if(length(major) > 1) 

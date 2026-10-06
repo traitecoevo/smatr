@@ -20,7 +20,7 @@
 #' axes according to the specified values. For this to work, axis objects must
 #' contain both \code{major.ticks} and \code{limits}.
 #' 
-#' @aliases plotutils defineAxis nicePlot
+#' @name plotutils
 #' @param limits the x or y limits of the plot, (x1, x2) or (y1,y2).
 #' @param major.ticks,minor.ticks Where to draw major and minor ticks
 #' (vectors).
@@ -43,9 +43,7 @@
 #' @param \dots Arguments to be passed to nicePlot, and therein to 'axis'.
 #' @seealso \code{\link{sma}}, \code{\link{plot.sma}}
 #' @keywords misc
-#' @noRd
 #' @examples
-#' \dontrun{
 #' # Load leaf lifetime dataset:
 #' data(leaflife)
 #' 
@@ -82,7 +80,4 @@
 #' xax <- defineAxis(limits=c(8, 1.2E3), major.ticks=seqLog(1, 1000))
 #' yax <- defineAxis(limits=c(0.8E-1, 1.2E1), major.ticks=seqLog(1E-2, 10))
 #' nicePlot(xax,yax,log='xy')
-#' }
-
-
-
+NULL
