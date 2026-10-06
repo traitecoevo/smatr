@@ -19,7 +19,7 @@ generating high-quality publishable graphs."><!-- mathjax --><script src="https:
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">smatr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.5-1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.5-2</span>
       </span>
     </div>
 
@@ -202,7 +202,7 @@ included in <code>x</code> and the vector length is at least as long as the numb
 of groups.</p>
 <p>By default, <code>plot.sma</code> uses the default tick spacing given by
 <code>plot.default</code>. To customise axes, users can pass special axis objects
-to <code>plot.sma</code>, obtained using the <code><a href="defineAxis.html">defineAxis</a></code> command as
+to <code>plot.sma</code>, obtained using the <code><a href="plotutils.html">defineAxis</a></code> command as
 in the example below. This enables high quality publishable plots to be
 produced. See <code><a href="https://rdrr.io/r/utils/utils-package.html" class="external-link">utils</a></code> for more information.</p>
     </div>
@@ -236,8 +236,8 @@ produced. See <code><a href="https://rdrr.io/r/utils/utils-package.html" class="
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">ft</span>, use.null<span class="op">=</span><span class="cn">TRUE</span>, add<span class="op">=</span><span class="cn">TRUE</span>, type<span class="op">=</span><span class="st">'l'</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Plot with equally spaced tick marks:</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">ft</span>, xaxis<span class="op">=</span><span class="fu"><a href="defineAxis.html">defineAxis</a></span><span class="op">(</span>major.ticks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">40</span>,<span class="fl">80</span>,<span class="fl">160</span>,<span class="fl">320</span>,<span class="fl">640</span><span class="op">)</span><span class="op">)</span>, </span></span>
-<span class="r-in"><span>  yaxis<span class="op">=</span><span class="fu"><a href="defineAxis.html">defineAxis</a></span><span class="op">(</span>major.ticks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">4</span>,<span class="fl">8</span><span class="op">)</span><span class="op">)</span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">ft</span>, xaxis<span class="op">=</span><span class="fu"><a href="plotutils.html">defineAxis</a></span><span class="op">(</span>major.ticks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">40</span>,<span class="fl">80</span>,<span class="fl">160</span>,<span class="fl">320</span>,<span class="fl">640</span><span class="op">)</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>  yaxis<span class="op">=</span><span class="fu"><a href="plotutils.html">defineAxis</a></span><span class="op">(</span>major.ticks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">4</span>,<span class="fl">8</span><span class="op">)</span><span class="op">)</span> <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Produce a residual plot to check assumptions:</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">ft</span>,which<span class="op">=</span><span class="st">"res"</span><span class="op">)</span></span></span>

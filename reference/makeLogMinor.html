@@ -23,7 +23,7 @@ log-transformed axes."><!-- mathjax --><script src="https://cdnjs.cloudflare.com
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">smatr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.5-1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.5-2</span>
       </span>
     </div>
 
@@ -81,15 +81,25 @@ log-transformed axes.</p>
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>vector of minor tick spacings approrpaite for log 10 scaled axis with major ticks given by 'major'</p>
+    <p>vector of minor tick spacings appropriate for log 10 scaled axis with major ticks given by 'major'</p>
+    </div>
+    <div id="see-also">
+    <h2>See also</h2>
+    <div class="dont-index"><p><code><a href="plotutils.html">plotutils</a></code></p></div>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="co">#Sequence suitable for log base 10 labels</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">#Sequence suitable for log base 10 labels</span></span></span>
 <span class="r-in"><span><span class="fu">makeLogMinor</span><span class="op">(</span><span class="fu"><a href="seqLog.html">seqLog</a></span><span class="op">(</span><span class="fl">1E-5</span>, <span class="fl">1E5</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1e-05 2e-05 3e-05 4e-05 5e-05 6e-05 7e-05 8e-05 9e-05 1e-04 2e-04 3e-04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] 4e-04 5e-04 6e-04 7e-04 8e-04 9e-04 1e-03 2e-03 3e-03 4e-03 5e-03 6e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] 7e-03 8e-03 9e-03 1e-02 2e-02 3e-02 4e-02 5e-02 6e-02 7e-02 8e-02 9e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] 1e-01 2e-01 3e-01 4e-01 5e-01 6e-01 7e-01 8e-01 9e-01 1e+00 2e+00 3e+00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [49] 4e+00 5e+00 6e+00 7e+00 8e+00 9e+00 1e+01 2e+01 3e+01 4e+01 5e+01 6e+01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [61] 7e+01 8e+01 9e+01 1e+02 2e+02 3e+02 4e+02 5e+02 6e+02 7e+02 8e+02 9e+02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [73] 1e+03 2e+03 3e+03 4e+03 5e+03 6e+03 7e+03 8e+03 9e+03 1e+04 2e+04 3e+04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [85] 4e+04 5e+04 6e+04 7e+04 8e+04 9e+04 1e+05</span>
 </code></pre></div>
     </div>
   </div>

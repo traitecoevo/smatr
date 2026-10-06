@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">smatr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.5-1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.5-2</span>
       </span>
     </div>
 
@@ -81,16 +81,20 @@
 until the maximal value is reached. This is useful for generating
 tick-spacing on log-transformed axes.</p>
     </div>
+    <div id="see-also">
+    <h2>See also</h2>
+    <div class="dont-index"><p><code><a href="plotutils.html">plotutils</a></code></p></div>
+    </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="co">#Sequence suitable for log base 10 labels</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">#Sequence suitable for log base 10 labels</span></span></span>
 <span class="r-in"><span><span class="fu">seqLog</span><span class="op">(</span><span class="fl">1E-5</span>, <span class="fl">1E5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1e-05 1e-04 1e-03 1e-02 1e-01 1e+00 1e+01 1e+02 1e+03 1e+04 1e+05</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">#Sequence suitable for log base 2 labels</span></span></span>
 <span class="r-in"><span><span class="fu">seqLog</span><span class="op">(</span><span class="fl">2</span>, <span class="fl">128</span>,base<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]   2   4   8  16  32  64 128</span>
 </code></pre></div>
     </div>
   </div>

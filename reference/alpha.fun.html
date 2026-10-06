@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">smatr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.5-1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.5-2</span>
       </span>
     </div>
 
@@ -47,7 +47,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Utility functions for robust fitting</h1>
-    <small class="dont-index">Source: <a href="https://github.com/traitecoevo/smatr/blob/master/R/alpha.fun.R" class="external-link"><code>R/alpha.fun.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/traitecoevo/smatr/blob/master/R/alpha.fun.R" class="external-link"><code>R/alpha.fun.R</code></a>, <a href="https://github.com/traitecoevo/smatr/blob/master/R/huber.M.R" class="external-link"><code>R/huber.M.R</code></a></small>
     <div class="hidden name"><code>alpha.fun.Rd</code></div>
     </div>
 
@@ -56,7 +56,9 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">alpha.fun</span><span class="op">(</span><span class="va">r</span>, <span class="va">k</span>, <span class="va">q</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">alpha.fun</span><span class="op">(</span><span class="va">r</span>, <span class="va">k</span>, <span class="va">q</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">huber.M</span><span class="op">(</span><span class="va">data</span>, q <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Chisquare.html" class="external-link">pchisq</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -64,7 +66,12 @@
 
 
 <dl><dt id="arg-r-k-q">r, k, q<a class="anchor" aria-label="anchor" href="#arg-r-k-q"></a></dt>
-<dd><p>Parameters.</p></dd>
+<dd><p>Parameters. For <code>huber.M</code>, <code>q=pchisq(k+1,k)</code>
+gives the maximum breakdown point.</p></dd>
+
+
+<dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
+<dd><p>A numeric matrix, one observation per row.</p></dd>
 
 </dl></div>
     <div id="see-also">
