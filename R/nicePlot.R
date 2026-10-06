@@ -1,17 +1,6 @@
-#' Creates nice plot
-#'
-#' @param xaxis X axis
-#' @param yaxis Y axis
-#' @param log logical
-#' @param ann 
-#' @param xlab 
-#' @param ylab 
-#' @param tck 
-#' @param frame.plot 
-#' @param ... arguments passed
+#' @rdname plotutils
 #' @importFrom graphics box curve mtext par points
-#' @keywords internal
-#' @noRd
+#' @export
 nicePlot<-function(xaxis,
                    yaxis,
                    log='', 

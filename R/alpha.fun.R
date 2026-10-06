@@ -3,10 +3,12 @@
 #' @description Functions used by \code{\link{sma}} when 'robust = TRUE'.
 #' 
 #' 
-#' @param r,k,q Parameters.
+#' @param r,k,q Parameters. For \code{huber.M}, \code{q=pchisq(k+1,k)}
+#' gives the maximum breakdown point.
 #' @author Warton, D. I. \email{David.Warton@@unsw.edu.au}, S. Taskinen
 #' @seealso \code{\link{sma}}
 #' @keywords internal
+#' @export
 alpha.fun<-function(r,k,q) 
 {
   c<-qchisq(q,k)

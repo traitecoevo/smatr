@@ -32,6 +32,9 @@ reference:
   - starts_with("plot")
   - ggplot.sma
   - multcompmatrix
+  - plotutils
+  - seqLog
+  - makeLogMinor
 - title: Datasets
   desc: Example datasets included with smatr
 - contents:

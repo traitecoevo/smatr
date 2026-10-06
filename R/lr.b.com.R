@@ -7,6 +7,7 @@
 #' Ormerod, J. 2005-12-08
 #' @seealso \code{\link{slope.com}}
 #' @keywords internal
+#' @export
 lr.b.com <- function( b, arguments )
 {
     

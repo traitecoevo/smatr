@@ -1,9 +1,6 @@
-#' Huber's M-estimator
-#'
-#' @param data 
-#' @param q q=pchisq(k+1,k) gives maximum breakdown point
-#' @keywords internal
-
+#' @param data A numeric matrix, one observation per row.
+#' @rdname alpha.fun
+#' @export
 huber.M<-function( data, q=pchisq(3,2) )
 {
   n <- dim(data)[1]
